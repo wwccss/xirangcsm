@@ -415,9 +415,9 @@ $(document).ready(function()
 {
     setNowrapObjTitle();
     setRequiredFields();
-    //if(needPing) setTimeout('setPing()', 1000 * 60 * 5);  // After 5 minus, begin ping.
     setForm();
     togglesearch();
+    if(needPing) setTimeout('setPing()', 1000 * 60 * 5);  // After 5 minus, begin ping.
 });
 
 /* CTRL+g, auto focus on the search box. */
