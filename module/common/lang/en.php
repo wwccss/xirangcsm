@@ -1,11 +1,11 @@
 <?php
 /**
- * The common simplified chinese file of ZenTaoCMS.
+ * The common simplified chinese file of ZenTaoASM.
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
  * @license     商业软件，未经授权，请立刻删除!
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
- * @package     ZenTaoCMS
+ * @package     ZenTaoASM
  * @version     $Id$
  * @link        http://www.zentao.net
  */
@@ -14,7 +14,7 @@ $lang->colon        = '::';
 $lang->at           = ' at ';
 $lang->downArrow    = '↓';
 
-$lang->zentaoCMS    = 'ZenTao Customer Service System';
+$lang->zentaoasm    = 'ZenTao Customer Service System';
 $lang->eayssoft     = 'QingDao Nature Easy Soft Network Technology Co,LTD';
 $lang->homePage     = 'Home';
 $lang->aboutus      = 'About us';
@@ -28,7 +28,7 @@ $lang->articleComments = '<i>%s comments</i> ';
 $lang->articleAuthor   = '<i>%s posted at %s</i>';
 
 $lang->welcome      = "Welcome, <strong>%s</strong> ";
-$lang->welcomeAdmin = "Welcome to use ZenTaoCS";
+$lang->welcomeAdmin = "Welcome to use ZenTaoASM";
 $lang->todayIs      = 'Today is %s，';
 $lang->dashboard    = 'Dashboard';
 $lang->register     = 'Register';

@@ -1,11 +1,11 @@
 <?php
 /**
- * The common simplified chinese file of ZenTaoCMS.
- *
+ * The common simplified chinese file of ZenTaoASM.
+ 
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
  * @license     商业软件，未经授权，请立刻删除!
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
- * @package     ZenTaoCMS
+ * @package     ZenTaoASM
  * @version     $Id$
  * @link        http://www.zentao.net
  */
@@ -14,7 +14,7 @@ $lang->colon        = '::';
 $lang->at           = ' 于 ';
 $lang->downArrow    = '↓';
 
-$lang->zentaoasm       = '禅道客户服务系统';
+$lang->zentaoasm    = '禅道客户服务系统';
 $lang->easysoft     = '青岛易软天创网络科技有限公司';
 $lang->poweredBy    = "powered by <a href='http://www.zentao.net/goto.php?item=zentaoasm' target='_blank'>zentaoasm %s</a>";
 $lang->homePage     = '首页';
