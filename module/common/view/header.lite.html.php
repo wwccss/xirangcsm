@@ -10,7 +10,7 @@ $defaultTheme = $webRoot . 'theme/default/';
   <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <?php
     $header = isset($header) ? (object)$header : new stdclass();
-    if(!isset($header->title))    $header->title    = $lang->zentaocs;
+    if(!isset($header->title))    $header->title    = $lang->zentaoasm;
     if(!isset($header->keywords)) $header->keywords = '';
     if(!isset($header->desc))     $header->desc     = '';
     echo html::title($header->title);

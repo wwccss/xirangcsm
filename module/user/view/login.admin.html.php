@@ -60,6 +60,6 @@ $(document).ready(function(){
     </tbody>
     </table>
   </form>
-  <p align='center'><?php echo html::a('http://www.zentao.net/goto.php?item=zentaocs', sprintf($lang->poweredBy, $config->version), '_blank');?></p>
+  <p align='center'><?php echo html::a('http://www.zentao.net/goto.php?item=zentaoasm', sprintf($lang->poweredBy, $config->version), '_blank');?></p>
 </div>
 <?php include '../../common/view/footer.admin.html.php';?>

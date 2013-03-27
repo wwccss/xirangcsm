@@ -276,7 +276,7 @@ class installModel extends model
      */
     public function createTable($version)
     {
-        $dbFile = $this->app->getAppRoot() . 'db' . $this->app->getPathFix() . 'zentaocs.sql';
+        $dbFile = $this->app->getAppRoot() . 'db' . $this->app->getPathFix() . 'zentaoasm.sql';
         $tables = explode(';', file_get_contents($dbFile));
         foreach($tables as $table)
         {

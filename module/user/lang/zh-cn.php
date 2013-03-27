@@ -123,7 +123,7 @@ $lang->user->register->lblUserInfo= '用户信息';
 $lang->user->register->lblAccount = '请设置您的用户名，英文字母和数字的组合';
 $lang->user->register->lblPassword= '请设置您的密码。数字和字母的组合，六位以上。';
 
-/* front of zentaocs */
+/* front of zentaoasm */
 $lang->user->login = new stdclass();
 $lang->user->login->common  = "登录";
 $lang->user->login->welcome = '欢迎登录';
@@ -152,7 +152,7 @@ $lang->user->control->menus[40]  = '个人资料|user|profile';
 $lang->user->control->menus[50]  = '修改密码|user|modifyPassword';
 $lang->user->control->menus[60]  = '退出登录|user|logout';
 
-/* customers of zentaocs */
+/* customers of zentaoasm */
 $lang->user->customer = new stdclass(); 
 $lang->user->inside   = new stdclass(); 
 $lang->user->customer->manage  = '客户账户管理'; 
@@ -217,7 +217,7 @@ $lang->user->customer->created       = '添加客户成功';
 $lang->user->customer->editProfile   = '修改客户资料';
 $lang->user->customer->createProfile = '添加客户资料';
 
-/* backyard of zentaocs*/
+/* backyard of zentaoasm*/
 $lang->user->admin = new stdclass();
 $lang->user->admin->account  = '用户名';
 $lang->user->admin->password = '密码';

@@ -14,9 +14,9 @@ $lang->colon        = '::';
 $lang->at           = ' 于 ';
 $lang->downArrow    = '↓';
 
-$lang->zentaocs       = '禅道客户服务系统';
+$lang->zentaoasm       = '禅道客户服务系统';
 $lang->easysoft     = '青岛易软天创网络科技有限公司';
-$lang->poweredBy    = "powered by <a href='http://www.zentao.net/goto.php?item=zentaocs' target='_blank'>zentaocs %s</a>";
+$lang->poweredBy    = "powered by <a href='http://www.zentao.net/goto.php?item=zentaoasm' target='_blank'>zentaoasm %s</a>";
 $lang->homePage     = '首页';
 $lang->currentPos   = '当前位置：';
 

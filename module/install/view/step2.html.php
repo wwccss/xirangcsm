@@ -43,7 +43,7 @@
     </tr>
     <tr>
       <th><?php echo $lang->install->dbName;?></th>
-      <td><?php echo html::input('dbName', 'zentaocs');?></td>
+      <td><?php echo html::input('dbName', 'zentaoasm');?></td>
     </tr>
     <tr>
       <th><?php echo $lang->install->dbPrefix;?></th>

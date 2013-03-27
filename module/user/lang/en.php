@@ -42,7 +42,7 @@ $lang->user->register->lblUserInfo= 'User info';
 $lang->user->register->lblAccount = 'The account must be a series of letters and/or numbers';
 $lang->user->register->lblPassword= 'Please set you password, at lest six leeters or numbers.';
 
-/* front of zentaocs */
+/* front of zentaoasm */
 $lang->user->login->common  = "Login";
 $lang->user->login->welcome = 'Welcom';
 $lang->user->login->why     = 'Login, and use more feature.';
@@ -74,7 +74,7 @@ if($config->features->forum)
 $lang->user->control->menus[45]  = 'ModifyPassword|user|modifyPassword';
 $lang->user->control->menus[50]  = 'Logout|logout';
 
-/* zentaocs */
+/* zentaoasm */
 $lang->user->customer->manage            = 'Manage customers'; 
 $lang->user->inside->manage              = 'Manage inside accounts'; 
 $lang->user->id                = 'ID';
@@ -132,6 +132,6 @@ $lang->user->customer->created       = 'Create customer success';
 $lang->user->customer->editProfile   = 'Edit profile of customer';
 $lang->user->customer->createProfile = 'Create profile of customer';
 
-/* backyard of zentaocs*/
+/* backyard of zentaoasm*/
 $lang->user->admin->account  = 'Account';
 $lang->user->admin->password = 'Password';

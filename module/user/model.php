@@ -416,6 +416,7 @@ class userModel extends model
         }
         foreach($users as $user)
         {
+           $userData = new stdclass();
            $userData->id       = $user->id;
            $userData->dept     = $user->dept;
            $userData->role     = $user->role;
@@ -444,8 +445,8 @@ class userModel extends model
 
             $this->dao->replace(TABLE_USER)->data($userData)->exec();
             if(dao::isError()) $insertError .= dao::getError();
-            $zentaocsUser = $this->getByID($user->id);
-            if(empty($zentaocsUser)) $return->unSyncID[] = $user->id;
+            $zentaoasmUser = $this->getByID($user->id);
+            if(empty($zentaoasmUser)) $return->unSyncID[] = $user->id;
         }
         if($insertError)
         {
