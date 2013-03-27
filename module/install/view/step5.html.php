@@ -1,0 +1,30 @@
+<?php
+/**
+ * The html template file of step4 method of install module of ZenTaoCMS.
+ *
+ * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
+ * @license     商业软件，未经授权，请立刻删除!
+ * @author	  Chunsheng Wang <chunsheng@cnezsoft.com>
+ * @package	  ZenTaoCMS
+ * @version	  $Id: step4.html.php 867 2010-06-17 09:32:58Z wwccss $
+ */
+?>
+<?php include './header.html.php';?>
+<table class='table-6' align='center'>
+  <caption><?php echo $lang->install->success;?></caption>
+  <tr>
+    <td>
+      <?php
+      echo '<p  class="a-center">';
+      echo html::a($this->createLink($config->default->module, $config->default->method), $lang->install->visitFront, '_blank');
+      echo html::a('admin.php', $lang->install->visitAdmin, '_blank');
+      echo '</p>';
+      ?>
+    </td>
+  </tr>
+</table>
+  </div>
+  <div class='a-center'><?php printf($lang->poweredBy, $config->version);?></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+fieldset {
+      border: 1px solid #B3C8DC;
+      color: #333333;
+      margin-bottom: 8px;
+      padding: 8px 10px;
+}
+.history, .changes {
+      background: none repeat scroll 0 0 #F2F2F2;
+      border: 1px solid #CCCCCC;
+      color: #333333;
+      line-height: 20px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      padding: 10px;
+}

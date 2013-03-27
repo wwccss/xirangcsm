@@ -1,0 +1,9 @@
+#docbody {padding-bottom:0px;}
+caption {background:#ccc; border:none; margin-bottom:5px;}
+caption a{color:#000;}
+.colhead th  {background:#ccc; border:none; margin-bottom:5px;}
+.box-title   {background:#ccc; border:none; color:#000;}
+.box-content{ margin-bottom:0px;border:2px solid #bbb;}
+table{border:2px solid #bbb;}
+table td, th{border-color:#bbb;}
+.bd-none table{border:2px solid #bbb;}

@@ -1,0 +1,258 @@
+/**
+* The css file of ZenTaoCMS.
+*
+* @copyright   Copyright 2009-2010 QingDao Nature Easy Soft Network Technology Co,LTD (www.cnezsoft.com)
+* @author      Chunsheng Wang <chunsheng@cnezsoft.com>
+* @package     ZenTaoCMS
+* @version     $Id$
+* @link        http://www.zentao.net
+*/
+/*-----------------------GLOBAL SETTING----------------------------*/
+html    {margin:0; padding:0; }
+body    {margin:0; padding:0; font-size:12px}
+#docbox {width:983px; margin:10px auto;}
+br      {margin-bottom:5px}
+hr      {border:none; border-top:1px solid #e4e4e4}
+
+.row          {margin-bottom:10px}
+.u-24-5 .cont {margin-left:10px}
+.u-4-3  .cont {margin-left:10px}
+.cont-left    {margin-right:10px}
+
+/*-----------------------FORM SETTING----------------------------*/
+.text-1 {width: 90%}
+.text-2 {width: 120px}
+.text-3 {width: 240px}
+.text-4 {width: 360px}
+.text-5 {width: 480px}
+
+.select-1 {width: 90%}
+.select-2 {width: 125px}
+.select-3 {width: 245px} 
+.select-4 {width: 360px}
+.select-5 {width: 480px}
+
+.area-1{width: 90%;}
+.area-2{width: 120px}
+.area-3{width: 240px}
+.area-4{width: 360px}
+.area-5{width: 480px}
+
+.button-s{padding:3px 20px 3px 20px}
+.button-r{padding:3px 20px 3px 20px}
+.button-c{padding:3px 20px 3px 20px}
+
+/*-----------------------TABLE SETTING----------------------------*/
+table, th, td {border:1px solid #92c8f5;}
+tr, th, td    {padding:2px 3px 2px 5px}
+
+caption       {height:20px; margin:0; padding:3px 0 0 10px; text-align:left; border:solid 1px #92C8F5; font-weight:bold; background:url(./images/default/bg.title.1.png);}
+caption a     {text-decoration:none}
+.caption-tr   {caption-side:top; text-align:right; border:none; background:none;}
+.caption-tl   {caption-side:top; text-align:left;  border:none; background:none;}
+.caption-bold {background:url('./images/default/bg.title.2.png')}
+
+/*--------------------------------------------------------*/
+.table-1 {width:100%; margin-bottom:10px}
+.table-2 {width:240px;margin-bottom:10px}
+.table-3 {width:360px;margin-bottom:10px}
+.table-4 {width:480px;margin-bottom:10px}
+.table-5 {width:600px;margin-bottom:10px}
+.table-6 {width:800px;margin-bottom:10px}
+
+.colhead th  {text-align:center; background:url('./images/default/bg.title.1.png')}
+.bd-none table  {border:1px solid #92C8F5}
+.bd-none tr, .bd-none th, .bd-none td {border:none}
+
+.rowhead {font-weight:bold; text-align:right; width:100px}
+.fixed   {table-layout:fixed}
+
+.nobr {overflow:hidden; white-space:nowrap;}
+.fixed th, .fixed td {overflow:hidden; white-space:nowrap;}
+.nofixed th, .nofixed td  {overflow:visible; white-space:normal}
+
+.odd     {background:#fff;}
+.even    {background:#ebf0f4;}
+.hoover  {background:#d0dee3;}
+.clicked {background:#fce6a2;}
+
+/*-----------------------LAYOUT SETTING----------------------------*/
+.f-left   {float:left;  padding-left: 5px}
+.f-right  {float:right; padding-right:5px}
+.c-none   {clear:none;}
+.c-left   {clear:left;}
+.c-right  {clear:right;}
+.c-both   {clear:both;}
+.a-center {text-align: center;}
+.a-right  {text-align: right;}
+.a-left   {text-align: left;}
+.a-top    {vertical-align: top;}
+.a-middle {vertical-align: middle;}
+.a-bottom {vertical-align: bottom;}
+
+.half-left  {float:left;  width:48%; text-align:left;  clear:left}
+.half-right {float:right; width:48%; text-align:right; clear:right}
+
+.hidden {display:none}
+.block  {display:block}
+.inline {display:inline}
+
+.w-p5  {width: 5%}
+.w-p10 {width: 10%}
+.w-p15 {width: 15%}
+.w-p20 {width: 20%}
+.w-p25 {width: 25%}
+.w-p30 {width: 30%}
+.w-p35 {width: 35%}
+.w-p40 {width: 40%}
+.w-p45 {width: 45%}
+.w-p50 {width: 50%}
+.w-p55 {width: 55%}
+.w-p60 {width: 60%}
+.w-p65 {width: 65%}
+.w-p70 {width: 70%}
+.w-p75 {width: 75%}
+.w-p80 {width: 80%}
+.w-p85 {width: 85%}
+.w-p90 {width: 90%}
+.w-p100 {width: 100%}
+
+.w-10px {width:10px}
+.w-20px {width:20px}
+.w-30px {width:30px}
+.w-40px {width:40px}
+.w-45px {width:45px}
+.w-50px {width:50px}
+.w-60px {width:60px}
+.w-70px {width:70px}
+.w-80px  {width:80px}
+.w-100px {width:100px}
+.w-120px {width:120px}
+.w-130px {width:130px}
+.w-140px {width:140px}
+.w-150px {width:150px}
+.w-200px {width:200px}
+
+.w-id       {width:45px;}
+.w-pri      {width:30px;}
+.w-severity {width:40px;}
+.w-hour     {width:40px;}
+.w-date     {width:70px;}
+.w-user     {width:60px;}
+.w-status   {width:50px}
+.w-type     {width:80px}
+.w-resolution{width:60px}
+
+.mg-zero {margin:    0}
+.mg-10px {margin:    10px}
+.mg-15px {margin:    15px}
+.mg-20px {margin:    20px}
+.pd-zero {padding:   0}
+.pd-10px {padding:   10px}
+.pd-5px  {padding:   5px}
+
+.mt-10px {margin-top:    10px}
+.mr-10px {margin-right:  10px}
+.mb-10px {margin-bottom: 10px}
+.ml-10px {margin-left:   10px}
+
+.mt-zero {margin-top:    0}
+.mr-zero {margin-right:  0}
+.mb-zero {margin-bottom: 0}
+.ml-zero {margin-left:   0}
+
+.pt-10px {padding-top:   10px}
+.pr-10px {padding-right: 10px}
+.pb-10px {padding-bottom:10px}
+.pl-10px {padding-left:  10px}
+.ph-10px {padding-left:10px; padding-right:10px}
+.pv-10px {padding-top: 10px; padding-bottom:10px}
+
+.f-12px  {font-size:12px}
+.f-14px  {font-size:14px}
+.f-16px  {font-size:16px}
+.strong  {font-weight:bold}
+
+.box-title   {height:25px; padding:3px 0 0 10px; border:1px solid #92C8F5; border-bottom:none; font-weight:bold; background:url(./images/default/bg.title.1.png); color:#03356D;}
+.box-content {margin-bottom:10px; padding:5px; border:1px solid #92C8F5; border-top:none}
+
+/*-----------------------BORDER SETTING--------------------------*/
+.bd-1px    {border:1px        solid}
+.bt-1px    {border-top:1px    solid}
+.bl-1px    {border-left:1px   solid}
+.bb-1px    {border-bottom:1px solid}
+.br-1px    {border-right:1px  solid}
+.bd-none   {border:none}
+.bd-green  {border-color:#58CB64}
+.bd-yellow {border-color:#F4BF20}
+.bd-blue   {border-color:#64B7D7}
+.bd-gray   {border-color:#bcbcbc;}
+
+/*-----------------------BACKGROUND SETTING----------------------------*/
+.bg-green  {background-color:#DDF1D8;}
+.bg-blue   {background-color:#DEEEF4}
+.bg-yellow {background-color:#FBF5C6;}
+.bg-gray   {background-color:#efefef;}
+.bg-white  {background-color:white;}
+
+/*-----------------------COLOR SETTING----------------------------*/
+.red     {color:red;}
+.blue    {color:blue}
+.yellow  {color:yellow;}
+.gray    {color:gray;}
+.green   {color:green;}
+.star    {color:red; font-size:18px; font-weight:bold;}
+.warning {background:yellow; color:red; font-weight:bold}
+
+/*-----------------------SPECIAL PART SETTING--------------------*/
+
+/* The top bar .*/
+#topbar, #topbar a{color:white}
+
+/* The header bar .*/
+#header    {height:85px; margin:0; background:#fff url(./images/default/bg.header.png); border:none}
+#logobox   {width:200px; border:none; text-align:left; padding-left:10px; font-size:30px; font-weight:bold}
+#sloganbox {padding:0;   border:none; text-align:center;font-size:14px; font-weight:bold;}
+#searchbox {width:230px; border:none; text-align:right; padding-right:10px}
+#cse-search-box input[type='text']   {width:180px; height:30px; font-size:20px; font-weight:bold; background:white;}
+#cse-search-box input[type='submit'] {width:40px;  height:35px;}
+
+/* The nav bar .*/
+#navbar    {width:983px; height:35px; margin:auto; padding:0; background:white; border:none}
+#navbar ul {width:960px; height:35px; margin:auto; padding:0; background:url(./images/default/bg.nav.png) no-repeat 0 0;}
+#navbar li {width:70px;  height:35px; margin:0;    padding:0; float:left; text-align:center; list-style-type:none}
+#navbar li a        {display:block; width:100%; height:35px; line-height:35px; text-decoration:none; color:#fff; font-weight:bold}
+#navbar li a:hover  {background-color:#0d4282;}
+#navbar li .current {background-color: #00008b;}
+
+/* The doc. */
+#docbody    {margin:0; padding:12px; background:#fff;}
+#doccontent {margin-bottom:10px; padding:10px; border:1px solid #C8E0F5; background:url(./images/default/bg.content.png) repeat-x; font-size:14px; line-height:1.5}
+#summary    {margin-bottom:10px; padding:10px; line-height:1.5; background:#efefef; font-size:12px}
+#keywords   {margin-top:10px; background:#efefef; font-size:12px}
+#doccontent p   {margin:0}
+#doccontent img {border:1px solid gray}
+
+#thread td    {border:none}
+#thread .user {width:150px; border:none; border-right:1px solid #92c8f5}
+#thread p     {margin:0}
+
+/* The footer. */
+#copyright {margin-left:40px;}
+#copyright a {margin:0px;text-decoration:none}
+
+/* debug. */
+#runinfo   {width:1000px; margin:auto; color:gray} 
+.debugwin  {width:100%; height:30px; border:none}
+
+/* Treeview. */
+.tree li      {list-style-type:none;}
+.tree .active {color:blue; font-weight:bold}
+.active {color:red; font-weight:bold}
+
+/* Other items.*/
+#commentbox table {border:none}
+.comment {margin:10px 5px 5px 5px; padding:5px; border:1px solid #c0dcf5; background-color: #f2faff;} 
+.comment strong {color:#03356e;}
+.listmenu li{margin:5px; font-size:14px; font-weight:bold; list-style:none}
+.listmenu li a {text-decoration:none}
