@@ -9,6 +9,7 @@
  * @version     $Id: zh-cn.php 1914 2011-06-24 10:11:25Z yidong@cnezsoft.com $
  * @link        http://www.zentao.net
  */
+$lang->search = new stdclass();
 $lang->search->common        = '搜索';
 $lang->search->reset         = '重置';
 $lang->search->more          = '更多';
@@ -39,6 +40,7 @@ $lang->search->andor['or']          = '或者';
 
 $lang->search->null = '空';
 
+$lang->userquery = new stdclass();
 $lang->userquery->title     = '查询标题';
 $lang->userquery->myQueries = '我的查询';
 $lang->userquery->execut    = '执行';

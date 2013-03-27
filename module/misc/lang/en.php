@@ -12,6 +12,7 @@
 $lang->misc->common  = 'Misc';
 $lang->misc->ping    = 'Keep session';
 
+$lang->misc->zentao = new stdclass();
 $lang->misc->zentao->version           = 'Version %s';
 $lang->misc->zentao->labels['about']   = 'About';
 $lang->misc->zentao->labels['support'] = 'Support';

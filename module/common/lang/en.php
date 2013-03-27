@@ -68,6 +68,7 @@ $lang->positon['rssSite']  = 'Rss';
 $lang->features['user']  = 'function for user';
 
 /* The error messages. */
+$lang->error = new stdclass();
 $lang->error->companyNotFound = "The domain %s does not exist.";
 $lang->error->length          = array("『%s』length should be『%s』", "『%s』length should between『%s』and 『%s』.");
 $lang->error->reg             = "『%s』should like『%s』";
@@ -83,6 +84,7 @@ $lang->error->passwordsame    = "Two passwords must be the same";
 $lang->error->passwordrule    = "Password should more than six letters.";
 
 /* The pager items. */
+$lang->pager = new stdclass();
 $lang->pager->noRecord  = "No records yet.";
 $lang->pager->digest    = "<strong>%s</strong> records, <strong>%s</strong> per page, <strong>%s/%s</strong> ";
 $lang->pager->first     = "First";

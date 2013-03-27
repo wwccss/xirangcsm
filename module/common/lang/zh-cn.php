@@ -68,6 +68,7 @@ $lang->position['user']    = '用户';
 $lang->features['user']  = '用户功能';
 
 /* The error messages. */
+$lang->error = new stdclass();
 $lang->error->companyNotFound = "您访问的域名 %s 没有对应的公司。";
 $lang->error->length          = array("『%s』长度错误，应当为『%s』", "『%s』长度应当不超过『%s』，且不小于『%s』。");
 $lang->error->reg             = "『%s』不符合格式，应当为:『%s』。";
@@ -84,6 +85,7 @@ $lang->error->passwordrule    = "密码应该符合规则，长度至少为六�
 $lang->error->syncConfig      = '同步功能没有打开，或者配置错误。';
 
 /* The pager items. */
+$lang->pager = new stdclass();
 $lang->pager->noRecord  = "暂时没有记录";
 $lang->pager->digest    = "共<strong>%s</strong>条记录,每页 <strong>%s</strong>条，页面：<strong>%s/%s</strong> ";
 $lang->pager->first     = "首页";

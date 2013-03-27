@@ -12,6 +12,7 @@ $config->request->search['params']['category'] = array('operator' => '=',       
 $config->request->search['params']['id']       = array('operator' => '>=',      'control' => 'input',  'values' => '');
 $config->request->search['params']['customer'] = array('operator' => '=',       'control' => 'select', 'values' => 'users');
 
+$config->request->editor = new stdclass();
 $config->request->editor->edit      = array('id' => 'desc' , 'tools' => 'simpleTools');
 $config->request->editor->view      = array('id' => 'comment,reply,evaluation' , 'tools' => 'simpleTools');
 $config->request->editor->request   = array('id' => 'desc' , 'tools' => 'simpleTools');

@@ -46,6 +46,8 @@ $lang->user->resetemail      = "请输入您的密保邮箱";
 $lang->user->resetsubmit     = "提交";
 $lang->user->resetsuccess    = "密码更改链接已经发送到您的邮箱中";
 $lang->user->resetfailed     = "您的密保邮箱错误，请重新输入";
+
+$lang->user->resetmail = new stdclass();
 $lang->user->resetmail->subject = "密码修改";
 $lang->user->resetmail->notice  = "系统发信，请勿回复";
 $lang->user->resetmail->content = "
@@ -114,6 +116,7 @@ $lang->user->submit   = '提交';
 $lang->user->gendarList['m'] = '男';
 $lang->user->gendarList['f'] = '女';
 
+$lang->user->register = new stdclass();
 $lang->user->register->welcome    = '欢迎注册成为会员';
 $lang->user->register->why        = '欢迎注册成为我们的会员，您可以享受更多的服务。';
 $lang->user->register->lblUserInfo= '用户信息';
@@ -121,10 +124,12 @@ $lang->user->register->lblAccount = '请设置您的用户名，英文字母和�
 $lang->user->register->lblPassword= '请设置您的密码。数字和字母的组合，六位以上。';
 
 /* front of zentaocs */
+$lang->user->login = new stdclass();
 $lang->user->login->common  = "登录";
 $lang->user->login->welcome = '欢迎登录';
 $lang->user->login->why     = '欢迎登陆我们的系统，这样您可以使用我们为注册会员提供的各种服务。';
 
+$lang->user->control = new stdclass();
 $lang->user->control->common      = '用户中心';
 $lang->user->control->welcome     = '欢迎您，<strong>%s</strong>';
 $lang->user->control->lblPassword = "留空，则保持不变。";
@@ -148,6 +153,8 @@ $lang->user->control->menus[50]  = '修改密码|user|modifyPassword';
 $lang->user->control->menus[60]  = '退出登录|user|logout';
 
 /* customers of zentaocs */
+$lang->user->customer = new stdclass(); 
+$lang->user->inside   = new stdclass(); 
 $lang->user->customer->manage  = '客户账户管理'; 
 $lang->user->inside->manage    = '内部账户管理'; 
 $lang->user->id                = '编号';
@@ -211,8 +218,10 @@ $lang->user->customer->editProfile   = '修改客户资料';
 $lang->user->customer->createProfile = '添加客户资料';
 
 /* backyard of zentaocs*/
+$lang->user->admin = new stdclass();
 $lang->user->admin->account  = '用户名';
 $lang->user->admin->password = '密码';
 
+$lang->user->sync = new stdclass();
 $lang->user->sync->noPostData  = '没有数据';
 $lang->user->cannotCreate      = '同步功能已经打开，为了数据的安全，不能直接添加内部帐号！';

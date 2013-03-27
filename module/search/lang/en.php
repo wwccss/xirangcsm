@@ -9,6 +9,7 @@
  * @version     $Id: en.php 1914 2011-06-24 10:11:25Z yidong@cnezsoft.com $
  * @link        http://www.zentao.net
  */
+$lang->search = new stdclass();
 $lang->search->common        = 'Search';
 $lang->search->reset         = 'Reset';
 $lang->search->more          = 'More';
@@ -39,6 +40,7 @@ $lang->search->andor['or']          = 'Or';
 
 $lang->search->null = 'Null';
 
+$lang->userquery = new stdclass();
 $lang->userquery->title     = 'Title';
 $lang->userquery->myQueries = 'My queries';
 $lang->userquery->execut    = 'Execute';

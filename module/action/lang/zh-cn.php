@@ -18,6 +18,7 @@ $lang->action->actor      = '操作者';
 $lang->action->action     = '动作';
 $lang->action->date       = '日期';
 
+$lang->action->dynamic = new stdclass();
 $lang->action->dynamic->today      = '今天';
 $lang->action->dynamic->yesterday  = '昨天';
 $lang->action->dynamic->twoDaysAgo = '前天';
@@ -32,6 +33,7 @@ $lang->action->objectTypes['reply']   = '回复';
 $lang->action->objectTypes['FAQ']     = 'FAQ';
 
 /* 用来描述操作历史记录。*/
+$lang->action->desc = new stdclass();
 $lang->action->desc->common      = '$date, <strong>$action</strong> by <strong>$actor</strong>' . "\n";
 $lang->action->desc->created     = '$date, 由 <strong>$actor</strong> 创建。' . "\n";
 $lang->action->desc->replied     = '$date, 由 <strong>$actor</strong> 回复。' . "\n";
@@ -44,6 +46,7 @@ $lang->action->desc->commented   = '$date, 由 <strong>$actor</strong> 点价。
 $lang->action->desc->processed   = '$date, 由产品部门 <strong>$actor</strong> 回复。' . "\n";
 
 /* 用来显示动态信息。*/
+$lang->action->label = new stdclass();
 $lang->action->label->created     = '创建了';
 $lang->action->label->doubted     = '追问了';
 $lang->action->label->replied     = '回复了';
