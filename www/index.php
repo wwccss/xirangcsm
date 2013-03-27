@@ -21,7 +21,7 @@ $startTime = getTime();
 define('RUN_MODE', 'front');
 
 /* Instance the app and run it. */
-$app = router::createApp('pms', dirname(dirname(__FILE__)));
+$app = router::createApp('asm', dirname(dirname(__FILE__)));
 if(isset($_GET['mode']) and $_GET['mode'] == 'getconfig') die($app->exportConfig());  // 
 if(!isset($config->installed) or !$config->installed) die(header('location: install.php'));
 

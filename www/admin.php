@@ -21,7 +21,7 @@ $startTime = getTime();
 define('RUN_MODE', 'admin');
 
 /* Instance the app. */
-$app = router::createApp('pms', dirname(dirname(__FILE__)));
+$app = router::createApp('asm', dirname(dirname(__FILE__)));
 
 /* Change the request settings. */
 $config->frontRequestType = $config->requestType;

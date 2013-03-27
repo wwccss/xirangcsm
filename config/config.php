@@ -14,7 +14,7 @@ $config->encoding    = 'UTF-8';           // The encoding.
 $config->cookiePath  = '/';               // The path of cookies.
 $config->cookieLife  = time() + 2592000;  // The lifetime of cookies.
 $config->timezone    = 'Asia/Shanghai';   // Time zone setting, more plese visit http://www.php.net/manual/en/timezones.php
-$config->webRoot     = '';                // The root path of the pms.
+$config->webRoot     = '';                // The root path of the ASM.
 
 /* The request settins. */
 $config->requestType = 'PATH_INFO';       // PATH_INFO or GET.

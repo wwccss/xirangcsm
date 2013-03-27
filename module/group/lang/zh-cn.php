@@ -1,9 +1,9 @@
 <?php
 /**
- * The group module zh-cn file of ZenTaoPMS.
+ * The group module zh-cn file of ZenTaoASM.
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
- * @license     商业软件，未经授权，请立刻删除!
+ * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     group
  * @version     $Id: zh-cn.php 2010 2011-07-03 08:40:05Z yidong@cnezsoft.com $

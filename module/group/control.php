@@ -1,9 +1,9 @@
 <?php
 /**
- * The control file of group module of ZenTaoPMS.
+ * The control file of group module of ZenTaoASM.
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
- * @license     商业软件，未经授权，请立刻删除!
+ * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     group
  * @version     $Id: control.php 1979 2011-07-01 05:20:02Z wwccss $

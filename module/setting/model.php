@@ -1,9 +1,9 @@
 <?php
 /**
- * The model file of setting module of ZenTaoPMS.
+ * The model file of setting module of ZenTaoASM.
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
- * @license     商业软件，未经授权，请立刻删除!
+ * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     setting
  * @version     $Id: model.php 1914 2011-06-24 10:11:25Z yidong@cnezsoft.com $
@@ -14,7 +14,7 @@
 class settingModel extends model
 {
     /**
-     * Get the version of current zentaopms.
+     * Get the version of current zentaoASM.
      * 
      * Since the version field not saved in db. So if empty, return 0.3 beta.
      * @access public
@@ -49,7 +49,7 @@ class settingModel extends model
     /**
      * Compute a SN. Use the server ip, and server software string as seed, and an rand number, two micro time
      * 
-     * Note: this sn just to unique this zentaopms. No any private info. 
+     * Note: this sn just to unique this zentaoASM. No any private info. 
      *
      * @access public
      * @return string
@@ -62,7 +62,7 @@ class settingModel extends model
     }
 
     /**
-     * Set the sn of current zentaopms.
+     * Set the sn of current zentaoASM.
      * 
      * @access public
      * @return void

@@ -1,9 +1,9 @@
 <?php
 /**
- * The view view of request module of zentaoasm
+ * The view view of request module of zentaoASM
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
- * @license     商业软件，未经授权，请立刻删除!
+ * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
  * @author      Congzhi Chen<congzhi@cnezsoft.com>
  * @package     request
  * @version     $Id: buildform.html.php 1914 2011-06-24 10:11:25Z yidong@cnezsoft.com $

@@ -26,7 +26,7 @@ class router
     private $pathFix;
 
     /**
-     * The base path of the ZenTaoPMS framework.
+     * The base path of the ZenTaoASM framework.
      *
      * @var string
      * @access private

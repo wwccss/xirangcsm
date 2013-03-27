@@ -1,9 +1,9 @@
 <?php
 /**
- * The api module English file of ZenTaoPMS.
+ * The api module English file of ZenTaoASM.
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
- * @license     商业软件，未经授权，请立刻删除!
+ * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     api
  * @version     $Id: English.php 824 2010-05-02 15:32:06Z wwccss $

@@ -1,9 +1,9 @@
 <?php
 /**
- * The request view file of request module of ZenTaoPMS.
+ * The request view file of request module of ZenTaoASM.
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
- * @license     商业软件，未经授权，请立刻删除。
+ * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
  * @author      Yidong Wang <yidong@cnezsoft.com>
  * @package     request
  * @version     $Id$

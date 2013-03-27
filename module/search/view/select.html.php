@@ -1,9 +1,9 @@
 <?php
 /**
- * The select view of search module of ZenTaoPMS.
+ * The select view of search module of ZenTaoASM.
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
- * @license     商业软件，未经授权，请立刻删除!
+ * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
  * @author      Jia Fu <fujia@cnezsoft.com>
  * @package     search
  * @version     $Id: select.html.php 942 2010-07-06 10:03:51Z jajacn@126.com $

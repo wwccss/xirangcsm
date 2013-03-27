@@ -3,7 +3,7 @@
  * The common simplified chinese file of ZenTaoASM.
  
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
- * @license     商业软件，未经授权，请立刻删除!
+ * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     ZenTaoASM
  * @version     $Id$
@@ -14,9 +14,9 @@ $lang->colon        = '::';
 $lang->at           = ' 于 ';
 $lang->downArrow    = '↓';
 
-$lang->zentaoasm    = '禅道客户服务系统';
+$lang->zentaoasm    = '禅道售后管理软件';
 $lang->easysoft     = '青岛易软天创网络科技有限公司';
-$lang->poweredBy    = "powered by <a href='http://www.zentao.net/goto.php?item=zentaoasm' target='_blank'>zentaoasm %s</a>";
+$lang->poweredBy    = "powered by <a href='http://www.zentao.net/goto.php?item=zentaoasm' target='_blank'>zentaoASM %s</a>";
 $lang->homePage     = '首页';
 $lang->currentPos   = '当前位置：';
 
@@ -27,7 +27,7 @@ $lang->articleComments = '<i>%s条评论</i> ';
 $lang->articleAuthor   = '<i>%s 发表于 %s</i>';
 
 $lang->welcome       = "欢迎您, <strong>%s</strong> ";
-$lang->welcomeAdmin  = "欢迎您使用 禅道客户服务系统";
+$lang->welcomeAdmin  = "欢迎您使用 禅道售后管理软件";
 $lang->todayIs       = '今天是%s，';
 $lang->dashboard     = '用户中心';
 $lang->register      = '免费注册';

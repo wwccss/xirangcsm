@@ -19,7 +19,7 @@ include '../framework/model.class.php';
 include '../framework/helper.class.php';
 
 /* Instance the app and run it. */
-$app    = router::createApp('pms', dirname(dirname(__FILE__)));
+$app    = router::createApp('asm', dirname(dirname(__FILE__)));
 $config = $app->config;
 
 /* Check installed or not. */
