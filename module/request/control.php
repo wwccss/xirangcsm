@@ -29,7 +29,7 @@ class request extends control
      * @access public
      * @return void
      */
-    public function browse($type = 'assignedToMe', $param = '', $recTotal = 0, $recPerPage = 20, $pageID = 1, $userID =0)
+    public function browse($type = 'assignedToMe', $param = '', $orderBy = 'id_asc', $recTotal = 0, $recPerPage = 20, $pageID = 1, $userID =0)
     {
         if(RUN_MODE == 'front' and $type == 'assignedToMe')  $type = 'all';
         if($userID)
@@ -42,20 +42,26 @@ class request extends control
         $this->view->dbPager = $pager;
         if(RUN_MODE == 'admin')
         {
-            $this->view->requests = $this->request->getRequestesByType($type, $param, $pager);
+            $this->view->requests = $this->request->getRequestesByType($type, $param, $orderBy, $pager);
         }
         else
         {
-            $this->view->requests = $this->request->getRequestesByType($type, $param, $pager, $this->app->user->id); 
+            $this->view->requests = $this->request->getRequestesByType($type, $param, $orderBy, $pager, $this->app->user->id);
         }
         /* Build the search form. */
-        $this->config->request->search['actionURL'] = $this->createLink('request', 'browse', "type=search&queryID=myQueryID");
+        $this->config->request->search['actionURL'] = $this->createLink('request', 'browse', "type=search&queryID=myQueryID&orderBy=$orderBy&recTotal=$recTotal&recPerPage=$recPerPage&pageID=$pageID&userID=$userID");
         $this->config->request->search['queryID']   = (int)$param;
         $this->config->request->search['params']['category']['values'] = $this->category->getPairs();
         $this->config->request->search['params']['customer']['values'] = $this->user->getPairs('customer');
         $this->view->searchForm = $this->fetch('search', 'buildForm', $this->config->request->search);
 
-        $this->view->type     = $type;
+        $this->view->type       = $type;
+        $this->view->param      = $param;
+        $this->view->orderBy    = $orderBy;
+        $this->view->recTotal   = $pager->recTotal;
+        $this->view->recPerPage = $pager->recPerPage;
+        $this->view->userID     = $userID;
+
         $this->display();
     }
 

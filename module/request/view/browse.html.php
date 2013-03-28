@@ -67,21 +67,24 @@ $(function(){
 <?php endif;?>
 </table>
 <!-- show header of table. -->
-<table align='center' class='table-1 fixed'>
+<?php $vars = "type=$type&param=$param&orderBy=%s&recTotal=$recTotal&recPerPage=$recPerPage&userID=$userID"; ?>
+<table align='center' class='table-1 fixed tablesorter'>
+  <thead>
   <tr>
-    <th class='w-id'><?php echo $lang->request->id;?></th>
-    <th><?php echo $lang->request->title;?></th>
-    <th class='w-60px'><?php echo $lang->request->product;?></th>
-    <th class='w-60px'><?php echo $lang->request->category;?></th>
-    <th class='w-80px'><?php echo $lang->request->addedDate;?></th>
-    <th class='w-status'><?php echo $lang->request->status;?></th>
+    <th class='w-id'>    <?php common::printOrderLink('id',        $orderBy, $vars, $lang->request->id);?></th>
+    <th>                 <?php common::printOrderLink('title',     $orderBy, $vars, $lang->request->title);?></th>
+    <th class='w-60px'>  <?php common::printOrderLink('product',   $orderBy, $vars, $lang->request->product);?></th>
+    <th class='w-60px'>  <?php common::printOrderLink('category',  $orderBy, $vars, $lang->request->category);?></th>
+    <th class='w-80px'>  <?php common::printOrderLink('addedDate', $orderBy, $vars, $lang->request->addedDate);?></th>
+    <th class='w-status'><?php common::printOrderLink('status',    $orderBy, $vars, $lang->request->status);?></th>
     <?php if(RUN_MODE == 'admin'):?>
-    <th class='w-user'><?php echo $lang->request->customer;?></th>
-    <th class='w-user' id='assigned'><?php echo $lang->request->assignedTo;?></th>
+    <th class='w-user'>               <?php common::printOrderLink('customer',   $orderBy, $vars, $lang->request->customer);?></th>
+    <th class='w-user' id='assigned'> <?php common::printOrderLink('assignedTo', $orderBy, $vars, $lang->request->assignedTo);?></th>
     <?php endif;?>
-    <th class='w-80px'><?php echo $lang->request->repliedDate;?></th>
-    <th class='w-200px'><?php echo $lang->actions;?></th>
+    <th class='w-80px'>  <?php common::printOrderLink('repliedDate', $orderBy, $vars, $lang->request->repliedDate);?></th>
+    <th class='w-200px' {sorter:false}> <?php echo $lang->actions;?></th>
   </tr>
+  </thead>
 <!-- show request of content. -->
   <?php foreach($requests as $request):?>
   <tr class='a-center'>

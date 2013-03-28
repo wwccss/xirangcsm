@@ -32,12 +32,12 @@ class requestModel extends model
      * @access public
      * @return void
      */
-    public function getRequestesByType($type, $param, $pager, $user = 'all')
+    public function getRequestesByType($type, $param, $orderBy = 'id', $pager = null, $user = 'all')
     {
         $requests = array();
         if($type == 'assignedToMe')
         {
-            $requests = $this->dao->select('*')->from(TABLE_REQUEST)->where('assignedTo')->eq($this->app->user->id)->page($pager)->fetchAll();
+            $requests = $this->dao->select('*')->from(TABLE_REQUEST)->where('assignedTo')->eq($this->app->user->id)->orderBy($orderBy)->page($pager)->fetchAll();
         }
         elseif($type == 'repliedByMe')
         {
@@ -53,13 +53,14 @@ class requestModel extends model
             {
                 $ids[$key] = $value->objectID;
             }
-            $requests  = $this->dao->select('*')->from(TABLE_REQUEST)->where('id')->in($ids)->page($pager)->fetchAll();
+            $requests  = $this->dao->select('*')->from(TABLE_REQUEST)->where('id')->in($ids)->orderBy($orderBy)->page($pager)->fetchAll();
         }
         elseif($type == 'unReplied')
         {
             $requests = $this->dao->select('*')->from(TABLE_REQUEST)
                 ->where('status')->in('wait,viewed')
                 ->beginIF($user != 'all')->andWhere('customer')->eq($this->app->user->id)->fi()
+                ->orderBy($orderBy)
                 ->page($pager)->fetchAll();
         }
         elseif($type == 'allowedClosed')
@@ -75,7 +76,8 @@ class requestModel extends model
             }
             $requests = $this->dao->select('*')->from(TABLE_REQUEST)->where('id')->in($allowedClosedRequests)
                 ->beginIF($user != 'all')->andWhere('customer')->eq($this->app->user->id)->fi()
-                ->fetchAll();
+                ->orderBy($orderBy)
+                ->page($pager)->fetchAll();
             foreach($requests as $request) $request->isAllowedClosed = 1;
         }
         elseif($type == 'search')
@@ -102,6 +104,7 @@ class requestModel extends model
             $requests = $this->dao->select('*')->from(TABLE_REQUEST)
                 ->where($requestQuery)
                 ->beginIF($user != 'all')->andWhere('customer')->eq($this->app->user->id)->fi()
+                ->orderBy($orderBy)
                 ->page($pager)->fetchAll();
         }
         else
@@ -110,6 +113,7 @@ class requestModel extends model
                 ->where('1')->eq('1')
                 ->beginIF($type != 'all')->andWhere('status')->eq($type)->fi()
                 ->beginIF($user != 'all')->andWhere('customer')->eq($this->session->user->id)->fi()
+                ->orderBy($orderBy)
                 ->page($pager)->fetchAll();
         }
 

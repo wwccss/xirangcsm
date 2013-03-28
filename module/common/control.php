@@ -86,4 +86,49 @@ class common extends control
         echo html::a(helper::createLink($module, $method, $vars), $label, $target, $misc);
         return true;
     }
+
+    /**
+     * Print the link contains orderBy field.
+     *
+     * This method will auto set the orderby param according the params. Fox example, if the order by is desc,
+     * will be changed to asc.
+     *
+     * @param  string $fieldName    the field name to sort by
+     * @param  string $orderBy      the order by string
+     * @param  string $vars         the vars to be passed
+     * @param  string $label        the label of the link
+     * @param  string $module       the module name
+     * @param  string $method       the method name
+     * @static
+     * @access public
+     * @return void
+     */
+    public static function printOrderLink($fieldName, $orderBy, $vars, $label, $module = '', $method = '')
+    {
+        global $lang, $app;
+        if(empty($module)) $module= $app->getModuleName();
+        if(empty($method)) $method= $app->getMethodName();
+        $className = 'header';
+
+        if(strpos($orderBy, $fieldName) !== false)
+        {
+            if(stripos($orderBy, 'desc') !== false)
+            {
+                $orderBy   = str_ireplace('desc', 'asc', $orderBy);
+                $className = 'headerSortUp';
+            }
+            elseif(stripos($orderBy, 'asc')  !== false)
+            {
+                $orderBy = str_ireplace('asc', 'desc', $orderBy);
+                $className = 'headerSortDown';
+            }
+        }
+        else
+        {
+            $orderBy   = $fieldName . '_' . 'asc';
+            $className = 'header';
+        }
+        $link = helper::createLink($module, $method, sprintf($vars, $orderBy));
+        echo "<div class='$className'>" . html::a($link, $label) . '</div>';
+    }
 }
