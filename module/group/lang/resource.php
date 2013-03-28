@@ -12,7 +12,7 @@
 /* Request. */
 $lang->resource          = new stdclass();
 $lang->resource->request = new stdclass();
-$lang->resource->request->request      = 'request';
+$lang->resource->request->create       = 'request';
 $lang->resource->request->edit         = 'edit';
 $lang->resource->request->doubt        = 'doubt';
 $lang->resource->request->valuate      = 'valuate';

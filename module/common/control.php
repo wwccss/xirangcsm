@@ -87,4 +87,16 @@ class common extends control
         return true;
     }
 
+    /**
+     * Get the full url of the system.
+     *
+     * @access public
+     * @return string
+     */
+    public function getSysURL()
+    {
+        $httpType = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == 'on') ? 'https' : 'http';
+        $httpHost = $_SERVER['HTTP_HOST'];
+        return "$httpType://$httpHost";
+    }
 }

@@ -27,7 +27,7 @@
       </div>
       <div class='box-title'><?php echo $lang->faq->customBox;?></div>
       <div class='box-content'>
-        <p align='center'><?php echo html::linkButton($lang->faq->request, $this->createLink('request', 'request'))?></p>
+        <p align='center'><?php echo html::linkButton($lang->faq->request, $this->createLink('request', 'create'))?></p>
         <p align='center'><?php echo html::linkButton($lang->login, $this->createLink('user', 'index'))?></p>
       </div>
     </div>

@@ -330,9 +330,9 @@ class userModel extends model
      */
     public function getRealNameAndEmails($users)
     {
-        $users = $this->dao->select('account, email, realname')->from(TABLE_USER)->where('account')->in($users)->fetchAll('account');
+        $users = $this->dao->select('id, account, email, realname')->from(TABLE_USER)->where('id')->in($users)->fetchAll('id');
         if(!$users) return array();
-        foreach($users as $account => $user) if($user->realname == '') $user->realname = $account;
+        foreach($users as $id => $user) if($user->realname == '') $user->realname = $user->account;
         return $users;
     }
 
@@ -438,10 +438,6 @@ class userModel extends model
            $userData->address  = $user->address;
            $userData->zipcode  = $user->zipcode;
            $userData->join     = $user->join;
-           $userData->visits   = $user->visits;
-           $userData->ip       = $user->ip;
-           $userData->last     = $user->last;
-           $userData->deleted  = $user->deleted;
 
             $this->dao->replace(TABLE_USER)->data($userData)->exec();
             if(dao::isError()) $insertError .= dao::getError();

@@ -44,6 +44,7 @@ $lang->action->desc->transfered  = '$date, 由 <strong>$actor</strong> 转交产
 $lang->action->desc->valuated    = '$date, 由 <strong>$actor</strong> 评价。' . "\n";
 $lang->action->desc->commented   = '$date, 由 <strong>$actor</strong> 点价。' . "\n";
 $lang->action->desc->processed   = '$date, 由产品部门 <strong>$actor</strong> 回复。' . "\n";
+$lang->action->desc->assignedto  = '$date, 由 <strong>$actor</strong> 指派给你。' . "\n";
 
 /* 用来显示动态信息。*/
 $lang->action->label = new stdclass();

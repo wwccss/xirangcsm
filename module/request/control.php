@@ -180,7 +180,8 @@ class request extends control
         {
             if($this->post->reply)
             {
-                $this->request->reply($requestID);
+                $actionID = $this->request->reply($requestID);
+                $this->sendmail($requestID, $actionID);
                 if(dao::isError()) die(js::error(dao::getError()));
                 die(js::locate($this->inLink('view', "requestID=$requestID&editReplyID=$editReplyID"), 'parent'));
             }
@@ -244,7 +245,7 @@ class request extends control
      * @access public
      * @return void
      */
-    public function request($productID = 0)
+    public function create($productID = 0)
     {  
         if($_POST)
         {
@@ -345,7 +346,8 @@ class request extends control
             {
                 die(js::confirm($this->lang->request->emptyWarning, inlink('view', "requestID=$requestID"))); 
             }
-            $this->request->doubt($requestID);  
+            $actionID = $this->request->doubt($requestID);  
+            $this->sendmail($requestID, $actionID);
             if(dao::isError()) die(js::error(dao::getError()));
             die(js::locate(inlink('view', "requestID=$requestID")));
         }
@@ -360,7 +362,13 @@ class request extends control
      */
     public function assignedTo($requestID)
     {
-        $this->dao->update(TABLE_REQUEST)->set('assignedTo')->eq($this->post->assignedTo)->where('id')->eq($requestID)->exec();
+        $oldRequest = $this->request->getById($requestID);
+        if($oldRequest->assignedTo != $this->post->assignedTo)
+        {
+            $this->dao->update(TABLE_REQUEST)->set('assignedTo')->eq($this->post->assignedTo)->where('id')->eq($requestID)->exec();
+            $actionID = $this->action->create('request', $requestID, 'assignedTo');
+            $this->sendmail($requestID, $actionID);
+        }
         die(js::locate($this->server->http_referer, 'parent'));
     }
 
@@ -410,5 +418,37 @@ class request extends control
         $this->request->changeStatus($requestID, $status); 
         $this->view->result = $return;
         $this->display();
-    } 
+    }
+
+    /**
+     * Send email.
+     *
+     * @param  int    $requestID
+     * @param  int    $actionID
+     * @access public
+     * @return void
+     */
+    public function sendmail($requestID, $actionID)
+    {
+        /* Set toList and ccList. */
+        $request     = $this->request->getById($requestID);
+        $productName = $this->product->getById($request->product)->name;
+        $users       = $this->loadModel('user')->getPairs('noletter');
+        $toList      = $request->assignedTo;
+
+        /* Get action info. */
+        $action = $this->loadModel('action')->getById($actionID);
+
+        /* Create the email content. */
+        $this->view->request = $request;
+        $this->view->action  = $action;
+        $this->view->users   = $users;
+        $this->clear();
+        $mailContent = $this->parse($this->moduleName, 'sendmail');
+
+        /* Send emails. */
+        $this->loadModel('mail')->send($toList, $productName . ':' . 'REQUEST#' . $request->id . $this->lang->colon . $request->title, $mailContent);
+        if($this->mail->isError()) echo js::error($this->mail->getError());
+    }
+
 }

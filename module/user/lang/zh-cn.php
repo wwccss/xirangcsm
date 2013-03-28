@@ -146,7 +146,7 @@ $lang->user->lblAccount            = '应当为字母和数字的组合，至少
 $lang->user->lblExtendServiceTime  = '(可累加)';
 
 $lang->user->control->menus[5]   = '我的服务|user|myService';
-$lang->user->control->menus[10]  = '提出问题|request|request';
+$lang->user->control->menus[10]  = '提出问题|request|create';
 $lang->user->control->menus[20]  = '我的问题|request|browse';
 $lang->user->control->menus[40]  = '个人资料|user|profile';
 $lang->user->control->menus[50]  = '修改密码|user|modifyPassword';

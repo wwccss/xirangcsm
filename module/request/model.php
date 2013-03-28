@@ -18,6 +18,13 @@ class requestModel extends model
         parent::__construct();
         $this->loadModel('action');
     }
+
+    public function getById($requestID)
+    {
+        return $this->dao->select('*')->from(TABLE_REQUEST)->where('id')->eq($requestID)->fetch();
+    }
+
+
     /**
      * getRequestesByType 
      * 
@@ -61,14 +68,14 @@ class requestModel extends model
                 ->where('status')->ne('closed')
                 ->beginIF($user != 'all')->andWhere('customer')->eq($this->app->user->id)->fi()
                 ->fetchAll();
+            $allowedClosedRequests = array();
             foreach($repliedDates as $id => $repliedDate)
             {
-                if(strtotime($repliedDate->repliedDate) < strtotime("-2 week") && strtotime($repliedDate->repliedDate) != 0)
-                    $requests[] = $this->dao->select('*')->from(TABLE_REQUEST)
-                        ->where('id')->eq($repliedDate->id)
-                        ->beginIF($user != 'all')->andWhere('customer')->eq($this->app->user->id)->fi()
-                        ->fetch();
+                if(strtotime($repliedDate->repliedDate) < strtotime("-2 week") && strtotime($repliedDate->repliedDate) != 0) $allowedClosedRequests[] = $repliedDate->id;
             }
+            $requests = $this->dao->select('*')->from(TABLE_REQUEST)->where('id')->in($allowedClosedRequests)
+                ->beginIF($user != 'all')->andWhere('customer')->eq($this->app->user->id)->fi()
+                ->fetchAll();
             foreach($requests as $request) $request->isAllowedClosed = 1;
         }
         elseif($type == 'search')
@@ -256,15 +263,17 @@ class requestModel extends model
      */
     public function reply($requestID)
     {
-        $this->loadModel('action')->create('request', $requestID, 'replied', $this->post->reply);
+        $actionID = $this->loadModel('action')->create('request', $requestID, 'replied', $this->post->reply);
 
         $this->dao->update(TABLE_REQUEST)
             ->set('status')->eq('replied')
-            ->set('assignedTo')->eq($this->app->user->id)
+            ->set('assignedTo = customer')
+            ->set('repliedBy')->eq($this->app->user->id)
             ->set('repliedDate')->eq(helper::now())
             ->set('lastEditedDate')->eq(helper::now())
             ->where('id')->eq($requestID)
             ->exec();
+        return $actionID;
     }
 
     /**
@@ -363,11 +372,9 @@ class requestModel extends model
      */
     public function doubt($requestID)
     {
-        $this->action->create('request', $requestID, 'doubted', $this->post->comment);
+        $actionID = $this->action->create('request', $requestID, 'doubted', $this->post->comment);
 
-         $actionID = $this->dao->lastInsertID();
-         $this->dao->update(TABLE_REQUEST)
-             ->set('status')->eq('doubted')
+         $this->dao->update(TABLE_REQUEST)->set('status')->eq('doubted')->set('assignedTo = repliedBy')
              ->where('id')->eq($requestID)
              ->exec();
         return $actionID;

@@ -123,11 +123,11 @@ class mailModel extends model
         {
             $this->mta->setFrom($this->config->mail->fromAddress, $this->config->mail->fromName);
             $this->setSubject($subject);
-            $this->setTO($toList, $emails);
-            $this->setCC($ccList, $emails);
+            $tomails = $this->setTO($toList, $emails);
+            $ccmails = empty($ccList) ? array() : $this->setCC($ccList, $emails);
             $this->setBody($body);
             $this->setErrorLang();
-            $this->mta->send();
+            if($tomails or $ccmails) $this->mta->send();
         }
         catch (phpmailerException $e) 
         {
@@ -150,12 +150,17 @@ class mailModel extends model
     private function setTO($toList, $emails)
     {
         $toList = explode(',', str_replace(' ', '', $toList));
-        foreach($toList as $account)
+        foreach($toList as $id)
         {
-            if(!isset($emails[$account]) or isset($emails[$account]->sended) or strpos($emails[$account]->email, '@') == false) continue;
-            $this->mta->addAddress($emails[$account]->email, $emails[$account]->realname);
-            $emails[$account]->sended = true;
+            if(!isset($emails[$id]) or isset($emails[$id]->sended) or strpos($emails[$id]->email, '@') == false)
+            {
+                unset($emails[$id]);
+                continue;
+            }
+            $this->mta->addAddress($emails[$id]->email, $emails[$id]->realname);
+            $emails[$id]->sended = true;
         }
+        return $emails;
     }
 
     /**
@@ -170,12 +175,17 @@ class mailModel extends model
     {
         $ccList = explode(',', str_replace(' ', '', $ccList));
         if(!is_array($ccList)) return;
-        foreach($ccList as $account)
+        foreach($ccList as $id)
         {
-            if(!isset($emails[$account]) or isset($emails[$account]->sended) or strpos($emails[$account]->email, '@') == false) continue;
-            $this->mta->addCC($emails[$account]->email, $emails[$account]->realname);
-            $emails[$account]->sended = true;
+            if(!isset($emails[$id]) or isset($emails[$id]->sended) or strpos($emails[$id]->email, '@') == false)
+            {
+                unset($emails[$id]);
+                continue;
+            }
+            $this->mta->addCC($emails[$id]->email, $emails[$id]->realname);
+            $emails[$id]->sended = true;
         }
+        return $emails;
     }
 
     /**
