@@ -117,6 +117,18 @@ class requestModel extends model
         {
             foreach($requests as $requestID => $request)
             {
+                $categorys[]   = $request->category;
+                $customers[]   = $request->customer;
+                $assignedTos[] = $request->assignedTo;
+                $products[]    = $request->product;
+            }
+            $categorys   = $this->dao->select('*')->from(TABLE_CATEGORY)->where('id')->in($categorys)->fetchAll('id');
+            $customers   = $this->dao->select('*')->from(TABLE_USER)->where('id')->in($customers)->fetchAll('id');
+            $assignedTos = $this->dao->select('*')->from(TABLE_USER)->where('id')->in($assignedTos)->fetchAll('id');
+            $products    = $this->dao->select('*')->from(TABLE_PRODUCT)->where('id')->in($products)->fetchAll('id');
+
+            foreach($requests as $requestID => $request)
+            {
                 if($type != 'allowedClosed')
                 {
                     if(strtotime($request->repliedDate) < strtotime("-2 week") && strtotime($request->repliedDate) != 0)
@@ -128,15 +140,11 @@ class requestModel extends model
                         $request->isAllowedClosed = 1;
                 }
 
-                $category   = $this->dao->select('*')->from(TABLE_CATEGORY)->where('id')->eq($request->category)->fetch();
-                $customer   = $this->dao->select('*')->from(TABLE_USER)->where('id')->eq($request->customer)->fetch();
-                $assignedTo = $this->dao->select('*')->from(TABLE_USER)->where('id')->eq($request->assignedTo)->fetch();
-                $product    = $this->loadModel('product')->getByID($request->product);
                 $request->assignedToID = $request->assignedTo;
-                $request->category     = $category   ? $category->name : '';
-                $request->customer     = $customer   ? $customer->realname : '';
-                $request->assignedTo   = $assignedTo ? $assignedTo->realname : '';
-                $request->productName  = $product    ? $product->name : '';
+                $request->category     = isset($categorys[$request->category])     ? $categorys[$request->category]->name : '';
+                $request->customer     = isset($customers[$request->customer])     ? $customers[$request->customer]->realname : '';
+                $request->assignedTo   = isset($assignedTos[$request->assignedTo]) ? $assignedTos[$request->assignedTo]->realname : '';
+                $request->productName  = isset($products[$request->product])       ? $products[$request->product]->name : '';
             }
         }
         return $requests;
@@ -180,6 +188,7 @@ class requestModel extends model
         $assignedToAccount = $this->user->getByID($request->assignedTo);
         $product           = $this->product->getByID($request->product);
         $category          = $this->category->getByID($request->category);
+
         $request->customerAccount   = $customerAccount   ? $customerAccount->realname : '';
         $request->assignedToAccount = $assignedToAccount ? $assignedToAccount->realname : '';
         $request->productName       = $product           ? $product->name : '';

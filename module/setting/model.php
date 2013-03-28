@@ -69,6 +69,7 @@ class settingModel extends model
      */
     public function setSN()
     {
+        $item = new stdclass();
         $item->company = 0;
         $item->owner   = 'system';
         $item->section = 'global';
@@ -100,6 +101,7 @@ class settingModel extends model
      */
     public function updateVersion($version)
     {
+        $item = new stdclass();
         $item->company = 0;
         $item->owner   = 'system';
         $item->section = 'global';

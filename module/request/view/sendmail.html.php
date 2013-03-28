@@ -13,7 +13,7 @@
 <table width='98%' align='center'>
   <tr class='header'>
     <td>
-      REQUEST #<?php echo $request->id . "=>$request->assignedTo " . html::a(common::getSysURL() . $this->createLink('request', 'view', "requestID=$request->id"), $request->title);?>
+      REQUEST #<?php echo $request->id . "=>$request->assignedTo " . html::a($this->loadModel('common')->getSysURL() . $this->createLink('request', 'view', "requestID=$request->id"), $request->title);?>
     </td>
   </tr>
   <tr>

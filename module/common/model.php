@@ -155,13 +155,19 @@ class commonModel extends model
      */
     public function checkAPI()
     {
+        $return = new stdclass();
         $return->result = 'fail';
         $return->error  = $this->lang->error->syncConfig;
+
+        $jsonReturn = new stdclass();
         $jsonReturn->return = $return;
+
+        $jsonView = new stdclass();
         $jsonView->status = 'success';
         $jsonView->data = json_encode($jsonReturn);
         $jsonView->md5  = md5($jsonView->data);
         $jsonView = json_encode($jsonView);
+
         if(!$this->config->api->openSync) die($jsonView);
 
         $key = '';

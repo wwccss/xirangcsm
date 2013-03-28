@@ -101,7 +101,8 @@ class productModel extends model
      */
     public function updateProducts($products)
     {
-        $i = 1;
+        $i          = 1;
+        $newProduct = new stdclass();
         if(!empty($products['0']))
         {
             foreach($products as $id => $product)

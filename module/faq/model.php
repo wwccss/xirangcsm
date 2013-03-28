@@ -84,6 +84,7 @@ class faqModel extends model
      */
     public function create($productID, $categoryID)
     {
+        $newFAQ = new stdclass();
         $newFAQ->product   = $productID;
         $newFAQ->category  = $categoryID;
         $newFAQ->request   = $this->post->request;

@@ -132,6 +132,7 @@ class product extends control
             }
             else
             {
+                $newProduct = new stdclass();
                 $newProduct->id     = $product->id;
                 $newProduct->name   = $product->name;
                 $newProduct->status = 'online';

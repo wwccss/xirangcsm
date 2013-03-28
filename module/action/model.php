@@ -26,6 +26,7 @@ class actionModel extends model
      */
     public function create($objectType, $objectID, $actionType, $comment = '', $extra = '', $actor = '')
     {
+        $action = new stdclass();
         $action->objectType = strtolower($objectType);
         $action->objectID   = $objectID;
         $action->actor      = $actor ? $actor : $this->app->user->account;

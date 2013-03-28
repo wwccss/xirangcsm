@@ -2,7 +2,7 @@
 <span><?php $this->action->printAction($action);?>
 <?php if(!empty($action->comment)):?>
 <div class='history'>
-<?php echo '<br />'; echo nl2br($action->comment);?>
+<?php echo nl2br($action->comment);?>
 </div>
 <?php endif;?>
 <style>

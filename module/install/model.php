@@ -145,6 +145,7 @@ class installModel extends model
      */
     public function checkConfig()
     {
+        $return = new stdclass();
         $return->result = 'ok';
 
         /* Connect db. */
@@ -309,6 +310,7 @@ class installModel extends model
         if($this->post->password == '') die(js::error($this->lang->install->errorEmptyPassword));
 
         /* Set the admin. */
+        $admin = new stdclass();
         $admin->id       = 100000;
         $admin->account  = $this->post->account;
         $admin->realname = $this->post->account;

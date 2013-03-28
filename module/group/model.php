@@ -66,6 +66,7 @@ class groupModel extends model
         $this->dao->delete()->from(TABLE_GROUPPRIV)->where('`group`')->eq($groupID)->exec();
 
         /* Insert new. */
+        $data = new stdclass();
         foreach($this->post->actions as $moduleName => $moduleActions)
         {
             foreach($moduleActions as $actionName)

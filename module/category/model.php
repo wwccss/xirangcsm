@@ -84,8 +84,9 @@ class categoryModel extends model
      */
     public function updateCategories($categories)
     {
-        $isEmpty = $this->dao->select('*')->from(TABLE_CATEGORY)->fetchAll();
-        $i = 1;
+        $newCategory = new stdclass();
+        $i           = 1;
+        $isEmpty     = $this->dao->select('*')->from(TABLE_CATEGORY)->fetchAll();
         if(!empty($categories['0']) && empty($isEmpty))
         {
             foreach($categories as $id => $category)
