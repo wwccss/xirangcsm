@@ -51,8 +51,6 @@ class request extends control
         /* Build the search form. */
         $this->config->request->search['actionURL'] = $this->createLink('request', 'browse', "type=search&queryID=myQueryID&orderBy=$orderBy&recTotal=$recTotal&recPerPage=$recPerPage&pageID=$pageID&userID=$userID");
         $this->config->request->search['queryID']   = (int)$param;
-        $this->config->request->search['params']['category']['values'] = $this->category->getPairs();
-        $this->config->request->search['params']['customer']['values'] = $this->user->getPairs('customer');
         $this->view->searchForm = $this->fetch('search', 'buildForm', $this->config->request->search);
 
         $this->view->type       = $type;

@@ -31,6 +31,9 @@ $lang->request->addedDate   = '提问时间';
 $lang->request->status      = '状态';
 $lang->request->assignedTo  = '指派给';
 $lang->request->repliedDate = '回复时间';
+$lang->request->repliedBy   = '由谁回复';
+$lang->request->closedDate  = '关闭时间';
+$lang->request->closedBy    = '由谁关闭';
 
 $lang->request->ask           = '提问';
 $lang->request->category      = '分类';

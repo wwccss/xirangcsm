@@ -1,21 +1,34 @@
 <?php
 /**
- * The buildform view of search module of ZenTaoASM.
+ * The buildform view of search module of ZenTaoPMS.
  *
- * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
+ * @copyright   Copyright 2009-2013 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
  * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     search
- * @version     $Id: buildform.html.php 1914 2011-06-24 10:11:25Z yidong@cnezsoft.com $
+ * @version     $Id: buildform.html.php 4129 2013-01-18 01:58:14Z wwccss $
  * @link        http://www.zentao.net
  */
 ?>
+<?php include '../../common/view/datepicker.html.php';?>
 <style>
 .helplink {display:none}
 .button-s, .button-r, .button-c {padding:3px} 
 .select-1 {width:80%}
+.text-2{margin-bottom:2px; width:123px}
+.select-2{margin-bottom:2px}
+.date{width:104px}
 </style>
 <script language='Javascript'>
+
+$(function() {
+    $(".date").datePicker({createButton:true, startDate:startDate, displayDynamic:true})
+    .bind('click', function() {
+        $(this).dpDisplay();
+        this.blur();
+        return false;
+    });
+});
 
 var params        = <?php echo json_encode($fieldParams);?>;
 var groupItems    = <?php echo $config->search->groupItems;?>;
@@ -34,8 +47,37 @@ var actionURL     = '<?php echo $actionURL;?>';
 function setField(fieldName, fieldNO)
 {
     $('#operator' + fieldNO).val(params[fieldName]['operator']);   // Set the operator according the param setting.
-    $('#valueBox' + fieldNO) .html($('#box' + fieldName).children().clone());
+    $('#valueBox' + fieldNO).html($('#box' + fieldName).children().clone());
     $('#valueBox' + fieldNO).children().attr({name : 'value' + fieldNO, id : 'value' + fieldNO});
+
+    if(typeof(params[fieldName]['class']) != undefined && params[fieldName]['class'] == 'date')
+    {
+        $("#value" + fieldNO).datePicker({createButton:true, startDate:startDate, displayDynamic:true})
+            .bind('click', function() {
+                $(this).dpDisplay();
+                this.blur();
+                return false;
+            });
+        $("#value" + fieldNO).addClass('date');   // Shortcut the width of the datepicker to make sure align with others. 
+        var groupItems = <?php echo $config->search->groupItems?>;
+        var maxNO      = 2 * groupItems;
+        var nextNO     = fieldNO > groupItems ? fieldNO - groupItems + 1 : fieldNO + groupItems;
+        var nextValue  = $('#value' + nextNO).val();
+        if(nextNO <= maxNO && fieldNO < maxNO && (nextValue == '' || nextValue == 0))
+        {
+            $('#field' + nextNO).val($('#field' + fieldNO).val());
+            $('#operator' + nextNO).val('<=');
+            $('#valueBox' + nextNO).html($('#box' + fieldName).children().clone());
+            $('#valueBox' + nextNO).children().attr({name : 'value' + nextNO, id : 'value' + nextNO});
+            $("#value" + nextNO).datePicker({createButton:true, startDate:startDate, displayDynamic:true})
+                .bind('click', function() {
+                    $(this).dpDisplay();
+                    this.blur();
+                    return false;
+                });
+            $("#value" + nextNO).addClass('date');
+        }
+    }
 }
 
 /**
@@ -138,7 +180,6 @@ function deleteQuery()
     if(!queryID) return;
     hiddenwin.location.href = createLink('search', 'deleteQuery', 'queryID=' + queryID);
 }
-
 </script>
 
 <div class='hidden'>
@@ -147,16 +188,16 @@ function deleteQuery()
 foreach($fieldParams as $fieldName => $param)
 {
     echo "<span id='box$fieldName'>";
-    if($param['control'] == 'select') echo html::select($fieldName, $param['values'], '', 'class=select-2');
-    if($param['control'] == 'input') echo html::input($fieldName, '', 'class=text-2');
+    if($param['control'] == 'select') echo html::select($fieldName, $param['values'], '', 'class=select-2 searchSelect');
+    if($param['control'] == 'input')  echo html::input($fieldName, '', "class='text-2 searchInput'");
     echo '</span>';
 }
 ?>
 </div>
 <form method='post' action='<?php echo $this->createLink('search', 'buildQuery');?>' target='hiddenwin' id='searchform'>
-<table class='w-p100 bd-none'>
+<table class='table-1'>
   <tr valign='middle'>
-    <th width='10' class='bg-gray'><?php echo $lang->search->common;?></th>
+    <th width='10'><span id='searchicon'>&nbsp;</span></th>
     <td class='a-right'>
       <nobr>
       <?php
@@ -185,8 +226,13 @@ foreach($fieldParams as $fieldName => $param)
 
           /* Print value. */
           echo "<span id='valueBox$fieldNO'>";
-          if($param['control'] == 'select') echo html::select("value$fieldNO", $param['values'], $formSession["value$fieldNO"], 'class=select-2');
-          if($param['control'] == 'input') echo html::input("value$fieldNO",  $formSession["value$fieldNO"], 'class=text-2');
+          if($param['control'] == 'select') echo html::select("value$fieldNO", $param['values'], $formSession["value$fieldNO"], "class='select-2 searchSelect'");
+          if($param['control'] == 'input') 
+          {
+              $fieldName  = $formSession["field$fieldNO"];
+              $extraClass = isset($param['class']) ? $param['class'] : '';
+              echo html::input("value$fieldNO",  $formSession["value$fieldNO"], "class='text-2 $extraClass searchInput'");
+          }
           echo '</span>';
 
           $fieldNO ++;
@@ -220,8 +266,14 @@ foreach($fieldParams as $fieldName => $param)
 
           /* Print value. */
           echo "<span id='valueBox$fieldNO'>";
-          if($param['control'] == 'select') echo html::select("value$fieldNO", $param['values'], $formSession["value$fieldNO"], 'class=select-2');
-          if($param['control'] == 'input') echo html::input("value$fieldNO",  $formSession["value$fieldNO"], 'class=text-2');
+          if($param['control'] == 'select') echo html::select("value$fieldNO", $param['values'], $formSession["value$fieldNO"], "class='select-2 searchSelect'");
+
+          if($param['control'] == 'input')
+          {
+              $fieldName  = $formSession["field$fieldNO"];
+              $extraClass = isset($param['class']) ? $param['class'] : '';
+              echo html::input("value$fieldNO",  $formSession["value$fieldNO"], "class='text-2 $extraClass searchInput'");
+          }
           echo '</span>';
 
           $fieldNO ++;
@@ -245,12 +297,12 @@ foreach($fieldParams as $fieldName => $param)
     <td width='250' class='a-center'>
       <?php
       echo html::select('queryID', $queries, $queryID, 'class=select-1 onchange=executeQuery(this.value)');
-      if(common::hasPriv('search', 'deleteQuery')) echo html::commonButton(' x ', 'onclick=deleteQuery();');
+      if(common::hasPriv('search', 'deleteQuery')) echo html::a('javascript:deleteQuery()', '&nbsp;', '', 'class="icon-delete"');
       ?>
     </td>
-    <th width='10' class='bg-gray' style='cursor:pointer; padding:0'>
-      <span id='searchmore' onclick='showmore()' style='width:100%; height:100%'><?php echo $lang->search->more;?></span>
-      <span id='searchlite' onclick='showlite()' style='width:100%; height:100%' class='hidden'><?php echo $lang->search->lite;?></span>
+    <th width='10' class='a-center' style='cursor:pointer; padding:0'>
+      <span id='searchmore' onclick='showmore()'>&nbsp;</span>
+      <span id='searchlite' onclick='showlite()' class='hidden'>&nbsp;</span>
       <?php echo html::hidden('formType', 'lite');?>
     </th>
   </tr>
