@@ -259,7 +259,7 @@ caption a     {text-decoration:none}
 
 /* copyed from tablesorter plugin. */
 table.tablesorter thead tr div{padding:0; margin:0}
-table.tablesorter thead tr div a {text-decoration:none; display:block}
+table.tablesorter thead tr div a {text-decoration:none; display:block; color:#000}
 table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {color:red;}
 table.tablesorter thead tr .headerSortDown a, table.tablesorter thead tr .headerSortUp a {color:red}
 table.tablesorter thead tr .header         {background-image: url(./images/tablesorter/bg.gif);   background-repeat: no-repeat; background-position: center right; cursor: pointer;}

@@ -195,7 +195,7 @@ foreach($fieldParams as $fieldName => $param)
 ?>
 </div>
 <form method='post' action='<?php echo $this->createLink('search', 'buildQuery');?>' target='hiddenwin' id='searchform'>
-<table class='table-1'>
+<table width='100%'>
   <tr valign='middle'>
     <th width='10'><span id='searchicon'>&nbsp;</span></th>
     <td class='a-right'>
