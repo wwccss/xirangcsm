@@ -14,7 +14,6 @@ $lang->faq->emptyWarning     = '内容不能为空，请重新填写!';
 $lang->faq->confirmDelete    = '你确定要删除该FAQ吗？';
 $lang->faq->toTop            = '返回顶部';
 
-$lang->faq->categoryList = '分类列表';
 $lang->faq->title        = '标题';
 $lang->faq->answer       = '回答';
 $lang->faq->faqList      = 'FAQ列表';
@@ -25,4 +24,4 @@ $lang->faq->edit         = '编辑FAQ';
 $lang->faq->request      = '我有问题';
 $lang->faq->customBox    = '客户专区';
 $lang->faq->categoryList = '分类列表';
-$lang->faq->allProduct   = '所有产品';
+$lang->faq->productList  = '产品列表';

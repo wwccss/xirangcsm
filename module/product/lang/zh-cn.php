@@ -23,6 +23,7 @@ $lang->product->online         = '上线';
 $lang->product->stop           = '下线';
 $lang->product->selectAProduct = '--请选择产品--';
 $lang->product->all            = '所有产品';
+$lang->product->none           = '没有产品';
 
 $lang->product->statusList['stopped'] = '已下线';
 $lang->product->statusList['online']  = '正常';

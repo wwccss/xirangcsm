@@ -29,6 +29,7 @@ class faq extends control
     {
         $productList = $this->product->getPairs();
         $productID = ($productID == null and $productList) ? key($productList) : (int)$productID;
+
         if($productID == 0)
         {
             $this->view->faqs = $this->faq->getAllFAQs();
@@ -43,8 +44,9 @@ class faq extends control
             $this->view->faqs = $this->faq->getByCategoryID($categoryID);
             $this->view->categories = $this->category->getByProductID($productID);
         }
-        $productList['0'] = $this->lang->faq->allProduct;
-        $this->view->productList = $productList;
+
+        $productList['0']              = $this->lang->product->all;
+        $this->view->productList       = $productList;
         $this->view->selectedProductID = $productID;
         $this->display();
     }
@@ -56,29 +58,32 @@ class faq extends control
      * @access public
      * @return void
      */
-    public function manage($productID = 0, $categoryID = 0)
+    public function manage($productID = null, $categoryID = 0)
     {
-        $this->view->categories = '';
+        $productList = $this->product->getPairs();
+        $productID = ($productID == null and $productList) ? key($productList) : (int)$productID;
+
+        $categories = '';
         if($productID == 0)
         {
-            $this->view->faqs = $this->faq->getAllFAQs();
+            $faqs = $this->faq->getAllFAQs();
         }
-        else if($productID != 0 && $categoryID == 0)
+        elseif($productID != 0 && $categoryID == 0)
         {
-            $this->view->faqs = $this->faq->getByProductID($productID);
-            $this->view->categories = $this->category->getByProductID($productID);
+            $faqs       = $this->faq->getByProductID($productID);
+            $categories = $this->category->getByProductID($productID);
         }
-        else if($productID != 0 && $categoryID != 0)
+        elseif($productID != 0 && $categoryID != 0)
         {
-            $this->view->faqs = $this->faq->getByCategoryID($categoryID);
-            $this->view->categories = $this->category->getByProductID($productID);
+            $faqs       = $this->faq->getByCategoryID($categoryID);
+            $categories = $this->category->getByProductID($productID);
         }
 
-        $this->loadModel('product');
-        $productList = $this->product->getPairs();
-        $productList['0'] = $this->lang->product->selectAProduct;
-        $this->view->productList = $productList;
+        $productList['0']              = $this->lang->product->all;
+        $this->view->productList       = $productList;
         $this->view->selectedProductID = $productID;
+        $this->view->categories        = $categories;
+        $this->view->faqs              = $faqs;
 
         $this->display();
     }

@@ -68,7 +68,7 @@ class category extends control
             die(js::reload('parent'));
         }
         $productList = $this->product->getPairs();
-        $productList['0'] = $this->lang->product->selectAProduct;
+        $productID   = (empty($productID) and $productList) ? key($productList) : $productID;
         $this->view->productList = $productList;
         
         if($productID != 0)

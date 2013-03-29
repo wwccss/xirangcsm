@@ -17,6 +17,7 @@
       <form method='post' target='hiddenwin' action='<?php echo $this->inLink('updateOrder');?>'>
       <table width='100%'>
         <caption><?php echo $lang->category->categoryManage;?></caption>  
+        <?php if($productList):?>
         <tr><td><?php echo html::select('product', $productList, $productID, 'class=select-3 onchange=switchProduct(this.value)');?></td></tr>
         <tr>
           <td class='a-left'>
@@ -38,6 +39,9 @@
           </td>
         </tr>
         <tr><td class='a-center'><?php echo html::submitButton($lang->category->updateOrder) . html::hidden('productID', $productID);?></td></tr>
+        <?php else:?>
+        <tr><td class='a-center'><?php echo $lang->product->none?></td></tr>
+        <?php endif;?>
       </table>
       </form>
     </td>

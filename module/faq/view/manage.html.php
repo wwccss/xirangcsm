@@ -12,7 +12,7 @@
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
 <table class='table-2 f-left' style='margin-left:10px'>  
-  <caption><?php echo $lang->faq->categoryList;?></caption>
+  <caption><?php echo $lang->faq->productList;?></caption>
   <tr><td><?php echo html::select('product', $productList, $selectedProductID, 'class=select-3 onchange=switchProduct(this.value)');?></td></tr>
   <?php if(!empty($categories)):?>
   <?php foreach($categories as $id => $category):?>
