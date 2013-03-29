@@ -115,6 +115,8 @@ class install extends control
         {
             $this->install->grantPriv();
             if(dao::isError()) die(js::error(dao::getError()));
+
+            $this->loadModel('setting')->updateVersion($this->config->version);
             die(js::locate(inlink('step5', "admin={$this->post->account}"), 'parent'));
         }
 

@@ -131,4 +131,23 @@ class common extends control
         $link = helper::createLink($module, $method, sprintf($vars, $orderBy));
         echo "<div class='$className'>" . html::a($link, $label) . '</div>';
     }
+
+    /**
+     * Check upgrade's status file is ok or not.
+     *
+     * @access public
+     * @return void
+     */
+    public function checkUpgradeStatus()
+    {
+        $statusFile = $this->app->getAppRoot() . 'www' . $this->pathFix . 'ok';
+        if(!file_exists($statusFile) or time() - filemtime($statusFile) > 3600)
+        {
+            $this->app->loadLang('upgrade');
+            echo "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body>";
+            echo "<table align='center' style='margin-top:100px; border:1px solid gray; font-size:14px;'><tr><td>";
+            printf($this->lang->upgrade->setStatusFile, $statusFile, $statusFile, $statusFile);
+            die('</td></tr></table></body></html>');
+        }
+    }
 }

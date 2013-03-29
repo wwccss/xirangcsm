@@ -20,12 +20,15 @@ CREATE TABLE IF NOT EXISTS `zt_category` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 -- DROP TABLE IF EXISTS `zt_config`;
 CREATE TABLE IF NOT EXISTS `zt_config` (
-  `id` tinyint(3) unsigned NOT NULL auto_increment,
-  `openSync` tinyint(1) NOT NULL default 0,
-  `key` varchar(255) NOT NULL default '',
-  `ip` varchar(15) NOT NULL default '',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+  `id` mediumint(8) unsigned NOT NULL auto_increment,
+  `owner` char(30) NOT NULL default '',
+  `module` varchar(30) NOT NULL,
+  `section` char(30) NOT NULL default '',
+  `key` char(30) NOT NULL default '',
+  `value` text NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `unique` (`owner`,`module`,`section`,`key`)
+  ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 -- DROP TABLE IF EXISTS `zt_faq`;
 CREATE TABLE IF NOT EXISTS `zt_faq` (
   `id` mediumint(9) NOT NULL auto_increment,
@@ -101,6 +104,7 @@ CREATE TABLE IF NOT EXISTS `zt_request` (
   `addedDate` datetime NOT NULL,
   `viewedDate` datetime NOT NULL,
   `assignedDate` datetime NOT NULL,
+  `repliedBy` mediumint(8) NOT NULL,
   `repliedDate` datetime NOT NULL,
   `lastEditedDate` datetime NOT NULL,
   `closedDate` datetime NOT NULL,
@@ -165,7 +169,11 @@ CREATE TABLE IF NOT EXISTS `zt_userQuery` (
   KEY `module` (`module`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO `zt_config` ( `id` , `openSync` , `key` , `ip` ) VALUES ( NULL , '0', '', '');
+INSERT INTO `zt_config` (`id`, `owner`, `module`, `section`, `key`, `value`) VALUES
+(1, 'system', 'api', '', 'openSync', '0'),
+(2, 'system', 'api', '', 'key', ''),
+(3, 'system', 'api', '', 'ip', '');
+
 
 INSERT INTO `zt_group` (`id`, `name`, `desc`) VALUES
 (1, 'admin',    '系统管理员'),

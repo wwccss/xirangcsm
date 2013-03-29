@@ -21,12 +21,12 @@ class setting extends control
     {
         if($_POST)
         {
-            $this->setting->saveConfig();
+            $this->setting->saveApiConfig();
             if(dao::isError())die(js::error(dao::getError()));
             echo js::alert($this->lang->setting->success);
             die(js::reload('parent'));
         }
-        $this->view->syncConfig = $this->setting->getConfig();
+        $this->view->syncConfig = $this->setting->getApiConfig();
         $this->display();
     }
 }

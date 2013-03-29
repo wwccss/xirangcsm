@@ -83,7 +83,8 @@ class commonModel extends model
      */
     public function setConfig()
     {
-        $config = $this->loadModel('setting')->getConfig();
+        $config = $this->loadModel('setting')->getApiConfig();
+
         $this->config->api->openSync = $config->openSync;
         $this->config->api->key      = $config->key;
         $this->config->api->ip       = $config->ip;

@@ -408,7 +408,7 @@ function togglesearch()
 }
 
 /* Ping the server every some minutes to keep the session. */
-needPing = true;
+needPing = config.router.indexOf('admin.php') < 0 ? false : true;
 
 /* When body's ready, execute these. */
 $(document).ready(function() 

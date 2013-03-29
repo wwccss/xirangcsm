@@ -1,95 +1,230 @@
 <?php
 /**
- * The model file of setting module of ZenTaoASM.
+ * The model file of setting module of ZenTaoPMS.
  *
- * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
+ * @copyright   Copyright 2009-2013 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
  * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     setting
- * @version     $Id: model.php 1914 2011-06-24 10:11:25Z yidong@cnezsoft.com $
+ * @version     $Id: model.php 4588 2013-03-13 02:06:45Z wyd621@gmail.com $
  * @link        http://www.zentao.net
  */
 ?>
 <?php
 class settingModel extends model
 {
+    //-------------------------------- methods for get, set and delete setting items. ----------------------------//
+    
     /**
-     * Get the version of current zentaoASM.
+     * Get value of an item.
+     * 
+     * @param  string   $paramString    see parseItemParam();
+     * @access public
+     * @return misc
+     */
+    public function getItem($paramString)
+    {
+        return $this->createDAO($this->parseItemParam($paramString), 'select')->fetch('value');
+    }
+
+    /**
+     * Get some items.
+     * 
+     * @param  string   $paramString    see parseItemParam();
+     * @access public
+     * @return array
+     */
+    public function getItems($paramString)
+    {
+        return $this->createDAO($this->parseItemParam($paramString), 'select')->fetchAll('id');
+    }
+
+    /**
+     * Get API config 
+     * 
+     * @access public
+     * @return void
+     */
+    public function getApiConfig()
+    {
+        if(version_compare($this->config->version, 1.1, '<=')) return $this->dao->select('*')->from(TABLE_CONFIG)->fetch();
+        if(version_compare($this->config->version, 1.2, '=') and RUN_MODE == 'upgrade') return $this->dao->select('*')->from(TABLE_CONFIG)->fetch();
+
+        $configs   = $this->loadModel('setting')->getItems('owner=system&module=api');
+        $apiConfig = new stdclass();
+        foreach($configs as $config) $apiConfig->{$config->key} = $config->value;
+
+        return $apiConfig;
+    }
+
+    /**
+     * Save API config 
+     * 
+     * @access public
+     * @return void
+     */
+    public function saveApiConfig()
+    {
+        $items['openSync'] = $this->post->openSync;
+        $items['key']      = $this->post->key;
+        $items['ip']       = $this->post->noIP ? '' : $this->post->ip;
+
+        $this->setItems('system.api', $items);
+    }
+
+    /**
+     * Set value of an item. 
+     * 
+     * @param  string      $path     system.common.global.sn or system.common.sn 
+     * @param  string      $value 
+     * @access public
+     * @return void
+     */
+    public function setItem($path, $value = '')
+    {
+        $level    = substr_count($path, '.');
+        $section = '';
+
+        if($level <= 1) return false;
+        if($level == 2) list($owner, $module, $key) = explode('.', $path);
+        if($level == 3) list($owner, $module, $section, $key) = explode('.', $path);
+
+        $item = new stdclass();
+        $item->owner   = $owner;
+        $item->module  = $module;
+        $item->section = $section;
+        $item->key     = $key;
+        $item->value   = $value;
+
+        $this->dao->replace(TABLE_CONFIG)->data($item)->exec();
+    }
+
+    /**
+     * Batch set items, the example:
+     * 
+     * $path = 'system.mail';
+     * $items->turnon = true;
+     * $items->smtp->host = 'localhost';
+     *
+     * @param  string         $path   like system.mail 
+     * @param  array|object   $items  the items array or object, can be mixed by one level or two levels.
+     * @access public
+     * @return bool
+     */
+    public function setItems($path, $items)
+    {
+        foreach($items as $key => $item)
+        {
+            if(is_array($item) or is_object($item))
+            {
+                $section = $key;
+                foreach($item as $subKey => $subItem)
+                {
+                    $this->setItem($path . '.' . $section . '.' . $subKey, $subItem);
+                }
+            }
+            else
+            {
+                $this->setItem($path . '.' . $key, $item);
+            }
+        }
+
+        if(!dao::isError()) return true;
+        return false;
+    }
+
+    /**
+     * Delete items.
+     * 
+     * @param  string   $paramString    see parseItemParam();
+     * @access public
+     * @return void
+     */
+    public function deleteItems($paramString)
+    {
+        $this->createDAO($this->parseItemParam($paramString), 'delete')->exec();
+    }
+
+    /**
+     * Parse the param string for select or delete items.
+     * 
+     * @param  string    $paramString     owner=xxx&key=sn and so on.
+     * @access public
+     * @return array
+     */
+    public function parseItemParam($paramString)
+    {
+        /* Parse the param string into array. */
+        parse_str($paramString, $params); 
+
+        /* Init fields not set in the param string. */
+        $fields = 'owner,module,section,key';
+        $fields = explode(',', $fields);
+        foreach($fields as $field) if(!isset($params[$field])) $params[$field] = '';
+
+        return $params;
+    }
+
+    /**
+     * Create a DAO object to select or delete one or more records.
+     * 
+     * @param  array  $params     the params parsed by parseItemParam() method.
+     * @param  string $method     select|delete.
+     * @access public
+     * @return object
+     */
+    public function createDAO($params, $method = 'select')
+    {
+        return $this->dao->$method('*')->from(TABLE_CONFIG)->where('1 = 1')
+            ->beginIF($params['owner'])->andWhere('owner')->in($params['owner'])->fi()
+            ->beginIF($params['module'])->andWhere('module')->in($params['module'])->fi()
+            ->beginIF($params['section'])->andWhere('section')->in($params['section'])->fi()
+            ->beginIF($params['key'])->andWhere('`key`')->in($params['key'])->fi();
+    }
+
+    /**
+     * Get config of system and one user.
+     *
+     * @param  string $account 
+     * @access public
+     * @return array
+     */
+    public function getSysAndPersonalConfig($account = '')
+    {
+        $owner   = 'system,' . ($account ? $account : '');
+        $records = $this->dao->select('*')->from(TABLE_CONFIG)
+            ->where('owner')->in($owner)
+            ->orderBy('id')
+            ->fetchAll('id', false);
+        if(!$records) return array();
+
+        /* Group records by owner and module. */
+        $config = array();
+        foreach($records as $record)
+        {
+            if(!isset($record->module)) return array();    // If no module field, return directly. Since 3.2 version, there's the module field.
+            if(empty($record->module)) continue;
+
+            if($record->section)  $config[$record->owner]->{$record->module}[] = $record;
+            if(!$record->section) $config[$record->owner]->{$record->module}[] = $record;
+        }
+        return $config;
+    }
+
+    //-------------------------------- methods for version and sn. ----------------------------//
+   
+    /**
+     * Get the version of current zentaopms.
      * 
      * Since the version field not saved in db. So if empty, return 0.3 beta.
+     *
      * @access public
      * @return void
      */
     public function getVersion()
     {
-        $version = $this->getItem('system', 'global', 'version');
-        if($version) return $version;
-        return '0.3 beta';
-    }
-
-    /**
-     * Get value of an item.
-     * 
-     * @param  string    $owner 
-     * @param  string    $section 
-     * @param  string    $key 
-     * @access public
-     * @return misc
-     */
-    public function getItem($owner, $section, $key)
-    {
-        return $this->dao->select('`value`')->from(TABLE_CONFIG)
-            ->where('company')->eq(0)
-            ->andWhere('owner')->eq($owner)
-            ->andWhere('section')->eq($section)
-            ->andWhere('`key`')->eq($key)
-            ->fetch('value', $autoCompany = false);
-    }
-
-    /**
-     * Compute a SN. Use the server ip, and server software string as seed, and an rand number, two micro time
-     * 
-     * Note: this sn just to unique this zentaoASM. No any private info. 
-     *
-     * @access public
-     * @return string
-     */
-    public function computeSN()
-    {
-        $seed = $this->server->SERVER_ADDR . $this->server->SERVER_SOFTWARE;
-        $sn   = md5(str_shuffle(md5($seed . mt_rand(0, 99999999) . microtime())) . microtime());
-        return $sn;
-    }
-
-    /**
-     * Set the sn of current zentaoASM.
-     * 
-     * @access public
-     * @return void
-     */
-    public function setSN()
-    {
-        $item = new stdclass();
-        $item->company = 0;
-        $item->owner   = 'system';
-        $item->section = 'global';
-        $item->key     = 'sn';
-        $item->value   =  $this->computeSN();
-
-        $config = $this->dao->select('id, value')->from(TABLE_CONFIG)
-            ->where('company')->eq(0)
-            ->andWhere('owner')->eq('system')
-            ->andWhere('section')->eq('global')
-            ->andWhere('`key`')->eq('sn')
-            ->fetch('', $autoComapny = false);
-        if(!$config)
-        {
-            $this->dao->insert(TABLE_CONFIG)->data($item)->exec($autoCompany = false);
-        }
-        elseif($config->value == '281602d8ff5ee7533eeafd26eda4e776' or $config->value == '9bed3108092c94a0db2b934a46268b4a')
-        {
-            $this->dao->update(TABLE_CONFIG)->data($item)->where('id')->eq($config->id)->exec($autoCompany = false);
-        }
+        $version = isset($this->config->global->version) ? $this->config->global->version : '1.0';    // No version, set as 0.3.beta.
+        return $version;
     }
 
     /**
@@ -101,52 +236,33 @@ class settingModel extends model
      */
     public function updateVersion($version)
     {
-        $item = new stdclass();
-        $item->company = 0;
-        $item->owner   = 'system';
-        $item->section = 'global';
-        $item->key     = 'version';
-        $item->value   =  $version;
-
-        $configID = $this->dao->select('id')->from(TABLE_CONFIG)
-            ->where('company')->eq(0)
-            ->andWhere('owner')->eq('system')
-            ->andWhere('section')->eq('global')
-            ->andWhere('`key`')->eq('version')
-            ->fetch('id', $autoComapny = false);
-        if($configID > 0)
-        {
-            $this->dao->update(TABLE_CONFIG)->data($item)->where('id')->eq($configID)->exec($autoCompany = false);
-        }
-        else
-        {
-            $this->dao->insert(TABLE_CONFIG)->data($item)->exec($autoCompany = false);
-        }
+        return $this->setItem('system.common.global.version', $version, 0);
     }
 
     /**
-     * Get config 
-     * 
-     * @access public
-     * @return array
-     */
-    public function getConfig()
-    {
-        return $this->dao->select('*')->from(TABLE_CONFIG)->fetch();
-    }
-
-    /**
-     * save config 
+     * Set the sn of current zentaopms.
      * 
      * @access public
      * @return void
      */
-    public function saveConfig()
+    public function setSN()
     {
-        $config = fixer::input('post')
-            ->setIF($this->post->noIP == 'on', "ip", '')
-            ->remove('noIP')
-            ->get();
-        $this->dao->update(TABLE_CONFIG)->data($config)->exec();
+        $sn = $this->getItem('owner=system&module=common&section=global&key=sn');
+        if(empty($sn)) $this->setItem('system.common.global.sn', $this->computeSN());
+    }
+
+    /**
+     * Compute a SN. Use the server ip, and server software string as seed, and an rand number, two micro time
+     * 
+     * Note: this sn just to unique this zentaopms. No any private info. 
+     *
+     * @access public
+     * @return string
+     */
+    public function computeSN()
+    {
+        $seed = $this->server->SERVER_ADDR . $this->server->SERVER_SOFTWARE;
+        $sn   = md5(str_shuffle(md5($seed . mt_rand(0, 99999999) . microtime())) . microtime());
+        return $sn;
     }
 }
