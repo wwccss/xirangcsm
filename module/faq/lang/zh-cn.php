@@ -25,3 +25,4 @@ $lang->faq->edit         = '编辑FAQ';
 $lang->faq->request      = '我有问题';
 $lang->faq->customBox    = '客户专区';
 $lang->faq->categoryList = '分类列表';
+$lang->faq->allProduct   = '所有产品';

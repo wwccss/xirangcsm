@@ -25,8 +25,10 @@ class faq extends control
      * @access public
      * @return void
      */
-    public function showFAQ($productID = 0, $categoryID = 0)
+    public function showFAQ($productID = null, $categoryID = 0)
     {
+        $productList = $this->product->getPairs();
+        $productID = ($productID == null and $productList) ? key($productList) : (int)$productID;
         if($productID == 0)
         {
             $this->view->faqs = $this->faq->getAllFAQs();
@@ -41,8 +43,7 @@ class faq extends control
             $this->view->faqs = $this->faq->getByCategoryID($categoryID);
             $this->view->categories = $this->category->getByProductID($productID);
         }
-        $productList = $this->product->getPairs();
-        $productList['0'] = $this->lang->product->selectAProduct;
+        $productList['0'] = $this->lang->faq->allProduct;
         $this->view->productList = $productList;
         $this->view->selectedProductID = $productID;
         $this->display();
