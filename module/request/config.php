@@ -20,7 +20,7 @@ $config->request->search['params']['customer']   = array('operator' => '=',     
 $config->request->search['params']['assignedTo'] = array('operator' => '=',       'control' => 'select', 'values' => 'users');
 $config->request->search['params']['closedBy']   = array('operator' => '=',       'control' => 'select', 'values' => 'users');
 $config->request->search['params']['repliedBy']  = array('operator' => '=',       'control' => 'select', 'values' => 'users');
-$config->request->search['params']['status']     = array('operator' => '=',       'control' => 'select', 'values' => $lang->request->statusList);
+$config->request->search['params']['status']     = array('operator' => '=',       'control' => 'select', 'values' => array('' => '') + $lang->request->statusList);
 $config->request->search['params']['product']    = array('operator' => '=',       'control' => 'select', 'values' => 'products');
 
 $config->request->search['params']['addedDate']   = array('operator' => '>=',       'control' => 'input', 'values' => '', 'class' => 'date');

@@ -22,11 +22,11 @@
 <script language='Javascript'>
 
 $(function() {
-    $(".date").datePicker({createButton:true, startDate:startDate, displayDynamic:true})
-    .bind('click', function() {
-        $(this).dpDisplay();
-        this.blur();
-        return false;
+    $(".date").datePicker({createButton:true, startDate:startDate})
+        .bind('click', function() {
+            $(this).dpDisplay();
+            this.blur();
+            return false;
     });
 });
 
@@ -52,7 +52,7 @@ function setField(fieldName, fieldNO)
 
     if(typeof(params[fieldName]['class']) != undefined && params[fieldName]['class'] == 'date')
     {
-        $("#value" + fieldNO).datePicker({createButton:true, startDate:startDate, displayDynamic:true})
+        $("#value" + fieldNO).datePicker({createButton:true, startDate:startDate})
             .bind('click', function() {
                 $(this).dpDisplay();
                 this.blur();
@@ -69,7 +69,7 @@ function setField(fieldName, fieldNO)
             $('#operator' + nextNO).val('<=');
             $('#valueBox' + nextNO).html($('#box' + fieldName).children().clone());
             $('#valueBox' + nextNO).children().attr({name : 'value' + nextNO, id : 'value' + nextNO});
-            $("#value" + nextNO).datePicker({createButton:true, startDate:startDate, displayDynamic:true})
+            $("#value" + nextNO).datePicker({createButton:true, startDate:startDate})
                 .bind('click', function() {
                     $(this).dpDisplay();
                     this.blur();

@@ -18,5 +18,10 @@ Date.monthNames   = <?php echo json_encode($lang->datepicker->monthNames)?>;
 $(function() {
     startDate = '1970-1-1';
     $(".date").datePicker({createButton:true, startDate:startDate})
+        .bind('click', function() {
+            $(this).dpDisplay();
+            this.blur();
+            return false;
+        });
 });
 </script>

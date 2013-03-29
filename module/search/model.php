@@ -121,7 +121,7 @@ class searchModel extends model
     public function setDefaultParams($fields, $params)
     {
         $users    = $this->loadModel('user')->getPairs();
-        $products = $this->loadModel('product')->getPairs();
+        $products = array('' => '') + $this->loadModel('product')->getPairs();
         $fields   = array_keys($fields);
         foreach($fields as $fieldName)
         {
