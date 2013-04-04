@@ -10,7 +10,7 @@
  * @link        http://www.zentao.net
  */
 ?>
-<?php include '../../common/view/header.html.php';?>
+<?php include '../../common/view/header.admin.html.php';?>
 <table align='center' class='table-1'>
   <caption>
     <div class='f-left'><?php echo $lang->user->manageServiceTime . '&#160&#160&#160&#160&#160'. $lang->user->account . ':' . $user->account . '&#160&#160&#160&#160&#160' . $lang->user->realname . ':' . $user->realname;?></div>

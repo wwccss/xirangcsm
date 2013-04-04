@@ -67,6 +67,17 @@ $lang->position['user']    = '用户';
 /* The optional features. */
 $lang->features['user']  = '用户功能';
 
+/* 主导航菜单。*/
+$lang->menu = new stdclass();
+$lang->menu->request  = '回答管理|request|browse|';
+$lang->menu->product  = '产品管理|product|manage|';
+$lang->menu->category = '分类管理|category|manage|';
+$lang->menu->faq      = 'FAQ管理|faq|manage|';
+$lang->menu->inside   = '内部管理|user|browse|type=inside|';
+$lang->menu->customer = '客户管理|user|browse|type=customer|';
+$lang->menu->group    = '权限管理|group|browse|';
+$lang->menu->setting  = '系统设置|setting|setConfig|';
+
 /* The error messages. */
 $lang->error = new stdclass();
 $lang->error->companyNotFound = "您访问的域名 %s 没有对应的公司。";
@@ -123,7 +134,7 @@ $lang->datepicker->dpText->TEXT_CLOSE       = '关闭';
 $lang->datepicker->dpText->TEXT_DATE        = '选择时间段';
 $lang->datepicker->dpText->TEXT_CHOOSE_DATE = '选择日期';
 
-$lang->datepicker->dayNames     = array('日', '一', '二', '三', '四', '五', '六');
+$lang->datepicker->dayNames     = array('星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六');
 $lang->datepicker->abbrDayNames = array('日', '一', '二', '三', '四', '五', '六');
 $lang->datepicker->monthNames   = array('一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月');
 

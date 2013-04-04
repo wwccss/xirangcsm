@@ -8,7 +8,7 @@
  * @package     ZenTaoASM
  * @version     $Id$
  */
-include '../../common/view/header.admin.html.php';
+include '../../common/view/header.lite.html.php';
 ?>
 <style>
 html{background:#080404;}
@@ -32,7 +32,7 @@ $(document).ready(function(){
 })
 </script>
 <div id='box-login' class='row' style='margin-top:240px;'>
-  <form method='post' target='hiddenwin' class='u-1'>
+  <form method='post' target='hiddenwin'>
     <table align='center' class='bd-none table-5'> 
     <caption id='welcome'><img src='<?php echo $defaultTheme?>images/default/logo.jpg' /></caption>
     <tbody class='a-center'>

@@ -1,3 +1,6 @@
+<style type='text/css'>
+#fileform label{display:inline;}
+</style>
 <div id='fileform'>
 <?php for($i = 0; $i < $fileCount; $i ++):?>
 <input type='file' name='files[]' id="file<?php echo $i;?>"  tabindex='-1' />

@@ -19,21 +19,6 @@ class admin extends control
      */
     public function index()
     {
-        $this->display();
-    }
-
-    public function topMenu()
-    {
-        $this->display();
-    }
-
-    public function leftMenu()
-    {
-        $this->display();
-    }
-
-    public function footer()
-    {
-        $this->display();
+        $this->locate($this->createLink('request', 'browse'));
     }
 }

@@ -41,6 +41,7 @@ hr      {border:none; border-top:1px solid #e4e4e4}
 .button-s{padding:3px 20px 3px 20px}
 .button-r{padding:3px 20px 3px 20px}
 .button-c{padding:3px 20px 3px 20px}
+.button-d{padding:3px 20px 3px 20px}
 
 /*-----------------------TABLE SETTING----------------------------*/
 table, th, td {border:1px solid #92c8f5;}
@@ -175,6 +176,7 @@ caption a     {text-decoration:none}
 
 .box-title   {height:25px; padding:3px 0 0 10px; border:1px solid #92C8F5; border-bottom:none; font-weight:bold; background:url(./images/default/bg.title.1.png); color:#03356D;}
 .box-content {margin-bottom:10px; padding:5px; border:1px solid #92C8F5; border-top:none}
+.box-content ul {margin:0px; margin-bottom:10px;}
 
 /*-----------------------BORDER SETTING--------------------------*/
 .bd-1px    {border:1px        solid}
@@ -266,7 +268,9 @@ table.tablesorter thead tr .header         {background-image: url(./images/table
 table.tablesorter thead tr .headerSortUp   {background-image: url(./images/tablesorter/asc.gif);  background-repeat: no-repeat; background-position: center right; cursor: pointer;}
 table.tablesorter thead tr .headerSortDown {background-image: url(./images/tablesorter/desc.gif); background-repeat: no-repeat; background-position: center right; cursor: pointer;}
 
-.icon-delete {border:none; width:16px; padding:2px 8px; background:url(images/main/zt-icons.png) -100px  -3px no-repeat;}
+.delete-icon {border:none; width:16px; padding:2px 8px; background:url(images/main/zt-icons.png) -100px  -0px no-repeat;}
 .icon-add:hover, .icon-delete:hover {cursor:pointer}
 #searchmore  {padding:2px 8px; background:url(images/main/zt-icons.png) -62px  -80px no-repeat;}
 #searchlite  {padding:2px 8px; background:url(images/main/zt-icons.png) -82px  -80px no-repeat;}
+
+.pager select{width:70px;}

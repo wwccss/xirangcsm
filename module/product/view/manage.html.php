@@ -14,7 +14,7 @@
 <table class='table-1 bd-none' align='center'>
   <tr valign='top'>
     <td class='w-200px' class='a-left' style='padding:0'>
-      <form method='post' target='hiddenwin' action='<?php echo $this->inLink('updateOrder');?>'>
+      <form method='post' target='hiddenwin' action='<?php echo $this->inLink('updateOrder');?>' class='form-horizontal'>
       <table width='100%'>
         <caption><?php echo $lang->product->productManage;?></caption>  
         <tr>
@@ -23,7 +23,7 @@
             <?php 
             foreach($products as $product)
             {
-                echo '<li>';
+                echo "<li class='mb-10px'>";
                 echo $product->name . ' ';
                 echo html::input("orders[$product->id]", "$product->order", 'style="width:20px"');
                 if($product->status == 'stopped')

@@ -23,7 +23,7 @@
     <?php if($type == 'inside'): ?>
     <th class='w-80px'><?php echo $lang->user->role;?></th>
     <?php endif;?>
-    <th class='w-40px'><?php echo $lang->user->gendar;?></th>
+    <th class='w-40px'><?php echo $lang->user->gender;?></th>
     <?php if($type == 'customer'): ?>
     <th><?php echo $lang->user->company;?></th>
     <?php endif;?>
@@ -39,7 +39,7 @@
     <?php if($type == 'inside'): ?>
     <td class='a-center'><?php echo $lang->user->roleList[$user->role]; ?> </td>
     <?php endif;?>
-    <td class='a-center'><?php echo $lang->user->gendarList[$user->gendar]; ?> </td>
+    <td class='a-center'><?php echo $lang->user->genderList[$user->gender]; ?> </td>
     <?php if($type == 'customer'): ?>
     <td class='a-center'><?php echo $user->company; ?> </td>
     <?php endif;?>
@@ -64,6 +64,7 @@
     <?php if($type == 'inside'): ?>
     <td class='a-center'>
       <?php 
+      if(common::hasPriv('user', 'profile')) echo html::a($this->createLink('user', 'profile', "userID=$user->id&type=inside"), $lang->user->view);
       if($this->app->user->role == 'admin' or $this->app->user->id == $user->id or ($this->app->user->role == 'manager' and $user->role == 'servicer'))
       {
           echo html::a($this->createLink('user', 'edit', "userID=$user->id&type=$type"), $lang->user->edit);

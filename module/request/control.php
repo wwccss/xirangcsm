@@ -64,6 +64,44 @@ class request extends control
     }
 
     /**
+     * Create a request
+     *
+     * @param int $productID
+     * @access public
+     * @return void
+     */
+    public function create($productID = 0)
+    {  
+        if($_POST)
+        {
+            $requestID = $this->request->createRequest();
+            if(dao::isError()) die(js::error(dao::getError()));
+            die(js::locate(inlink('browse', 'type=wait&mode=front'), 'parent'));
+        }
+        if($productID == 0) 
+        {
+            $this->view->categories = ''; 
+        }
+        else
+        {
+            $categories = $this->category->getByProductID($productID);
+            $tmpArray = array();
+            foreach($categories as $category)
+            {
+                $tmpArray[$category->id] = $category->name;
+            }
+            $this->view->categories = $tmpArray;
+        }
+        $this->loadModel('product');
+        $productList = $this->product->getProductService();
+        $productList['0'] = $this->lang->product->selectAProduct;
+        $this->view->productList = $productList;
+
+        $this->view->productID = $productID;
+        $this->display(); 
+    }
+
+    /**
      * view 
      * 
      * @param int $requestID 
@@ -118,57 +156,6 @@ class request extends control
         $this->view->faqList = $faqList;
         $this->view->request = $request;
         $this->display();
-    }
-
-    /**
-     * valuate
-     * 
-     * @param int $requestID 
-     * @access public
-     * @return void
-     */
-    public function valuate($requestID = 0) 
-    {
-        if(!empty($_POST))
-        {
-            $requestID = $this->post->requestID;
-            if(!$this->post->valuate)
-            {
-                die(js::confirm($this->lang->request->emptyValuate, inlink('view', "requestID=$requestID"))); 
-            }
-
-            $request = $this->request->getRequestByID($requestID);
-            if($request->customer != $this->app->user->id)
-            {
-                die($this->locate(inlink('browse'))); 
-            }
-            $this->request->valuate($requestID); 
-            if(dao::isError()) die(js::error(dao::getError()));
-            die(js::locate(inlink('view', "requestID=$requestID")));
-        }
-        die(js::locate(inlink('browse')));    
-    }
-
-    /**
-     * close 
-     * 
-     * @param  int $requestID 
-     * @param  string $confirm 
-     * @access public
-     * @return void
-     */
-    public function close($requestID, $confirm = 'no')
-    {
-        if($confirm == 'no')
-        {
-            echo js::confirm($this->lang->request->confirmClose, inLink('close', "requestID=$requestID&confirm=yes"));
-            die(js::locate($this->inLink('browse', "type={$this->session->type}")));
-        }
-        else
-        {
-            $this->request->close($requestID);
-            die(js::locate($this->inLink('browse', "type={$this->session->type}")));
-        }
     }
 
     /**
@@ -237,47 +224,30 @@ class request extends control
             {
                 echo js::alert($this->lang->request->emptyWarning);
                 die(js::reload('parent'));
- 
             }
         }
     }
 
     /**
-     * Create a request
-     *
-     * @param int $productID
+     * close 
+     * 
+     * @param  int $requestID 
+     * @param  string $confirm 
      * @access public
      * @return void
      */
-    public function create($productID = 0)
-    {  
-        if($_POST)
+    public function close($requestID, $confirm = 'no')
+    {
+        if($confirm == 'no')
         {
-            $requestID = $this->request->createRequest();
-            if(dao::isError()) die(js::error(dao::getError()));
-            die(js::locate(inlink('browse', 'type=wait&mode=front'), 'parent'));
-        }
-        if($productID == 0) 
-        {
-            $this->view->categories = ''; 
+            echo js::confirm($this->lang->request->confirmClose, inLink('close', "requestID=$requestID&confirm=yes"));
+            die(js::locate($this->inLink('browse', "type={$this->session->type}")));
         }
         else
         {
-            $categories = $this->category->getByProductID($productID);
-            $tmpArray = array();
-            foreach($categories as $category)
-            {
-                $tmpArray[$category->id] = $category->name;
-            }
-            $this->view->categories = $tmpArray;
+            $this->request->close($requestID);
+            die(js::locate($this->inLink('browse', "type={$this->session->type}")));
         }
-        $this->loadModel('product');
-        $productList = $this->product->getProductService();
-        $productList['0'] = $this->lang->product->selectAProduct;
-        $this->view->productList = $productList;
-
-        $this->view->productID = $productID;
-        $this->display(); 
     }
 
     /**
@@ -407,6 +377,35 @@ class request extends control
         $this->action->create('request', $requestID, 'commented', $this->post->comment);
         if(dao::isError()) die(js::error(dao::getError()));
         die(js::locate(inlink('view', $paramString), 'parent'));
+    }
+
+    /**
+     * valuate
+     * 
+     * @param int $requestID 
+     * @access public
+     * @return void
+     */
+    public function valuate($requestID = 0) 
+    {
+        if(!empty($_POST))
+        {
+            $requestID = $this->post->requestID;
+            if(!$this->post->valuate)
+            {
+                die(js::confirm($this->lang->request->emptyValuate, inlink('view', "requestID=$requestID"))); 
+            }
+
+            $request = $this->request->getRequestByID($requestID);
+            if($request->customer != $this->app->user->id)
+            {
+                die($this->locate(inlink('browse'))); 
+            }
+            $this->request->valuate($requestID); 
+            if(dao::isError()) die(js::error(dao::getError()));
+            die(js::locate(inlink('view', "requestID=$requestID")));
+        }
+        die(js::locate(inlink('browse')));    
     }
     
     /**

@@ -214,6 +214,14 @@ class userModel extends model
             /* Judge is admin or not. */
             $user->isAdmin = false;
             if($user->role == 'admin') $user->isAdmin = true;
+
+            $user->rights = array();
+            $rights       = $this->dao->select('t2.module, t2.method')->from(TABLE_GROUP)->alias('t1')
+                ->leftJoin(TABLE_GROUPPRIV)->alias('t2')->on('t1.id=t2.group')
+                ->where('t1.name')->eq($user->role)
+                ->fetchAll();
+
+            foreach($rights as $right) $user->rights[strtolower($right->module)][strtolower($right->method)] = true;
         }
         return $user;
     }
@@ -425,7 +433,7 @@ class userModel extends model
            $userData->realname = $user->realname;
            $userData->avatar   = $user->avatar;
            $userData->birthday = $user->birthday;
-           $userData->gendar   = $user->gendar;
+           $userData->gender   = $user->gender;
            $userData->company  = $user->company;
            $userData->email    = $user->email;
            $userData->msn      = $user->msn;

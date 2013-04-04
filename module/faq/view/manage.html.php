@@ -11,9 +11,15 @@
  */
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
-<table class='table-2 f-left' style='margin-left:10px'>  
+<style type='text/css'>
+hr {margin:0px;}
+</style>
+<table class='table-1 bd-none' align='center'>
+<tr valign='top'>
+<td class='w-200px' style='padding:0'>
+<table class='table-1'>
   <caption><?php echo $lang->faq->productList;?></caption>
-  <tr><td><?php echo html::select('product', $productList, $selectedProductID, 'class=select-3 onchange=switchProduct(this.value)');?></td></tr>
+  <tr><td><?php echo html::select('product', $productList, $selectedProductID, 'class=select-1 onchange=switchProduct(this.value)');?></td></tr>
   <?php if(!empty($categories)):?>
   <?php foreach($categories as $id => $category):?>
   <tr>
@@ -25,7 +31,9 @@
   <?php endforeach;?>
   <?php endif;?>
 </table>
-<table class='table-6 f-left' style='margin-left:10px'>  
+</td>
+<td style='padding:0'>
+<table class='table-1'>
   <caption><?php echo ($selectedProductID == '0'? $lang->product->all : $productList[$selectedProductID]) . $lang->arrow . $lang->faq->faqList;?></caption>
   <?php $i = 1; foreach($faqs as $id => $faq):?>
   <tr><td>
@@ -39,4 +47,5 @@
   </td></tr>
   <?php endforeach;?>
 </table>
+</td></tr></table>
 <?php include '../../common/view/footer.admin.html.php';?>

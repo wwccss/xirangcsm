@@ -12,7 +12,7 @@
 ?>
 <?php include '../../common/view/header.html.php';?>
 <div class='row' id='top' name='top'>
-  <div class='u-24-5'>
+  <div class='span2'>
     <div class='cont-left'>
       <div class='box-title'><?php echo $lang->faq->categoryList;?></div>
       <div class='box-content'>
@@ -32,7 +32,7 @@
       </div>
     </div>
   </div>
-  <div class='u-24-19'>
+  <div class='span10'>
     <div class='cont'>
       <div class='box-title'><?php echo $lang->faq->faqList;?></div>
       <div id="topic">

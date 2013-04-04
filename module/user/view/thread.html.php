@@ -1,9 +1,9 @@
 <?php include '../../common/view/header.html.php';?>
 <div class='row'>
-  <div class='u-24-5'>
+  <div class='span2'>
     <div class='cont-left'><?php include 'blockusermenu.html.php';?></div>
   </div>
-  <div class='u-24-19'>
+  <div class='span10'>
     <div class='cont'>
       <table class='table-1'>
       <caption><?php echo $lang->user->thread;?></caption>

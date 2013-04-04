@@ -11,7 +11,7 @@
  */
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
-<form method='post' target='hiddenwin'>
+<form method='post' target='hiddenwin' class='form-horizontal'>
   <table class='table-1 a-left' align='center'> 
     <caption><?php echo $group->desc . $lang->colon . $lang->group->managePriv;?> </caption>
     <tr>
@@ -25,8 +25,10 @@
         <?php $i = 1;?>
         <?php foreach($moduleActions as $action => $actionLabel):?>
         <div class='w-p20 f-left'>
-          <input type='checkbox' name='actions[<?php echo $moduleName;?>][]' value='<?php echo $action;?>' <?php if(isset($groupPrivs[$moduleName][$action])) echo "checked";?> />
-          <span class='priv' id=<?php echo $moduleName . '-' . $actionLabel;?>><?php echo $lang->$moduleName->$actionLabel;?></span>
+          <label class='checkbox'>
+            <input type='checkbox' name='actions[<?php echo $moduleName;?>][]' value='<?php echo $action;?>' <?php if(isset($groupPrivs[$moduleName][$action])) echo "checked";?> />
+            <span class='priv' id=<?php echo $moduleName . '-' . $actionLabel;?>><?php echo $lang->$moduleName->$actionLabel;?></span>
+          </label>
         </div>
         <?php if(($i %  4) == 0) echo "<div class='c-both'></div>"; $i ++;?>
         <?php endforeach;?>

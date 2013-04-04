@@ -33,8 +33,8 @@ $lang->user->message     = 'My message';
 $lang->user->errorDeny   = "Sorry, you don't have the permission to access <b>%s</b>'s<b>%s</b>. Please contact the administrator.";
 $lang->user->loginFailed = "Login failed, please check you account and password.";
 
-$lang->user->gendarList['m'] = 'Male';
-$lang->user->gendarList->['f'] = 'Female';
+$lang->user->genderList['m'] = 'Male';
+$lang->user->genderList->['f'] = 'Female';
 
 $lang->user->register->welcome    = 'Welcome to register as a member.';
 $lang->user->register->why        = 'After register, you can achieve mor features and services.';
@@ -86,7 +86,7 @@ $lang->user->nickname          = 'Nick name';
 $lang->user->role              = 'Role';
 $lang->user->avatar            = 'Avatar';
 $lang->user->birthday          = 'Birthday';
-$lang->user->gendar            = 'Gendar';
+$lang->user->gender            = 'Gender';
 $lang->user->email             = 'Email';
 $lang->user->msn               = 'MSN';
 $lang->user->qq                = 'QQ';

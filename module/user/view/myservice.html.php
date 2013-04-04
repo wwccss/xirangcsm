@@ -13,10 +13,10 @@
 <?php include '../../common/view/header.html.php';?>
 <?php include '../../common/view/datepicker.html.php';?>
 <div class='row'>
-  <div class='u-24-5'>
+  <div class='span2'>
     <div class='cont-left'><?php include 'blockusermenu.html.php';?></div>
   </div>
-  <div class='u-24-19'>
+  <div class='span10'>
     <div class='cont'>
     <table align='center' class='table-1'>
       <caption><div class='f-left'><?php echo $lang->user->myService;?></div></caption>

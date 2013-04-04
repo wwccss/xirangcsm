@@ -113,8 +113,8 @@ $lang->user->loginFailed   = "登录失败，请检查您的用户名或密码�
 $lang->user->lblRegistered = '恭喜您，已经成功注册。';
 $lang->user->submit   = '提交';
 
-$lang->user->gendarList['m'] = '男';
-$lang->user->gendarList['f'] = '女';
+$lang->user->genderList['m'] = '男';
+$lang->user->genderList['f'] = '女';
 
 $lang->user->register = new stdclass();
 $lang->user->register->welcome    = '欢迎注册成为会员';
@@ -166,7 +166,7 @@ $lang->user->nickname          = '昵称';
 $lang->user->role              = '角色';
 $lang->user->avatar            = '头像';
 $lang->user->birthday          = '出生月日';
-$lang->user->gendar            = '性别';
+$lang->user->gender            = '性别';
 $lang->user->email             = '邮箱';
 $lang->user->msn               = 'MSN';
 $lang->user->qq                = 'QQ';

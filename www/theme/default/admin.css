@@ -8,7 +8,7 @@
 * @link        http://www.zentao.net
 */
 html, body{background:#fff;}
-#docbox {width:100%; margin:auto; padding:auto}
+#docbox {width:100%; margin:auto; padding:auto; padding-top:60px;}
 .debugwin {background:white;}
 .table-1 {width:98%; margin-left:5px}
 #topmenu {background:#155991; color:white; font-size:14px; font-weight:bold;}
@@ -21,5 +21,7 @@ table th{height:25px;}
 .bd-none table{border:2px solid #9fa0a0;}
 fieldset{margin-left:5px;width:96.5%;}
 li{line-height:200%}
-#select {margin-bottom:1px;}
+#select {margin-bottom:1px; padding:0px; color:#000}
 #querybox table{margin:0px;}
+#logo {height:44px; line-height:44px; margin:0px; margin-right:20px; font-size:18px;}
+#profile{height:44px; line-height:44px;}

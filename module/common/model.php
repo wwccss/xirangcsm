@@ -120,35 +120,6 @@ class commonModel extends model
     }
 
     /**
-     * Check current user has priviledge to the module's method or not.
-     * 
-     * @todo add group priviledges.
-     * @param mixed $module     the module
-     * @param mixed $method     the method
-     * @static
-     * @access public
-     * @return bool
-     */
-    public function hasPriv($module, $method)
-    {
-        if($this->app->user->role == 'admin')
-        {
-            return true;
-        }
-        else
-        {
-            $priv = $this->dao->select('t1.id')->from(TABLE_GROUP)->alias('t1')
-                ->leftJoin(TABLE_GROUPPRIV)->alias('t2')->on('t1.id=t2.group')
-                ->where('t1.name')->eq($this->app->user->role)
-                ->andWhere('t2.module')->eq($module)
-                ->andWhere('t2.method')->eq($method)
-                ->fetchAll();
-            if($priv) return true;
-            return false;
-        }
-    }
-
-    /**
      * check API 
      * 
      * @access public
@@ -198,7 +169,7 @@ class commonModel extends model
             $referer  = helper::safe64Encode($this->app->getURI(true));
             die(js::locate(helper::createLink('user', 'login', "referer=$referer")));
         }
-        if(!$this->hasPriv($module, $method)) $this->deny($module, $method);
+        if(!common::hasPriv($module, $method)) $this->deny($module, $method);
     }
 
     /**
@@ -244,7 +215,7 @@ class commonModel extends model
         }
 
         /* Check the priviledge. */
-        if(!$this->hasPriv($module, $method)) $this->deny($module, $method);
+        if(!common::hasPriv($module, $method)) $this->deny($module, $method);
     }
 
     /**
@@ -265,5 +236,40 @@ class commonModel extends model
         }
         $denyLink = helper::createLink('user', 'deny', $vars);
         die(js::locate($denyLink));
+    }
+
+    /**
+     * Print the main menu.
+     *
+     * @param  string $moduleName
+     * @static
+     * @access public
+     * @return void
+     */
+    public static function printMainmenu($moduleName)
+    {
+        global $app, $lang;
+        echo "<ul class='nav'>\n";
+
+        /* Set the main main menu. */
+        $mainMenu = $moduleName;
+        $moduleParams = $app->getParams();
+        if(isset($lang->menugroup->$moduleName)) $mainMenu = $lang->menugroup->$moduleName;
+        if($mainMenu == 'user') $mainMenu = (isset($moduleParams['type']) and $moduleParams['type'] == 'inside') ? 'inside' : 'customer';
+
+        /* Print all main menus. */
+        foreach($lang->menu as $menuKey => $menu)
+        {
+            list($menuLabel, $module, $method, $params) = explode('|', $menu);
+
+            $active = $menuKey == $mainMenu ? "class='active'" : '';
+
+            if(common::hasPriv($module, $method))
+            {
+                $link  = helper::createLink($module, $method, $params);
+                echo "<li $active><a href='$link' id='menu$menuKey'>$menuLabel</a></li>\n";
+            }
+        }
+        echo '</ul>';
     }
 }

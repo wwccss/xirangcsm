@@ -10,7 +10,7 @@
  * @link        http://www.zentao.net
  */
 ?>
-<?php include '../../common/view/header.html.php';?>
+<?php include '../../common/view/header.admin.html.php';?>
 <?php include '../../common/view/datepicker.html.php';?>
 <form method='post' enctype='multipart/form-data' target='hiddenwin'>
 <table class='table-5 fixed' align='center'>

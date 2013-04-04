@@ -11,7 +11,7 @@
  */
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
-<form method='post' target='hiddenwin'>
+<form method='post' target='hiddenwin' class='form-horizontal'>
 <table class='table-1 fixed' align='center'>
   <caption><?php echo $lang->setting->syncConfig?></caption>
   <tr>

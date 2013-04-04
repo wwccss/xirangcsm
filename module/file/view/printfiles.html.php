@@ -27,7 +27,7 @@ function downloadFile(fileID)
       foreach($files as $file)
       {
           if(common::hasPriv('file' , 'download')) echo html::a($this->createLink('file', 'download', "fileID=$file->id"), $file->title .'.' . $file->extension, '_blank', "onclick='return downloadFile($file->id)'");
-          if($this->app->user->account == $file->addedBy)    echo html::commonButton(' x ', "onclick='deleteFile($file->id)'");
+          if($this->app->user->account == $file->addedBy)    echo html::commonButton('', " class='delete-icon' onclick='deleteFile($file->id)'");
       }
   }
   ?>

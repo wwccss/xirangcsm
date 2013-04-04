@@ -13,10 +13,10 @@
 <?php if(RUN_MODE == 'front'):?>
 <?php include '../../common/view/header.html.php';?>
 <div class='row'>
-  <div class='u-24-5'>
+  <div class='span2'>
     <div class='cont-left'><?php include $this->app->getModulePath('user') . 'view/blockusermenu.html.php';?></div>
   </div>
-<div class='u-24-19'>
+<div class='span10'>
 <?php else:?>
 <?php include '../../common/view/header.admin.html.php';?>
 <?php endif;?>

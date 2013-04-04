@@ -14,7 +14,7 @@
 <table class='table-1 bd-none' align='center'>
   <tr valign='top'>
     <td class='w-200px' class='a-left' style='padding:0'>
-      <form method='post' target='hiddenwin' action='<?php echo $this->inLink('updateOrder');?>'>
+      <form method='post' target='hiddenwin' action='<?php echo $this->inLink('updateOrder');?>' class='form-horizontal'>
       <table width='100%'>
         <caption><?php echo $lang->category->categoryManage;?></caption>  
         <?php if($productList):?>
@@ -27,7 +27,7 @@
             {
               foreach($categories as $category)
               {
-                  echo '<li>';
+                  echo "<li class='mb-10px'>";
                   echo $category->name . ' ';
                   echo html::a($this->inLink('delete', "categoryID=$category->id"), $lang->delete, 'hiddenwin');
                   echo html::input("orders[$category->id]", "$category->order", 'style="width:20px"');

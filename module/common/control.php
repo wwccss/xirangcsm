@@ -63,7 +63,16 @@ class common extends control
     public static function hasPriv($module, $method)
     {
         global $app;
-        return true;
+
+        /* Check is the super admin or not. */
+        if($app->user->role == 'admin') return true;
+        
+        if(strpos($method, 'ajax') === 0) return true;
+
+        /* If not super admin, check the rights. */
+        $rights  = $app->user->rights;
+        if(isset($rights[strtolower($module)][strtolower($method)])) return true;
+        return false;
     }
 
     /**

@@ -10,9 +10,9 @@
  * @link        http://www.zentao.net
  */
 ?>
-<?php include '../../common/view/header.html.php';?>
+<?php include '../../common/view/header.admin.html.php';?>
 <?php include '../../common/view/datepicker.html.php';?>
-<form method='post' enctype='multipart/form-data' target='hiddenwin'>
+<form method='post' enctype='multipart/form-data' target='hiddenwin' class='form-horizontal'>
 <table class='table-5 fixed' align='center'>
   <?php if($type == 'inside'): ?>
   <caption><?php echo $lang->user->inside->createProfile;?></caption>
@@ -37,13 +37,13 @@
     <td><?php echo html::input('realname', '', "class='text-3'");?></td>
   </tr>  
   <tr>
-    <td align='right'><?php echo $lang->user->gendar;?></td>
-    <td><?php echo html::select('gendar', $lang->user->gendarList, '', "class='text-3'");?></td>
+    <td align='right'><?php echo $lang->user->gender;?></td>
+    <td><?php echo html::select('gender', $lang->user->genderList, '', "class='select-3'");?></td>
   </tr>  
   <?php if($type == 'inside'): ?>
   <tr>
     <td align='right'><?php echo $lang->user->role;?></td>
-    <td><?php echo html::select('role', $lang->user->roleList, '', "class='text-3'");?></td>
+    <td><?php echo html::select('role', $lang->user->roleList, '', "class='select-3'");?></td>
   </tr>  
   <?php endif; ?>
   <tr>

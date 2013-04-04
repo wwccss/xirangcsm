@@ -81,7 +81,7 @@ $lang->install->saved2File = '配置信息已经成功保存到" <strong>%s</str
 $lang->install->errorNotSaveConfig = '还没有保存配置文件';
 
 $lang->install->getPriv  = '分配权限';
-$lang->install->site     = '站点名称';
+$lang->install->company  = '公司名称';
 $lang->install->account  = '管理员帐号';
 $lang->install->password = '管理员密码';
 $lang->install->errorEmptyPassword = '密码不能为空';

@@ -314,6 +314,7 @@ class installModel extends model
         $admin->id       = 100000;
         $admin->account  = $this->post->account;
         $admin->realname = $this->post->account;
+        $admin->company  = $this->post->company;
         $admin->password = md5($this->post->password);
         $admin->role     = 'admin';
         $this->dao->insert(TABLE_USER)->data($admin)->autoCheck()->check('account', 'notempty')->exec();

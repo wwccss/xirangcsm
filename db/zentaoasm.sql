@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `zt_user` (
   `nickname` char(60) NOT NULL default '',
   `avatar` char(30) NOT NULL default '',
   `birthday` date NOT NULL default '0000-00-00',
-  `gendar` enum('f','m') NOT NULL default 'f',
+  `gender` enum('f','m') NOT NULL default 'f',
   `company` varchar(255) NOT NULL,
   `email` char(90) NOT NULL default '',
   `msn` char(90) NOT NULL default '',

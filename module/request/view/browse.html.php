@@ -13,15 +13,16 @@
 <?php if(RUN_MODE == 'front'):?>
 <?php include '../../common/view/header.html.php';?>
 <div class='row'>
-<div class='u-24-5'>
+<div class='span2'>
   <div class='cont-left'><?php include $this->app->getModulePath('user') . 'view/blockusermenu.html.php'?></div>
 </div>
-<div class='u-24-19'>
+<div class='span10'>
 <?php else: ?>
 <?php include '../../common/view/header.admin.html.php';?>
 <?php include '../../common/view/alert.html.php';?>
-<style>
+<style type='text/css'>
 #select{height:auto;}
+#requestData{margin-top:40px;}
 </style>
 <?php endif;?>
 <script type='text/javascript'>
@@ -30,45 +31,30 @@ $(function(){
      $('#' + browseType).addClass('active');
 });
 </script>
-<table align='center' class='table-1 fixed mb-zero'>
-  <caption class='f-14px'>
-<!-- Show tag of request. -->
-    <div class='f-left' id='tag'>
-    <?php
+<ul class='nav nav-tabs table-1 <?php echo RUN_MODE == 'admin' ? 'affix' : '' ?>'>
+<?php
+    if(RUN_MODE == 'admin') echo "<li id='byassignedToMeTab'>". html::a(inLink('browse', "type=assignedToMe"), $lang->request->assignedToMe) . '</li>';
+
+    echo "<li id='byallTab'>" . html::a(inLink('browse', "type=all"), $lang->request->all) . '<li>';
+
+    foreach($lang->request->statusList as $statusName => $statusLabel) echo "<li id='by$statusName" . "Tab'>" . html::a(inLink('browse', "type=$statusName"), $statusLabel) . '</li>';
+
     if(RUN_MODE == 'admin')
     {
-      echo html::a(inLink('browse', "type=assignedToMe"), $lang->request->assignedToMe, '', "id='byassignedToMeTab'");
+      echo "<li id='byallowedClosedTab'>" . html::a(inLink('browse', "type=allowedClosed"), $lang->request->allowedClosed) . '</li>';
+      echo "<li id='byrepliedByMeTab'>" . html::a(inLink('browse', "type=repliedByMe"), $lang->request->repliedByMe) . '</li>';
+      echo "<li id='bysearchTab'>" . html::a(inLink('browse', "type=search"), $lang->request->search) . '<li>';
     }
-    echo html::a(inLink('browse', "type=all"), $lang->request->all, '', "id='byallTab'");
-    foreach($lang->request->statusList as $statusName => $statusLabel)
-    {
-      echo html::a(inLink('browse', "type=$statusName"), $statusLabel, '', "id='by$statusName" . 'Tab' . "'");
-    }
-    if(RUN_MODE == 'admin')
-    {
-      echo html::a(inLink('browse', "type=allowedClosed"), $lang->request->allowedClosed, '', "id='byallowedClosedTab'");
-      echo html::a(inLink('browse', "type=repliedByMe"), $lang->request->repliedByMe, '',  "id='byrepliedByMeTab'");
-      echo html::a(inLink('browse', "type=search"), $lang->request->search, '', "id='bysearchTab'");
-    }
-    ?>
-    </div>
-<!-- end show tag. -->
-  </caption>
-</table>
-<!-- show search. -->
-<?php if(RUN_MODE != 'front'):?>
-<table align='center' class='table-1 fixed <?php if($type !='search') echo 'hidden';?>' id='select'>
-  <tr>
-    <td>
-      <div id='querybox' class='<?php if($type !='search') echo 'hidden';?>'><?php echo $searchForm;?></div>
-    </td>
-  </tr>
-</table>
-<?php endif;?>
-</table>
+?>
+</ul>
 <!-- show header of table. -->
 <?php $vars = "type=$type&param=$param&orderBy=%s&recTotal=$recTotal&recPerPage=$recPerPage&userID=$userID"; ?>
-<table align='center' class='table-1 fixed tablesorter'>
+<table align='center' class='table-1 fixed tablesorter' id='requestData'>
+<?php if(RUN_MODE != 'front'):?>
+  <caption id='select' class='<?php if($type !='search') echo 'hidden';?>'>
+    <div id='querybox' class='<?php if($type !='search') echo 'hidden';?>'><?php echo $searchForm;?></div>
+  </caption>
+<?php endif;?>
   <thead>
   <tr>
     <th class='w-id'>    <?php common::printOrderLink('id',        $orderBy, $vars, $lang->request->id);?></th>
@@ -82,7 +68,7 @@ $(function(){
     <th class='w-user' id='assigned'> <?php common::printOrderLink('assignedTo', $orderBy, $vars, $lang->request->assignedTo);?></th>
     <?php endif;?>
     <th class='w-80px'>  <?php common::printOrderLink('repliedDate', $orderBy, $vars, $lang->request->repliedDate);?></th>
-    <th class='w-200px' {sorter:false}> <?php echo $lang->actions;?></th>
+    <th class='<?php echo RUN_MODE == 'front' ? 'w-100px' : 'w-200px'?>' {sorter:false}> <?php echo $lang->actions;?></th>
   </tr>
   </thead>
 <!-- show request of content. -->

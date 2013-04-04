@@ -28,6 +28,7 @@ $config->request->search['params']['closedDate']  = array('operator' => '>=',   
 $config->request->search['params']['repliedDate'] = array('operator' => '>=',       'control' => 'input', 'values' => '', 'class' => 'date');
 
 $config->request->editor = new stdclass();
+$config->request->editor->create    = array('id' => 'desc' , 'tools' => 'simpleTools');
 $config->request->editor->edit      = array('id' => 'desc' , 'tools' => 'simpleTools');
 $config->request->editor->view      = array('id' => 'comment,reply,evaluation' , 'tools' => 'simpleTools');
 $config->request->editor->request   = array('id' => 'desc' , 'tools' => 'simpleTools');

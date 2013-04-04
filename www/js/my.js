@@ -217,10 +217,9 @@ function setForm()
         submitObj   = $(this).find(':submit');
         if($(submitObj).size() == 1)
         {
-            submitLabel = $(submitObj).attr('value');
+            submitLabel = $(submitObj).html();
+            $(submitObj).html(config.submitting);
             $(submitObj).attr('disabled', 'disabled');
-            $(submitObj).attr('value', config.submitting);
-            $(submitObj).addClass('button-d');
             formClicked = true;
         }
     });
@@ -230,8 +229,7 @@ function setForm()
         if(formClicked)
         {
             $(submitObj).removeAttr('disabled');
-            $(submitObj).attr('value', submitLabel);
-            $(submitObj).removeClass('button-d');
+            $(submitObj).html(submitLabel);
         }
         formClicked = false;
     });

@@ -112,7 +112,6 @@ class user extends control
                 if(RUN_MODE == 'admin') die(js::locate($this->createLink($this->config->default->module), 'parent'));
 
                 /* Goto the referer or to the default module */
-
                 if($this->post->referer != false and 
                    strpos($this->post->referer, $loginLink) === false and 
                    strpos($this->post->referer, $denyLink)  === false and 
@@ -223,10 +222,12 @@ class user extends control
      * @access public
      * @return void
      */
-    public function profile()
+    public function profile( $userID = '', $type = 'customer')
     {
         if($this->app->user->account == 'guest') $this->locate(inlink('login'));
-        $this->view->user = $this->user->getByID($this->app->user->id);
+        $userID = empty($userID) ? $this->app->user->id : $userID;
+        $this->view->user = $this->user->getByID($userID);
+        $this->view->type = $type;
         $this->display();
     }
 
@@ -498,8 +499,8 @@ class user extends control
     public function ajaxGetUser($requestID = '', $assignedTo = '')
     {
         $users = $this->user->getPairs('noCustomer, noclosed');
-        $html = "<form method='post' target='hiddenwin' action='" . $this->createLink('request', 'assignedTo', "requestID=$requestID") . "'>";
-        $html .= html::select('assignedTo', $users, $assignedTo);
+        $html = "<form method='post' target='hiddenwin' class='mb-zero form-horizontal' action='" . $this->createLink('request', 'assignedTo', "requestID=$requestID") . "'>";
+        $html .= html::select('assignedTo', $users, $assignedTo, "class='select-2'");
         $html .= html::submitButton();
         $html .= '</form>';
         echo $html;

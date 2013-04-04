@@ -16,18 +16,19 @@
 .button-s, .button-r, .button-c {padding:3px} 
 .select-1 {width:80%}
 .text-2{margin-bottom:2px; width:123px}
-.select-2{margin-bottom:2px}
 .date{width:104px}
+.operator {width:90px}
+.field {width:200px}
+#groupAndOr, .andOr{width:65px;}
 </style>
 <script language='Javascript'>
 
 $(function() {
-    $(".date").datePicker({createButton:true, startDate:startDate})
-        .bind('click', function() {
-            $(this).dpDisplay();
-            this.blur();
-            return false;
-    });
+    $(".date").datepicker({
+        showOn: "button",
+        buttonImage: "/theme/default/images/datepicker/calendar.gif",
+        dateFormat:formatDate
+    })
 });
 
 var params        = <?php echo json_encode($fieldParams);?>;
@@ -52,12 +53,11 @@ function setField(fieldName, fieldNO)
 
     if(typeof(params[fieldName]['class']) != undefined && params[fieldName]['class'] == 'date')
     {
-        $("#value" + fieldNO).datePicker({createButton:true, startDate:startDate})
-            .bind('click', function() {
-                $(this).dpDisplay();
-                this.blur();
-                return false;
-            });
+        $("#value" + fieldNO).datepicker({
+        showOn: "button",
+        buttonImage: "/theme/default/images/datepicker/calendar.gif",
+        dateFormat:formatDate
+        });
         $("#value" + fieldNO).addClass('date');   // Shortcut the width of the datepicker to make sure align with others. 
         var groupItems = <?php echo $config->search->groupItems?>;
         var maxNO      = 2 * groupItems;
@@ -69,12 +69,11 @@ function setField(fieldName, fieldNO)
             $('#operator' + nextNO).val('<=');
             $('#valueBox' + nextNO).html($('#box' + fieldName).children().clone());
             $('#valueBox' + nextNO).children().attr({name : 'value' + nextNO, id : 'value' + nextNO});
-            $("#value" + nextNO).datePicker({createButton:true, startDate:startDate})
-                .bind('click', function() {
-                    $(this).dpDisplay();
-                    this.blur();
-                    return false;
-                });
+            $("#value" + nextNO).datepicker({
+                showOn: "button",
+                buttonImage: "/theme/default/images/datepicker/calendar.gif",
+                dateFormat:formatDate
+            });
             $("#value" + nextNO).addClass('date');
         }
     }
@@ -194,7 +193,7 @@ foreach($fieldParams as $fieldName => $param)
 }
 ?>
 </div>
-<form method='post' action='<?php echo $this->createLink('search', 'buildQuery');?>' target='hiddenwin' id='searchform'>
+<form method='post' action='<?php echo $this->createLink('search', 'buildQuery');?>' target='hiddenwin' id='searchform' class='form-horizontal'>
 <table width='100%'>
   <tr valign='middle'>
     <th width='10'><span id='searchicon'>&nbsp;</span></th>
@@ -216,13 +215,13 @@ foreach($fieldParams as $fieldName => $param)
 
           /* Print and or. */
           if($i == 1) echo "<span id='searchgroup1'><strong>{$lang->search->group1}</strong></span>" . html::hidden("andOr$fieldNO", 'AND');
-          if($i > 1)  echo "<br />" . html::select("andOr$fieldNO", $lang->search->andor, $formSession["andOr$fieldNO"]);
+          if($i > 1)  echo "<br />" . html::select("andOr$fieldNO", $lang->search->andor, $formSession["andOr$fieldNO"], "class='andOr'");
 
           /* Print field. */
-          echo html::select("field$fieldNO", $searchFields, $formSession["field$fieldNO"], "onchange='setField(this.value, $fieldNO)'");
+          echo html::select("field$fieldNO", $searchFields, $formSession["field$fieldNO"], "onchange='setField(this.value, $fieldNO)' class='field'");
 
           /* Print operator. */
-          echo html::select("operator$fieldNO", $lang->search->operators, $formSession["operator$fieldNO"]);
+          echo html::select("operator$fieldNO", $lang->search->operators, $formSession["operator$fieldNO"], "class='operator'");
 
           /* Print value. */
           echo "<span id='valueBox$fieldNO'>";
@@ -256,13 +255,13 @@ foreach($fieldParams as $fieldName => $param)
 
           /* Print and or. */
           if($i == 1) echo "<span id='searchgroup2'><strong>{$lang->search->group2}</strong></span>" . html::hidden("andOr$fieldNO", 'AND');
-          if($i > 1)  echo "<br />" . html::select("andOr$fieldNO", $lang->search->andor, $formSession["andOr$fieldNO"]);
+          if($i > 1)  echo "<br />" . html::select("andOr$fieldNO", $lang->search->andor, $formSession["andOr$fieldNO"], "class='andOr'");
 
           /* Print field. */
-          echo html::select("field$fieldNO", $searchFields, $formSession["field$fieldNO"], "onchange='setField(this.value, $fieldNO)'");
+          echo html::select("field$fieldNO", $searchFields, $formSession["field$fieldNO"], "onchange='setField(this.value, $fieldNO)' class='field'");
 
           /* Print operator. */
-          echo html::select("operator$fieldNO", $lang->search->operators, $formSession["operator$fieldNO"]);
+          echo html::select("operator$fieldNO", $lang->search->operators, $formSession["operator$fieldNO"], "class='operator'");
 
           /* Print value. */
           echo "<span id='valueBox$fieldNO'>";
@@ -297,7 +296,7 @@ foreach($fieldParams as $fieldName => $param)
     <td width='250' class='a-center'>
       <?php
       echo html::select('queryID', $queries, $queryID, 'class=select-1 onchange=executeQuery(this.value)');
-      if(common::hasPriv('search', 'deleteQuery')) echo html::a('javascript:deleteQuery()', '&nbsp;', '', 'class="icon-delete"');
+      if(common::hasPriv('search', 'deleteQuery')) echo html::a('javascript:deleteQuery()', '&nbsp;', '', 'class="delete-icon"');
       ?>
     </td>
     <th width='10' class='a-center' style='cursor:pointer; padding:0'>
