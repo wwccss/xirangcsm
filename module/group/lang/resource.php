@@ -72,6 +72,10 @@ $lang->resource->group->managePriv   = 'managePriv';
 $lang->resource->setting = new stdclass();
 $lang->resource->setting->setConfig = 'setConfig';
 
+/* Company. */
+$lang->resource->company = new stdclass();
+$lang->resource->company->edit = 'edit';
+
 /* Search. */
 $lang->resource->search = new stdclass();
 $lang->resource->search->buildForm    = 'buildForm';
@@ -79,13 +83,6 @@ $lang->resource->search->buildQuery   = 'buildQuery';
 $lang->resource->search->saveQuery    = 'saveQuery';
 $lang->resource->search->deleteQuery  = 'deleteQuery';
 $lang->resource->search->select       = 'select';
-
-/* Admin. */
-$lang->resource->admin = new stdclass();
-$lang->resource->admin->index    = 'index';
-$lang->resource->admin->topMenu  = 'topMenu';
-$lang->resource->admin->leftMenu = 'leftMenu';
-$lang->resource->admin->footer   = 'footer';
 
 /* Others. */
 $lang->resource->misc = new stdclass();

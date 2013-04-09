@@ -11,7 +11,7 @@
  */
 ?>
 <?php include '../../common/view/header.admin.html.php'?>
-<table align='center' class='table-1'>
+<table align='center' class='table-1 table-bordered'>
   <caption>
     <div class='f-left'><?php if($type == 'customer') echo $lang->user->customer->manage; else echo $lang->user->inside->manage;?></div>
     <div class='f-right'><?php if($type == 'customer' and $this->app->user->role != 'support') echo html::a($this->createLink('user', 'create', "type=$type"), $lang->user->customer->create); elseif($type == 'inside' and $this->app->user->role == 'admin') echo html::a($this->createLink('user', 'create', "type=$type"), $lang->user->inside->create);?></div>
@@ -48,6 +48,7 @@
     <?php if($type == 'customer'): ?>
     <td class='a-center'>
       <?php 
+      if(common::hasPriv('user', 'profile')) echo html::a($this->createLink('user', 'profile', "userID=$user->id&type=customer"), $lang->user->view);
       if($type == 'customer') echo $this->app->user->role != 'support' ? html::a($this->createLink('user', 'manageServiceTime', "userID=$user->id"), $lang->user->manageServiceTime) : $lang->user->manageServiceTime;
       echo $this->app->user->role != 'support' ? html::a($this->createLink('user', 'edit', "userID=$user->id&type=$type"), $lang->user->edit) : $lang->user->edit;
       if(!$user->forbid)

@@ -18,7 +18,7 @@
   </div>
   <div class='span10'>
     <div class='cont'>
-    <table align='center' class='table-1'>
+    <table align='center' class='table-1 table-bordered'>
       <caption><div class='f-left'><?php echo $lang->user->myService;?></div></caption>
       <tr>
         <th class='w-100px'><?php echo $lang->user->serviceID;?></th>

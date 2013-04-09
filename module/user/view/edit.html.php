@@ -20,7 +20,7 @@
   <?php endif;?>
   <div <?php if(RUN_MODE == 'front') echo "class='span10'"?>>
     <form method='post' enctype='multipart/form-data' target='hiddenwin' class='form-horizontal'>
-      <table class='table-5' <?php if(RUN_MODE == 'admin') echo "align='center'"?>>
+      <table class='table-5 table-bordered' <?php if(RUN_MODE == 'admin') echo "align='center'"?>>
         <caption><?php if($type == 'customer') echo $lang->user->customer->editProfile; else echo $lang->user->inside->editProfile;?></caption>
         <tr>
           <td class='w-150px' align='right'><?php echo $lang->user->account;?></td>

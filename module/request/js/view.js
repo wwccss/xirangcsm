@@ -6,6 +6,7 @@ function switchFAQ(requestID, editReplyID, faqID)
 function showReply()
 {
     $('#replyDiv').show();
+    window.scrollTo(0, document.body.scrollHeight);
 }
 
 $(document).ready(function()
@@ -25,5 +26,12 @@ $(document).ready(function()
    $("#valuateButton").click(function()
    {
        $("#valuate").toggle();
+   });
+
+   $('#requestCont').width($('#requestCont').width()); 
+   $('#requestCont').affix({
+     offset: {
+       top: function(){return run_mode == 'admin' ? 0 : 90;}
+     }
    });
 });

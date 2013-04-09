@@ -12,8 +12,8 @@
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
 <?php include '../../common/view/kindeditor.html.php';?>
-<form method='post'>
-<table class='table-1' align='center'>
+<form method='post' target='hiddenwin'>
+<table class='table-1 table-bordered' align='center'>
   <caption><?php echo $lang->faq->create;?></caption>
     <tr>
       <th><?php echo $lang->faq->title;?></th>

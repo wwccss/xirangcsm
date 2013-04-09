@@ -13,7 +13,7 @@
 <?php include '../../common/view/header.admin.html.php';?>
 <?php include '../../common/view/datepicker.html.php';?>
 <form method='post' enctype='multipart/form-data' target='hiddenwin'>
-<table class='table-5 fixed' align='center'>
+<table class='table-5 fixed table-bordered' align='center'>
   <caption><?php echo $lang->user->addProductService;?></caption>
   <tr>
     <td class='w-120px' align='right'><?php echo $lang->user->product;?></td>

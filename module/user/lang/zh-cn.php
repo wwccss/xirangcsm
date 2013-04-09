@@ -11,7 +11,7 @@
  */
 $lang->user->common         = '用户';
 $lang->user->index          = "首页";
-$lang->user->view           = "用户详情";
+$lang->user->view           = "详情";
 $lang->user->create         = "添加用户";
 $lang->user->edit           = "编辑用户";
 $lang->user->update         = "编辑用户";
@@ -182,7 +182,7 @@ $lang->user->join              = '加入日期';
 $lang->user->visits            = '访问次数';
 $lang->user->ip                = '最后IP';
 $lang->user->last              = '最后登录时间';
-$lang->user->manageServiceTime = '服务期限管理';
+$lang->user->manageServiceTime = '服务期限';
 $lang->user->serviceTime       = '服务截止时间';
 $lang->user->status            = '状态';
 $lang->user->alert             = '您的帐号已被禁用';
@@ -196,6 +196,7 @@ $lang->user->roleList['servicer'] = '客服';
 $lang->user->roleList['manager']  = '客服经理';
 $lang->user->roleList['support']  = '技术人员';
 $lang->user->roleList['admin']    = '系统管理员';
+$lang->user->roleList['customer'] = '客户';
 
 $lang->user->customer->onemonth     = '一个月';
 $lang->user->customer->twomonthes   = '两个月';

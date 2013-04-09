@@ -15,6 +15,7 @@ $lang->at           = ' 于 ';
 $lang->downArrow    = '↓';
 
 $lang->zentaoasm    = '禅道售后管理软件';
+$lang->frontName    = '售后管理系统';
 $lang->easysoft     = '青岛易软天创网络科技有限公司';
 $lang->poweredBy    = "powered by <a href='http://www.zentao.net/goto.php?item=zentaoasm' target='_blank'>zentaoASM %s</a>";
 $lang->homePage     = '首页';
@@ -77,6 +78,7 @@ $lang->menu->inside   = '内部管理|user|browse|type=inside|';
 $lang->menu->customer = '客户管理|user|browse|type=customer|';
 $lang->menu->group    = '权限管理|group|browse|';
 $lang->menu->setting  = '系统设置|setting|setConfig|';
+$lang->menu->company  = '公司设置|company|edit|';
 
 /* The error messages. */
 $lang->error = new stdclass();

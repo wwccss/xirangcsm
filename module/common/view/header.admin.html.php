@@ -1,5 +1,5 @@
 <?php include 'header.lite.html.php';?>
-<div class='navbar navbar-fixed-top'>
+<div class='navbar navbar-fixed-top navbar-inverse'>
   <div class='navbar-inner'>
     <h2 id='logo' class='f-left'><?php echo $lang->zentaoasm?></h2>
     <?php commonModel::printMainmenu($this->moduleName);?>

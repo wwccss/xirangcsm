@@ -12,7 +12,7 @@ include '../../common/view/header.lite.html.php';
 ?>
 <div class='row' style='margin-top:100px'>
   <div>
-  <table align='center' class='table-3 bg-white'> 
+  <table align='center' class='table-3 bg-white table-bordered'> 
     <caption><?php echo $app->user->account, ' ', $lang->user->deny;?></caption>
     <tr>
       <td>

@@ -44,7 +44,7 @@ hr      {border:none; border-top:1px solid #e4e4e4}
 .button-d{padding:3px 20px 3px 20px}
 
 /*-----------------------TABLE SETTING----------------------------*/
-table, th, td {border:1px solid #92c8f5;}
+table, th, td {border-top:1px solid #999;}
 tr, th, td    {padding:2px 3px 2px 5px}
 
 caption       {height:20px; margin:0; padding:3px 0 0 10px; text-align:left; border:solid 1px #92C8F5; font-weight:bold; background:url(./images/default/bg.title.1.png);}
@@ -62,7 +62,7 @@ caption a     {text-decoration:none}
 .table-6 {width:800px;margin-bottom:10px}
 
 .colhead th  {text-align:center; background:url('./images/default/bg.title.1.png')}
-.bd-none table  {border:1px solid #92C8F5}
+.bd-none table  {border:1px solid #ddd}
 .bd-none tr, .bd-none th, .bd-none td {border:none}
 
 .rowhead {font-weight:bold; text-align:right; width:100px}

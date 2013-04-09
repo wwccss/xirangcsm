@@ -11,7 +11,7 @@
  */
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
-<table align='center' class='table-1'>
+<table align='center' class='table-1 table-bordered'>
   <caption><?php echo $lang->group->managePriv?></caption>
   <thead>
   <tr>

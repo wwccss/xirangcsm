@@ -18,7 +18,7 @@
   </div>
   <div class='span10'>
     <form method='post' target='hiddenwin' enctype='multipart/form-data'>
-      <table align='center' class='table-1'>
+      <table align='center' class='table-1 table-bordered'>
         <caption><?php echo $lang->request->ask;?></caption>
         <tr>
           <th><?php echo $lang->request->product;?></th>

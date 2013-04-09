@@ -49,7 +49,7 @@ $(function(){
 </ul>
 <!-- show header of table. -->
 <?php $vars = "type=$type&param=$param&orderBy=%s&recTotal=$recTotal&recPerPage=$recPerPage&userID=$userID"; ?>
-<table align='center' class='table-1 fixed tablesorter' id='requestData'>
+<table align='center' class='table-1 fixed tablesorter table-bordered' id='requestData'>
 <?php if(RUN_MODE != 'front'):?>
   <caption id='select' class='<?php if($type !='search') echo 'hidden';?>'>
     <div id='querybox' class='<?php if($type !='search') echo 'hidden';?>'><?php echo $searchForm;?></div>
@@ -90,7 +90,7 @@ $(function(){
     <?php 
     if($request->status != 'closed' and RUN_MODE == 'admin') 
     {
-      echo html::a(inlink('view', "requestID=$request->id&editReplyID=0&viewType=reply"), $lang->request->reply);
+      echo html::a(inlink('view', "requestID=$request->id&editReplyID=0&viewType=reply") . '#replyDiv', $lang->request->reply);
       echo html::a("javascript:assignedTo($request->id, $request->assignedToID)", $lang->request->assign);
     }
     if($request->status != 'closed' && $request->status != 'wait' && RUN_MODE == 'admin' && $this->config->api->openSync)

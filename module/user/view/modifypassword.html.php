@@ -19,7 +19,7 @@
   <div class='span10'>
     <div class='cont'>
       <form method='post' enctype='multipart/form-data' target='hiddenwin'>
-        <table class='table-1'>
+        <table class='table-1 table-bordered'>
           <caption class='a-left'><?php echo $lang->user->modifyPassword; ?></caption>
           <tr>
             <td align='right'><?php echo $lang->user->oldPassword; ?></td>

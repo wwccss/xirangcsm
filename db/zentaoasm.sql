@@ -18,6 +18,12 @@ CREATE TABLE IF NOT EXISTS `zt_category` (
   `product` mediumint(8) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+-- DROP TABLE IF EXISTS `zt_company`;
+CREATE TABLE `zt_company` (
+  `id` MEDIUMINT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+  PRIMARY KEY ( `id` ) 
+) ENGINE = MYISAM;
 -- DROP TABLE IF EXISTS `zt_config`;
 CREATE TABLE IF NOT EXISTS `zt_config` (
   `id` mediumint(8) unsigned NOT NULL auto_increment,

@@ -13,15 +13,13 @@ html, body{background:#fff;}
 .table-1 {width:98%; margin-left:5px}
 #topmenu {background:#155991; color:white; font-size:14px; font-weight:bold;}
 #footer  {background:#155991; color:white; padding-top:5px}
-caption {background:#898989; border:none; color:#fff; margin-bottom:5px;}
-caption a{color:#f0f0f0;}
-table{border:2px solid #9fa0a0;}
+caption {background:#ddd; border:1px solid #ddd; color:#222; margin-bottom:5px;}
+caption a{color:#222;}
 table td, th{border-color:#9fa0a0;height:25px;}
 table th{height:25px;}
-.bd-none table{border:2px solid #9fa0a0;}
 fieldset{margin-left:5px;width:96.5%;}
 li{line-height:200%}
 #select {margin-bottom:1px; padding:0px; color:#000}
 #querybox table{margin:0px;}
-#logo {height:44px; line-height:44px; margin:0px; margin-right:20px; font-size:18px;}
+#logo {height:44px; line-height:44px; margin:0px; margin-right:20px; font-size:18px; color:#999}
 #profile{height:44px; line-height:44px;}

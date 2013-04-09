@@ -26,8 +26,8 @@ $app = router::createApp('asm', dirname(dirname(__FILE__)));
 /* Change the request settings. */
 $config->frontRequestType = $config->requestType;
 $config->requestType = 'GET';
-$config->default->module = 'admin'; 
-$config->default->method = 'index';
+$config->default->module = 'request'; 
+$config->default->method = 'browse';
 
 /* Return the config. */
 if(isset($_GET['mode']) and $_GET['mode'] == 'getconfig') die($app->exportConfig());  // 

@@ -11,7 +11,7 @@
  */
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
-<table align='center' class='table-1'>
+<table align='center' class='table-1 table-bordered'>
   <caption>
     <div class='f-left'><?php echo $lang->user->manageServiceTime . '&#160&#160&#160&#160&#160'. $lang->user->account . ':' . $user->account . '&#160&#160&#160&#160&#160' . $lang->user->realname . ':' . $user->realname;?></div>
     <div class='f-right'><?php echo html::a($this->createLink('user', 'addProductService', "userID=$user->id"), $lang->user->addProductService);?></div>

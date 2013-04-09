@@ -23,6 +23,7 @@ class common extends control
         $this->common->startSession();
         $this->common->sendHeader();
         $this->common->setEncodeing();
+        $this->common->setCompany();
         $this->common->setUser();
         $this->common->setConfig();
     }

@@ -11,7 +11,7 @@
 ?>
 <?php include '../../common/view/header.lite.html.php';?>
 <form method='post' action='<?php echo inlink('confirm');?>'>
-  <table align='center' class='table-5 f-14px'>
+  <table align='center' class='table-5 f-14px table-bordered'>
     <caption><?php echo $lang->upgrade->selectVersion;?></caption>
     <tr>
       <th class='w-p20 rowhead'><?php echo $lang->upgrade->fromVersion;?></th>

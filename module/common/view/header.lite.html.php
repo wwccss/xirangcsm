@@ -22,8 +22,8 @@ $defaultTheme = $webRoot . 'theme/default/';
   js::import($jsRoot . 'jquery/bootstrap/bootstrap.min.js');
   js::import($jsRoot . 'my.js');
 
-  css::import($defaultTheme . "style.css");
   css::import($defaultTheme . "bootstrap.css");
+  css::import($defaultTheme . "style.css");
   if(RUN_MODE == 'front') css::import($themeRoot . 'default/front.css');
   if(RUN_MODE == 'admin') css::import($themeRoot . 'default/admin.css');
   if(isset($pageCss)) css::internal($pageCss);

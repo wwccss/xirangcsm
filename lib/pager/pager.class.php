@@ -307,7 +307,7 @@ class pager
             $pager .= $this->createRecPerPageJS();
         }
 
-        return "<div style='float:$align; clear:none;' class='pager'>$pager</div>";
+        return "<div style='float:$align; clear:none;' class='pager form-horizontal'>$pager</div>";
     }
 
     /**

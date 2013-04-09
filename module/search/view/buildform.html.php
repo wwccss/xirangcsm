@@ -20,6 +20,8 @@
 .operator {width:90px}
 .field {width:200px}
 #groupAndOr, .andOr{width:65px;}
+#searchform {margin:0px;}
+#searchform table{border:1px solid #999}
 </style>
 <script language='Javascript'>
 
@@ -194,7 +196,7 @@ foreach($fieldParams as $fieldName => $param)
 ?>
 </div>
 <form method='post' action='<?php echo $this->createLink('search', 'buildQuery');?>' target='hiddenwin' id='searchform' class='form-horizontal'>
-<table width='100%'>
+<table width='100%' class='table-bordered'>
   <tr valign='middle'>
     <th width='10'><span id='searchicon'>&nbsp;</span></th>
     <td class='a-right'>

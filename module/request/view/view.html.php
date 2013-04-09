@@ -12,6 +12,9 @@
 ?>
 <?php if(RUN_MODE == 'front'):?>
 <?php include '../../common/view/header.html.php';?>
+<style type='text/css'>
+#requestCont.affix{top:10px;}
+</style>
 <div class='row'>
   <div class='span2'>
     <div class='cont-left'><?php include $this->app->getModulePath('user') . 'view/blockusermenu.html.php';?></div>
@@ -21,7 +24,7 @@
 <?php include '../../common/view/header.admin.html.php';?>
 <?php endif;?>
 <?php include '../../common/view/kindeditor.html.php';?>
-  <table class='table-1 fixed' align='center'>
+  <table class='table-1 fixed table-bordered affix-top bg-white' align='center' id='requestCont'>
     <caption class='a-left blue'>
     <?php 
     if($request->status == 'viewed')
@@ -101,7 +104,7 @@
   <?php if($comment == 1):?>
   <div>
   <form method='post' target='hiddenwin' action='<?php echo inlink('comment', "requestID=$request->id&paramString=$paramString")?>'>
-    <table class='table-1 fixed' align='center'>
+    <table class='table-1 fixed table-bordered' align='center'>
       <caption><?php echo $lang->request->commentReply;?></caption>
       <tr>
         <th class='w-100px'><?php echo $lang->request->comment;?></th>
@@ -115,7 +118,7 @@
   <?php if($request->status != 'closed'):?>
   <div id='replyDiv'>
     <form method='post' target='hiddenwin' action='<?php echo inlink('reply', "requestID=$request->id&editReplyID=$editReplyID")?>'>
-    <table class='table-1 fixed' align='center'>
+    <table class='table-1 fixed  table-bordered' align='center'>
       <caption><?php echo $lang->request->reply;?></caption>
       <tr>
         <th class='w-100px'><?php echo $lang->request->selectFAQ;?></th>
@@ -130,18 +133,18 @@
     </form>
   </div>
   <?php endif;?>
-<div id='doubt' <?php echo $viewType == 'doubt' ? '' : "class='hidden'"?>>
+<div id='doubt' style='display:<?php echo $viewType == 'doubt' ? '' : "none"?>'>
   <form method="post" action="<?php echo inlink('doubt');?>">
-  <table class='table-1 fixed'>
+  <table class='table-1 fixed table-bordered'>
     <caption class='a-left blue'><?php echo $lang->request->doubt;?></caption>
     <tr><td><?php echo html::textarea('comment', '', 'style="width:90%" rows=10')?></td></tr>
     <tr><td><?php echo html::submitButton($lang->request->doubt). html::hidden('requestID', $request->id)?></td></tr>
   </table>
   </form>
 </div>
-<div id='valuate' <?php echo $viewType == 'valuate' ? '' : "class='hidden'"?>>
+<div id='valuate' style='display:<?php echo $viewType == 'valuate' ? '' : "none"?>'>
   <form method="post" action="<?php echo inlink('valuate')?>">
-  <table class='table-1 fixed' align='center'>
+  <table class='table-1 fixed table-bordered' align='center'>
     <caption class='a-left blue'><?php echo $lang->request->valuate. $lang->request->valuateNotice;?></caption>
     <tr><td><?php echo html::radio('valuate', $lang->request->valuates, '')?></td></tr>
     <tr><td><?php echo html::textarea('comment', '', 'style="width:90%" rows=10')?></td></tr>
@@ -152,6 +155,7 @@
 </div>
 <script type='text/javascript'>
 var viewType    = '<?php echo $viewType?>';
+var run_mode    = '<?php echo RUN_MODE?>';
 </script>
 <?php if(RUN_MODE == 'front') include '../../common/view/footer.html.php';?>
 <?php if(RUN_MODE == 'admin') include '../../common/view/footer.admin.html.php';?>

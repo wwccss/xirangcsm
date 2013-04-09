@@ -13,7 +13,7 @@
 <?php include '../../common/view/header.admin.html.php';?>
 <?php include '../../common/view/datepicker.html.php';?>
 <form method='post' enctype='multipart/form-data' target='hiddenwin' class='form-horizontal'>
-<table class='table-5 fixed' align='center'>
+<table class='table-5 fixed table-bordered' align='center'>
   <?php if($type == 'inside'): ?>
   <caption><?php echo $lang->user->inside->createProfile;?></caption>
   <?php endif; ?>

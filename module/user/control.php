@@ -109,7 +109,7 @@ class user extends control
                 $this->app->user = $this->session->user;
 
                 /* Admin mode, goto the default module directly. */
-                if(RUN_MODE == 'admin') die(js::locate($this->createLink($this->config->default->module), 'parent'));
+                //if(RUN_MODE == 'admin') die(js::locate($this->createLink($this->config->default->module, $this->config->default->method), 'parent'));
 
                 /* Goto the referer or to the default module */
                 if($this->post->referer != false and 

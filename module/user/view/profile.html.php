@@ -6,8 +6,8 @@
   </div>
   <?php endif;?>
   <div <?php if(RUN_MODE == 'front') echo "class='span10'"?>>
-    <form method='post' target='hiddenwin' class='cont bd-none'>
-    <table class='<?php echo RUN_MODE == 'front' ? 'table-1' : 'table-5'?>' align='center'>
+    <form method='post' target='hiddenwin' class='cont'>
+    <table class='<?php echo RUN_MODE == 'front' ? 'table-1' : 'table-5'?> table-bordered' align='center'>
       <caption><?php echo $lang->user->profile;?></caption>
         <tr>
           <td align='right' class='w-60px'><?php echo $lang->user->account;?></td>
@@ -68,7 +68,12 @@
           <td><?php echo $user->gtalk;?></td>
         </tr>  
  
-        <tr><td colspan='2' align='center'><?php echo html::a(inlink('edit', "userID=$user->id&type=$type"), $lang->user->editProfile);?></td></tr>
+        <tr><td colspan='2' align='center'>
+<?php
+echo html::a(inlink('edit', "userID=$user->id&type=$type"), $lang->user->editProfile);
+if(RUN_MODE == 'admin') echo html::a('javascript:history.back()', $lang->goback);
+?>
+</td></tr>
       </table>
     </form>
   </div>

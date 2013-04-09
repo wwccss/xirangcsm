@@ -87,3 +87,4 @@ define('TABLE_PRODUCT',        $config->db->prefix . 'product');
 define('TABLE_CONFIG',         $config->db->prefix . 'config');
 define('TABLE_SERVICETIME',    $config->db->prefix . 'serviceTime');
 define('TABLE_GROUPPRIV',      $config->db->prefix . 'groupPriv');
+define('TABLE_COMPANY',        $config->db->prefix . 'company');

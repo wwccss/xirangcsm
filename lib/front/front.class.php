@@ -299,7 +299,7 @@ class html
             global $lang;
             $label = $lang->save;
         }
-        return " <button type='submit' id='submit' $misc class='button-s'>$label</button>";
+        return " <button type='submit' id='submit' $misc class='button-s btn btn-primary'>$label</button>";
     }
 
     /**
@@ -312,7 +312,7 @@ class html
     public static function resetButton()
     {
         global $lang;
-        return " <button type='reset' id='reset' class='button-r'>{$lang->reset}</button>";
+        return " <button type='reset' id='reset' class='button-r btn'>{$lang->reset}</button>";
     }
 
     /**
@@ -326,7 +326,7 @@ class html
      */
     public static function commonButton($label = '', $misc = '')
     {
-        return " <button type='button' $misc class='button-c'>$label</button>";
+        return " <button type='button' $misc class='button-c btn'>$label</button>";
     }
 
     /**
@@ -341,7 +341,7 @@ class html
      */
     public static function linkButton($label = '', $link = '', $misc = '')
     {
-        return " <button type='button' $misc class='button-c' onclick='location.href=\"$link\"'>$label</button>";
+        return " <button type='button' $misc class='button-c btn' onclick='location.href=\"$link\"'>$label</button>";
     }
 }
 

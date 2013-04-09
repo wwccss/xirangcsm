@@ -12,7 +12,7 @@
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
 <form method='post' target='hiddenwin' class='form-horizontal'>
-  <table class='table-1 a-left' align='center'> 
+  <table class='table-1 a-left table-bordered' align='center'> 
     <caption><?php echo $group->desc . $lang->colon . $lang->group->managePriv;?> </caption>
     <tr>
       <th><?php echo $lang->group->module;?></th>
