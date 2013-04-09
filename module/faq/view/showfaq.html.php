@@ -13,7 +13,7 @@
 <?php include '../../common/view/header.html.php';?>
 <div class='row' id='top' name='top'>
   <div class='span2'>
-    <div class='cont-left'>
+    <div class='cont-left' id='sidenav'>
       <div class='box-title'><?php echo $lang->faq->categoryList;?></div>
       <div class='box-content'>
         <ul>
