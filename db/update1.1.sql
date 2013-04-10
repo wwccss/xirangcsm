@@ -5,3 +5,4 @@ CREATE TABLE `zt_company` (
   `name` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
   PRIMARY KEY ( `id` ) 
 ) ENGINE = MYISAM;
+INSERT INTO `zt_company` (`id`, `name`) VALUES (1, '');

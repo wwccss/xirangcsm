@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `zt_action` (
   `comment` text NOT NULL,
   `extra` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 -- DROP TABLE IF EXISTS `zt_category`;
 CREATE TABLE IF NOT EXISTS `zt_category` (
   `id` smallint(5) unsigned NOT NULL auto_increment,
@@ -17,13 +17,13 @@ CREATE TABLE IF NOT EXISTS `zt_category` (
   `order` tinyint(4) NOT NULL,
   `product` mediumint(8) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 -- DROP TABLE IF EXISTS `zt_company`;
-CREATE TABLE `zt_company` (
-  `id` MEDIUMINT NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
-  PRIMARY KEY ( `id` ) 
-) ENGINE = MYISAM;
+CREATE TABLE IF NOT EXISTS `zt_company` (
+  `id` mediumint(9) NOT NULL auto_increment,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 -- DROP TABLE IF EXISTS `zt_config`;
 CREATE TABLE IF NOT EXISTS `zt_config` (
   `id` mediumint(8) unsigned NOT NULL auto_increment,
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `zt_config` (
   `value` text NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique` (`owner`,`module`,`section`,`key`)
-  ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 -- DROP TABLE IF EXISTS `zt_faq`;
 CREATE TABLE IF NOT EXISTS `zt_faq` (
   `id` mediumint(9) NOT NULL auto_increment,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `zt_faq` (
   `answer` text NOT NULL,
   `addedtime` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 -- DROP TABLE IF EXISTS `zt_file`;
 CREATE TABLE IF NOT EXISTS `zt_file` (
   `id` mediumint(8) unsigned NOT NULL auto_increment,
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `zt_file` (
   `extra` varchar(255) NOT NULL,
   `deleted` enum('0','1') NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 -- DROP TABLE IF EXISTS `zt_group`;
 CREATE TABLE IF NOT EXISTS `zt_group` (
   `id` mediumint(8) unsigned NOT NULL auto_increment,
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `zt_product` (
   `order` tinyint(3) unsigned NOT NULL,
   `status` varchar(30) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 -- DROP TABLE IF EXISTS `zt_request`;
 CREATE TABLE IF NOT EXISTS `zt_request` (
   `id` mediumint(8) unsigned NOT NULL auto_increment,
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `zt_request` (
   `closedDate` datetime NOT NULL,
   `closedBy` mediumint(8) unsigned NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 -- DROP TABLE IF EXISTS `zt_serviceTime`;
 CREATE TABLE IF NOT EXISTS `zt_serviceTime` (
   `id` mediumint(8) unsigned NOT NULL auto_increment,
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `zt_serviceTime` (
   `serviceTime` date NOT NULL,
   `deleted` enum('0','1') NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 -- DROP TABLE IF EXISTS `zt_user`;
 CREATE TABLE IF NOT EXISTS `zt_user` (
   `id` mediumint(8) unsigned NOT NULL auto_increment,
@@ -179,24 +179,18 @@ INSERT INTO `zt_config` (`id`, `owner`, `module`, `section`, `key`, `value`) VAL
 (1, 'system', 'api', '', 'openSync', '0'),
 (2, 'system', 'api', '', 'key', ''),
 (3, 'system', 'api', '', 'ip', '');
-
-
 INSERT INTO `zt_group` (`id`, `name`, `desc`) VALUES
 (1, 'admin',    '系统管理员'),
 (2, 'manager',  '客服经理'),
 (3, 'support',  '技术支持'),
 (4, 'servicer', '客服'),
 (5, 'customer', '客户');
-
 INSERT INTO `zt_groupPriv` (`group`, `module`, `method`) VALUES
-(1, 'admin', 'footer'),
-(1, 'admin', 'index'),
-(1, 'admin', 'leftMenu'),
-(1, 'admin', 'topMenu'),
 (1, 'api', 'getModel'),
 (1, 'category', 'delete'),
 (1, 'category', 'manage'),
 (1, 'category', 'updateOrder'),
+(1, 'company', 'edit'),
 (1, 'faq', 'create'),
 (1, 'faq', 'delete'),
 (1, 'faq', 'edit'),
@@ -208,12 +202,15 @@ INSERT INTO `zt_groupPriv` (`group`, `module`, `method`) VALUES
 (1, 'group', 'managePriv'),
 (1, 'misc', 'ping'),
 (1, 'product', 'manage'),
+(1, 'product', 'online'),
 (1, 'product', 'stop'),
 (1, 'product', 'updateorder'),
 (1, 'request', 'assignedTo'),
 (1, 'request', 'browse'),
+(1, 'request', 'changeStatus'),
 (1, 'request', 'close'),
 (1, 'request', 'comment'),
+(1, 'request', 'editReply'),
 (1, 'request', 'reply'),
 (1, 'request', 'transfer'),
 (1, 'request', 'view'),
@@ -227,18 +224,19 @@ INSERT INTO `zt_groupPriv` (`group`, `module`, `method`) VALUES
 (1, 'user', 'ajaxGetUser'),
 (1, 'user', 'allow'),
 (1, 'user', 'browse'),
+(1, 'user', 'check'),
 (1, 'user', 'create'),
 (1, 'user', 'delete'),
 (1, 'user', 'edit'),
-(1, 'user', 'extendProductService'),
+(1, 'user', 'extendServiceTIme'),
 (1, 'user', 'forbid'),
-(1, 'user', 'manageProductService'),
+(1, 'user', 'index'),
+(1, 'user', 'manageServiceTime'),
+(1, 'user', 'modifyPassword'),
+(1, 'user', 'myService'),
 (1, 'user', 'profile'),
+(1, 'user', 'reset'),
 (1, 'user', 'view'),
-(2, 'admin', 'footer'),
-(2, 'admin', 'index'),
-(2, 'admin', 'leftMenu'),
-(2, 'admin', 'topMenu'),
 (2, 'api', 'getModel'),
 (2, 'category', 'delete'),
 (2, 'category', 'manage'),
@@ -253,12 +251,15 @@ INSERT INTO `zt_groupPriv` (`group`, `module`, `method`) VALUES
 (2, 'group', 'browse'),
 (2, 'misc', 'ping'),
 (2, 'product', 'manage'),
+(2, 'product', 'online'),
 (2, 'product', 'stop'),
 (2, 'product', 'updateorder'),
 (2, 'request', 'assignedTo'),
 (2, 'request', 'browse'),
+(2, 'request', 'changeStatus'),
 (2, 'request', 'close'),
 (2, 'request', 'comment'),
+(2, 'request', 'editReply'),
 (2, 'request', 'reply'),
 (2, 'request', 'transfer'),
 (2, 'request', 'view'),
@@ -274,15 +275,13 @@ INSERT INTO `zt_groupPriv` (`group`, `module`, `method`) VALUES
 (2, 'user', 'create'),
 (2, 'user', 'delete'),
 (2, 'user', 'edit'),
-(2, 'user', 'extendProductService'),
+(2, 'user', 'extendServiceTIme'),
 (2, 'user', 'forbid'),
-(2, 'user', 'manageProductService'),
+(2, 'user', 'index'),
+(2, 'user', 'manageServiceTime'),
+(2, 'user', 'modifyPassword'),
 (2, 'user', 'profile'),
 (2, 'user', 'view'),
-(3, 'admin', 'footer'),
-(3, 'admin', 'index'),
-(3, 'admin', 'leftMenu'),
-(3, 'admin', 'topMenu'),
 (3, 'faq', 'create'),
 (3, 'faq', 'delete'),
 (3, 'faq', 'edit'),
@@ -293,7 +292,9 @@ INSERT INTO `zt_groupPriv` (`group`, `module`, `method`) VALUES
 (3, 'misc', 'ping'),
 (3, 'request', 'assignedTo'),
 (3, 'request', 'browse'),
+(3, 'request', 'changeStatus'),
 (3, 'request', 'close'),
+(3, 'request', 'editReply'),
 (3, 'request', 'reply'),
 (3, 'request', 'transfer'),
 (3, 'request', 'view'),
@@ -302,14 +303,15 @@ INSERT INTO `zt_groupPriv` (`group`, `module`, `method`) VALUES
 (3, 'search', 'deleteQuery'),
 (3, 'search', 'saveQuery'),
 (3, 'search', 'select'),
+(3, 'user', 'addProductService'),
+(3, 'user', 'allow'),
 (3, 'user', 'browse'),
 (3, 'user', 'edit'),
+(3, 'user', 'extendServiceTIme'),
+(3, 'user', 'manageServiceTime'),
+(3, 'user', 'modifyPassword'),
 (3, 'user', 'profile'),
 (3, 'user', 'view'),
-(4, 'admin', 'footer'),
-(4, 'admin', 'index'),
-(4, 'admin', 'leftMenu'),
-(4, 'admin', 'topMenu'),
 (4, 'faq', 'create'),
 (4, 'faq', 'edit'),
 (4, 'faq', 'manage'),
@@ -320,6 +322,7 @@ INSERT INTO `zt_groupPriv` (`group`, `module`, `method`) VALUES
 (4, 'request', 'assignedTo'),
 (4, 'request', 'browse'),
 (4, 'request', 'close'),
+(4, 'request', 'editReply'),
 (4, 'request', 'reply'),
 (4, 'request', 'transfer'),
 (4, 'request', 'view'),
@@ -331,6 +334,9 @@ INSERT INTO `zt_groupPriv` (`group`, `module`, `method`) VALUES
 (4, 'user', 'ajaxGetUser'),
 (4, 'user', 'browse'),
 (4, 'user', 'edit'),
+(4, 'user', 'index'),
+(4, 'user', 'manageServiceTime'),
+(4, 'user', 'modifyPassword'),
 (4, 'user', 'profile'),
 (4, 'user', 'view'),
 (5, 'file', 'ajaxUpload'),
@@ -338,9 +344,9 @@ INSERT INTO `zt_groupPriv` (`group`, `module`, `method`) VALUES
 (5, 'file', 'download'),
 (5, 'misc', 'ping'),
 (5, 'request', 'browse'),
+(5, 'request', 'create'),
 (5, 'request', 'doubt'),
 (5, 'request', 'edit'),
-(5, 'request', 'request'),
 (5, 'request', 'valuate'),
 (5, 'request', 'view'),
 (5, 'user', 'check'),

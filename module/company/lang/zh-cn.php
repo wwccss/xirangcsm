@@ -14,3 +14,5 @@ $lang->company->edit     = "编辑公司";
 
 $lang->company->id       = '编号';
 $lang->company->name     = '公司名称';
+
+$lang->company->successSaved = '成功保存';
