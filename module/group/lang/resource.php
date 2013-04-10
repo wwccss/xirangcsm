@@ -19,9 +19,11 @@ $lang->resource->request->valuate      = 'valuate';
 $lang->resource->request->browse       = 'browse';
 $lang->resource->request->view         = 'view';
 $lang->resource->request->reply        = 'reply';
+$lang->resource->request->editReply    = 'editReply';
 $lang->resource->request->assignedTo   = 'assignedTo';
 $lang->resource->request->transfer     = 'transfer';
 $lang->resource->request->close        = 'close';
+$lang->resource->request->changeStatus = 'changeStatus';
 $lang->resource->request->comment      = 'comment';
 
 /* Product. */
@@ -29,6 +31,7 @@ $lang->resource->product = new stdclass();
 $lang->resource->product->manage      = 'manage';
 $lang->resource->product->updateorder = 'updateorder';
 $lang->resource->product->stop        = 'stop';
+$lang->resource->product->online      = 'online';
 
 /* Category.*/
 $lang->resource->category = new stdclass();

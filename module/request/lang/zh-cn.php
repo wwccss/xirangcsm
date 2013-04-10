@@ -15,6 +15,7 @@ $lang->request->view         = '问题详情';
 $lang->request->request      = '提出问题';
 $lang->request->comment      = '主管点评';
 $lang->request->changeStatus = '更改状态';
+$lang->request->editReply    = '编辑回复';
 
 $lang->request->confirmClose = '您确定要关闭该问题吗？';
 $lang->request->pleaseSelect = '请选择...';
