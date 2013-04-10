@@ -9,7 +9,7 @@
  * @link        http://www.zentao.net
  */
 /* The basic settings. */
-$config->version     = '1.1';           // The version number, don't change.
+$config->version     = '1.2';           // The version number, don't change.
 $config->encoding    = 'UTF-8';           // The encoding.
 $config->cookiePath  = '/';               // The path of cookies.
 $config->cookieLife  = time() + 2592000;  // The lifetime of cookies.
