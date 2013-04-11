@@ -20,6 +20,7 @@ tgz:
 	cp -fr www/index.php zentaoasm/www/
 	cp -fr www/admin.php zentaoasm/www/
 	cp -fr www/install.php zentaoasm/www/
+	cp -fr www/upgrade.php zentaoasm/www/
 	cp -fr www/js zentaoasm/www/
 	cp -fr www/*.ico zentaoasm/www/
 	cp -fr www/robots.txt zentaoasm/www/

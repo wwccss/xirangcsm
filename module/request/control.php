@@ -29,7 +29,7 @@ class request extends control
      * @access public
      * @return void
      */
-    public function browse($type = 'assignedToMe', $param = '', $orderBy = 'id_asc', $recTotal = 0, $recPerPage = 20, $pageID = 1, $userID =0)
+    public function browse($type = 'assignedToMe', $param = '', $orderBy = 'id_desc', $recTotal = 0, $recPerPage = 20, $pageID = 1, $userID =0)
     {
         if(RUN_MODE == 'front' and $type == 'assignedToMe')  $type = 'all';
         if($userID)

@@ -19,7 +19,7 @@ var monthNames   = <?php echo json_encode($lang->datepicker->monthNames)?>;
 $(function() {
     $(".date").datepicker({
         showOn: "button",
-        buttonImage: "/theme/default/images/datepicker/calendar.gif",
+        buttonImage: "theme/default/images/datepicker/calendar.gif",
         dayNames : dayNames,
         dayNamesShort : abbrDayNames,
         dayNamesMin : abbrDayNames,

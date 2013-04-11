@@ -12,6 +12,9 @@
 ?>
 <?php if(RUN_MODE == 'front'):?>
 <?php include '../../common/view/header.html.php';?>
+<style type='text/css'>
+.nav-tabs{background:#ccc; padding-top:5px;}
+</style>
 <div class='row'>
 <div class='span2'>
   <div class='cont-left'><?php include $this->app->getModulePath('user') . 'view/blockusermenu.html.php'?></div>
@@ -22,7 +25,6 @@
 <?php include '../../common/view/alert.html.php';?>
 <style type='text/css'>
 #select{height:auto;}
-#requestData{margin-top:40px;}
 </style>
 <?php endif;?>
 <script type='text/javascript'>
@@ -31,7 +33,7 @@ $(function(){
      $('#' + browseType).addClass('active');
 });
 </script>
-<ul class='nav nav-tabs table-1 <?php echo RUN_MODE == 'admin' ? 'affix' : '' ?>'>
+<ul class='nav nav-tabs'>
 <?php
     if(RUN_MODE == 'admin') echo "<li id='byassignedToMeTab'>". html::a(inLink('browse', "type=assignedToMe"), $lang->request->assignedToMe) . '</li>';
 
