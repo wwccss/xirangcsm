@@ -1,6 +1,3 @@
-<style type="text/css"> 
-    a {color:#3f4dbf;line-height:26px;height:26px; *line-height:30px;*vertical-align:middle; margin:0 14px;}
-</style>
 <?php if($extView = $this->getExtViewFile(__FILE__)){include $extView; return helper::cd();}?>
 <div class='box-title'><?php $this->session->user->account == 'guest' ? print($lang->dashboard) : printf($lang->welcome, $this->session->user->account);?></div>
 <div class="box-content" id='userform'>
@@ -31,7 +28,7 @@
   <form method='post' target='hiddenwin' class='bd-none'>
     <table class='table-1' style='border:none'>
       <tr>
-        <th class='w-1000px'><nobr><?php echo $lang->account;?></nobr></th>
+        <th class='w-100px'><nobr><?php echo $lang->account;?></nobr></th>
         <td><input type='text' name='account' class='text-2' /></td>
       </tr>
       <tr>
@@ -42,8 +39,7 @@
         <td>
           <input type='hidden' value='<?php echo $referer;?>' name='referer' />
         </td>
-        <td><?php echo html::submitButton($lang->login). "&nbsp;&nbsp;". html::a(inlink('reset'), $lang->user->forgetPassword);?>
-        </td>
+        <td><?php echo html::submitButton($lang->login);?></td>
       </tr>
     </table>
   </form>

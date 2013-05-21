@@ -13,13 +13,10 @@
 <?php if(RUN_MODE == 'front'):?>
 <?php include '../../common/view/header.html.php';?>
 <style type='text/css'>
-.nav-tabs{background:#ccc; padding-top:5px;}
+.nav-tabs{background:#ccc; padding-top:5px; padding-left:5px;}
 </style>
 <div class='row'>
-<div class='span2'>
-  <div class='cont-left'><?php include $this->app->getModulePath('user') . 'view/blockusermenu.html.php'?></div>
-</div>
-<div class='span10'>
+  <div>
 <?php else: ?>
 <?php include '../../common/view/header.admin.html.php';?>
 <?php include '../../common/view/alert.html.php';?>

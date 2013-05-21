@@ -80,6 +80,13 @@ $lang->menu->group    = '权限管理|group|browse|';
 $lang->menu->setting  = '系统设置|setting|setConfig|';
 $lang->menu->company  = '公司设置|company|edit|';
 
+$lang->front->menu[10] = '首 页|faq|showFaq';
+$lang->front->menu[20] = '我的服务|user|myService';
+$lang->front->menu[30] = '提出问题|request|create';
+$lang->front->menu[40] = '我的问题|request|browse';
+$lang->front->menu[50] = '个人资料|user|profile';
+$lang->front->menu[60] = '修改密码|user|modifyPassword';
+
 /* The error messages. */
 $lang->error = new stdclass();
 $lang->error->companyNotFound = "您访问的域名 %s 没有对应的公司。";

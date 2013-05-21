@@ -422,36 +422,41 @@ class userModel extends model
             $return->error  = $this->lang->user->sync->noPostData;
             return $return;
         }
+
+        $allUsers = $this->dao->select('id,account,zentaoID')->from(TABLE_USER)->where('deleted')->eq(0)->fetchAll();
         foreach($users as $user)
         {
-           $userData = new stdclass();
-           $userData->id       = $user->id;
-           $userData->dept     = $user->dept;
-           $userData->role     = $user->role;
-           $userData->account  = $user->account;
-           $userData->password = $user->password;
-           $userData->realname = $user->realname;
-           $userData->avatar   = $user->avatar;
-           $userData->birthday = $user->birthday;
-           $userData->gender   = $user->gender;
-           $userData->company  = $user->company;
-           $userData->email    = $user->email;
-           $userData->msn      = $user->msn;
-           $userData->qq       = $user->qq;
-           $userData->yahoo    = $user->yahoo;
-           $userData->gtalk    = $user->gtalk;
-           $userData->wangwang = $user->wangwang;
-           $userData->mobile   = $user->mobile;
-           $userData->phone    = $user->phone;
-           $userData->address  = $user->address;
-           $userData->zipcode  = $user->zipcode;
-           $userData->join     = $user->join;
+            if($user->id < 100000 and isset($allUsers[$user->account]) and $allUsers[$user->account]->zentaoID >= 100000) continue;
+            if($user->id >= 100000 and isset($allUsers[$user->account]) and $allUsers[$user->account]->zentaoID != $user->id) continue;
+            $userData = new stdclass();
+            if($user->id < 100000) $userData->id = $user->id;
+            $userData->dept     = $user->dept;
+            $userData->role     = $user->role;
+            $userData->account  = $user->account;
+            $userData->password = $user->password;
+            $userData->realname = $user->realname;
+            $userData->avatar   = $user->avatar;
+            $userData->birthday = $user->birthday;
+            $userData->gender   = $user->gender;
+            $userData->company  = $user->company;
+            $userData->email    = $user->email;
+            $userData->qq       = $user->qq;
+            $userData->yahoo    = $user->yahoo;
+            $userData->gtalk    = $user->gtalk;
+            $userData->wangwang = $user->wangwang;
+            $userData->mobile   = $user->mobile;
+            $userData->phone    = $user->phone;
+            $userData->address  = $user->address;
+            $userData->zipcode  = $user->zipcode;
+            $userData->join     = $user->join;
+            $userData->zentaoID = $user->id;
 
             $this->dao->replace(TABLE_USER)->data($userData)->exec();
             if(dao::isError()) $insertError .= dao::getError();
             $zentaoasmUser = $this->getByID($user->id);
             if(empty($zentaoasmUser)) $return->unSyncID[] = $user->id;
         }
+
         if($insertError)
         {
             $return->result = 'fail';

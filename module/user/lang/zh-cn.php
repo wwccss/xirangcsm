@@ -145,12 +145,12 @@ $lang->user->customerNotLoginAdmin = '客户账户不能登录后台!';
 $lang->user->lblAccount            = '应当为字母和数字的组合，至少三位';
 $lang->user->lblExtendServiceTime  = '(可累加)';
 
-$lang->user->control->menus[5]   = '我的服务|user|myService';
-$lang->user->control->menus[10]  = '提出问题|request|create';
-$lang->user->control->menus[20]  = '我的问题|request|browse';
-$lang->user->control->menus[40]  = '个人资料|user|profile';
-$lang->user->control->menus[50]  = '修改密码|user|modifyPassword';
-$lang->user->control->menus[60]  = '退出登录|user|logout';
+$lang->user->control->menus[10]  = '首 页|faq|showFaq';
+$lang->user->control->menus[20]  = '我的服务|user|myService';
+$lang->user->control->menus[30]  = '提出问题|request|create';
+$lang->user->control->menus[40]  = '我的问题|request|browse';
+$lang->user->control->menus[50]  = '个人资料|user|profile';
+$lang->user->control->menus[60]  = '修改密码|user|modifyPassword';
 
 /* customers of zentaoasm */
 $lang->user->customer = new stdclass(); 

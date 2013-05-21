@@ -19,7 +19,7 @@ h3 {
       margin: 5px 0;
       padding: 7px 7px 0;
 } 
-ul li {
+#docbody ul li {
       list-style: decimal outside none;
 }
 #sidenav.affix{top:10px;}

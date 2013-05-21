@@ -14,10 +14,7 @@
 <?php include '../../common/view/header.html.php';?>
 <?php include '../../common/view/kindeditor.html.php';?>
 <div class='row'>
-  <div class='span2'>
-    <div class='cont-left'><?php include $this->app->getModulePath('user') . 'view/blockusermenu.html.php';?></div>
-  </div>
-  <div class='span10'>
+  <div>
     <form method='post' target='hiddenwin' class='u-1' enctype='multipart/form-data'>
     <table align='center' class='table-1 table-bordered'>
       <caption><?php echo $lang->request->ask;?></caption>

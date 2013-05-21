@@ -13,30 +13,25 @@
 <?php include '../../common/view/header.html.php';?>
 <?php include '../../common/view/datepicker.html.php';?>
 <div class='row'>
-  <div class='span2'>
-    <div class='cont-left'><?php include 'blockusermenu.html.php';?></div>
-  </div>
-  <div class='span10'>
-    <div class='cont'>
-      <form method='post' enctype='multipart/form-data' target='hiddenwin'>
-        <table class='table-1 table-bordered'>
-          <caption class='a-left'><?php echo $lang->user->modifyPassword; ?></caption>
-          <tr>
-            <td align='right'><?php echo $lang->user->oldPassword; ?></td>
-            <td><?php echo html::password('oldpassword', '', "class='text-3'"); ?></td>
-          </tr>
-          <tr>
-            <td align='right'><?php echo $lang->user->password; ?></td>
-            <td><?php echo html::password('password', '', "class='text-3'"); ?></td>
-          </tr>
-          <tr>
-            <td align='right'><?php echo $lang->user->password2; ?></td>
-            <td><?php echo html::password('password2', '', "class='text-3'"); ?></td>
-          </tr>
-          <tr><td colspan='2' align='center'><?php echo html::submitButton() . html::resetButton();?></td></tr>
-        </table>
-      </form>
-    </div>
+  <div class='cont'>
+    <form method='post' enctype='multipart/form-data' target='hiddenwin'>
+      <table class='table-5 table-bordered' align='center'>
+        <caption class='a-left'><?php echo $lang->user->modifyPassword; ?></caption>
+        <tr>
+          <td align='right'><?php echo $lang->user->oldPassword; ?></td>
+          <td><?php echo html::password('oldpassword', '', "class='text-3'"); ?></td>
+        </tr>
+        <tr>
+          <td align='right'><?php echo $lang->user->password; ?></td>
+          <td><?php echo html::password('password', '', "class='text-3'"); ?></td>
+        </tr>
+        <tr>
+          <td align='right'><?php echo $lang->user->password2; ?></td>
+          <td><?php echo html::password('password2', '', "class='text-3'"); ?></td>
+        </tr>
+        <tr><td colspan='2' align='center'><?php echo html::submitButton() . html::resetButton();?></td></tr>
+      </table>
+    </form>
   </div>
 </div>
 <?php include '../../common/view/footer.html.php';?>

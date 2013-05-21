@@ -8,7 +8,7 @@
 * @link        http://www.zentao.net
 */
 html, body{background:#fff;}
-#docbox {width:100%; margin:auto; padding:auto; padding-top:60px;}
+#docbox {width:100%; margin:auto; padding-top:50px;}
 .debugwin {background:white;}
 .table-1 {width:98%; margin-left:5px}
 #topmenu {background:#155991; color:white; font-size:14px; font-weight:bold;}

@@ -27,11 +27,4 @@ $(document).ready(function()
    {
        $("#valuate").toggle();
    });
-
-   $('#requestCont').width($('#requestCont').width()); 
-   $('#requestCont').affix({
-     offset: {
-       top: function(){return run_mode == 'admin' ? 0 : 90;}
-     }
-   });
 });

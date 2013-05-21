@@ -15,7 +15,7 @@
 .helplink {display:none}
 .button-s, .button-r, .button-c {padding:3px} 
 .select-1 {width:80%}
-.text-2{margin-bottom:2px; width:123px}
+.text-2{margin-bottom:2px; width:111px}
 .date{width:104px}
 .operator {width:90px}
 .field {width:200px}
@@ -28,7 +28,7 @@
 $(function() {
     $(".date").datepicker({
         showOn: "button",
-        buttonImage: "/theme/default/images/datepicker/calendar.gif",
+        buttonImage: "/theme/default/images/datepicker/calendar.png",
         dateFormat:formatDate
     })
 });
@@ -57,7 +57,7 @@ function setField(fieldName, fieldNO)
     {
         $("#value" + fieldNO).datepicker({
         showOn: "button",
-        buttonImage: "/theme/default/images/datepicker/calendar.gif",
+        buttonImage: "/theme/default/images/datepicker/calendar.png",
         dateFormat:formatDate
         });
         $("#value" + fieldNO).addClass('date');   // Shortcut the width of the datepicker to make sure align with others. 
@@ -73,7 +73,7 @@ function setField(fieldName, fieldNO)
             $('#valueBox' + nextNO).children().attr({name : 'value' + nextNO, id : 'value' + nextNO});
             $("#value" + nextNO).datepicker({
                 showOn: "button",
-                buttonImage: "/theme/default/images/datepicker/calendar.gif",
+                buttonImage: "/theme/default/images/datepicker/calendar.png",
                 dateFormat:formatDate
             });
             $("#value" + nextNO).addClass('date');
@@ -209,7 +209,7 @@ foreach($fieldParams as $fieldName => $param)
       for($i = 1; $i <= $groupItems; $i ++)
       {
           $spanClass = $i == 1 ? 'inline' : 'hidden';
-          echo "<span id='searchbox$fieldNO' class='$spanClass'>";
+          echo "<div id='searchbox$fieldNO' class='$spanClass'>";
 
           /* Get params of current field. */
           $currentField = $formSession["field$fieldNO"];
@@ -217,7 +217,7 @@ foreach($fieldParams as $fieldName => $param)
 
           /* Print and or. */
           if($i == 1) echo "<span id='searchgroup1'><strong>{$lang->search->group1}</strong></span>" . html::hidden("andOr$fieldNO", 'AND');
-          if($i > 1)  echo "<br />" . html::select("andOr$fieldNO", $lang->search->andor, $formSession["andOr$fieldNO"], "class='andOr'");
+          if($i > 1)  echo html::select("andOr$fieldNO", $lang->search->andor, $formSession["andOr$fieldNO"], "class='andOr'");
 
           /* Print field. */
           echo html::select("field$fieldNO", $searchFields, $formSession["field$fieldNO"], "onchange='setField(this.value, $fieldNO)' class='field'");
@@ -237,7 +237,7 @@ foreach($fieldParams as $fieldName => $param)
           echo '</span>';
 
           $fieldNO ++;
-          echo '</span>';
+          echo '</div>';
       }
       ?>
       </nobr>

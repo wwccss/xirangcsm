@@ -16,10 +16,7 @@
 #requestCont.affix{top:10px;}
 </style>
 <div class='row'>
-  <div class='span2'>
-    <div class='cont-left'><?php include $this->app->getModulePath('user') . 'view/blockusermenu.html.php';?></div>
-  </div>
-<div class='span10'>
+  <div>
 <?php else:?>
 <?php include '../../common/view/header.admin.html.php';?>
 <?php endif;?>
@@ -41,10 +38,14 @@
       <td>
         <?php echo $request->desc;?><br />
         <?php echo $this->fetch('file', 'printFiles', array('files' => $request->files, 'fieldset' => 'false'));?><br />
-        <?php if(RUN_MODE == 'front'):?>
+        <?php if(RUN_MODE == 'front' and $this->app->user->id == $request->customer):?>
         <div class='a-right'>
-        <?php if($request->status =='replied' || $request->status == 'doubted') echo html::commonButton($lang->request->doubt, "id='doubtButton'");?>
-        <?php if($request->status=='replied') echo html::commonButton($lang->request->valuate, "id='valuateButton'");?> 
+        <?php
+        if($request->status =='replied' || $request->status == 'doubted') echo html::commonButton($lang->request->doubt, "id='doubtButton'");
+        if($request->status=='replied') echo html::commonButton($lang->request->valuate, "id='valuateButton'");
+        if($request->status == 'wait') echo html::linkButton($lang->request->edit, $this->inLink('edit', "requestID=$request->id"));
+        echo html::linkButton($lang->goback, $this->inLink('browse', "type=" . $this->session->type));
+        ?> 
         </div>
         <?php endif;?>
         <?php if(RUN_MODE == 'admin'):?>
@@ -55,18 +56,13 @@
         {
             if($request->status != 'transfered' and $request->status != 'buged' and $request->status != 'storied') echo html::linkButton($lang->request->transfer, inlink('transfer', "requestID=$request->id"));
         }
-        ?>
-        <?php 
+
         if($request->status != 'wait' and $request->status != 'viewed' and $this->app->user->role == 'manager')
         {
             echo html::linkButton($lang->request->commentReply, inlink('view', "requestID=$request->id&editReply=0&viewType=view&faqID=0&comment=1"));
         }
         ?>
         <?php echo html::linkButton($lang->goback, $this->inLink('browse', "type=" . $this->session->type));?> 
-        </div>  
-        <?php elseif(RUN_MODE =='front' and $this->app->user->id == $request->customer):?>
-        <div class='a-right'>
-        <?php if($request->status == 'wait') echo html::linkButton($lang->request->edit, $this->inLink('edit', "requestID=$request->id"));?> 
         </div>  
         <?php endif;?>
       </td>
