@@ -15,13 +15,13 @@
 .helplink {display:none}
 .button-s, .button-r, .button-c {padding:3px} 
 .select-1 {width:80%}
-.text-2{margin-bottom:2px; width:111px}
+.text-2{margin-bottom:2px; width:118px}
 .date{width:104px}
 .operator {width:90px}
-.field {width:200px}
+.field {width:100px}
 #groupAndOr, .andOr{width:65px;}
 #searchform {margin:0px;}
-#searchform table{border:1px solid #999}
+#searchform table th,#searchform table td{text-align:right;vertical-align: middle;}
 </style>
 <script language='Javascript'>
 
@@ -196,7 +196,7 @@ foreach($fieldParams as $fieldName => $param)
 ?>
 </div>
 <form method='post' action='<?php echo $this->createLink('search', 'buildQuery');?>' target='hiddenwin' id='searchform' class='form-horizontal'>
-<table width='100%' class='table-bordered'>
+<table width='100%' class='bd-none'>
   <tr valign='middle'>
     <th width='10'><span id='searchicon'>&nbsp;</span></th>
     <td class='a-right'>
