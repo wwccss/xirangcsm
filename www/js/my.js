@@ -1,41 +1,4 @@
 /**
- * Load css file of special browser.
- * 
- * @access public
- * @return void
- */
-function loadFixedCSS()
-{
-    cssFile = '';
-    if($.browser.msie )
-    {
-        version = Math.floor(parseInt($.browser.version));
-        cssFile = version == 6 ? config.themeRoot + '/browser/ie.6.css' : config.themeRoot + 'browser/ie.css';
-    }
-    else if($.browser.mozilla) 
-    {
-        cssFile = config.themeRoot + '/browser/firefox.css';
-    }
-    else if($.browser.opera) 
-    {
-        cssFile = config.themeRoot + '/browser/opera.css';
-    }
-    else if($.browser.safari) 
-    {
-        cssFile = config.themeRoot + '/browser/safari.css';
-    }
-    else if($.browser.chrome) 
-    {
-        cssFile = config.themeRoot + '/browser/chrome.css';
-    }
-
-    if(cssFile != '')
-    {
-        document.write("<link rel='stylesheet' href='" + cssFile + "' type='text/css' media='screen' />");
-    }
-}
-
-/**
  * Create link. 
  * 
  * @param  string $moduleName 

@@ -7,15 +7,14 @@
 * @version     $Id: style.css 1454 2009-10-23 01:45:26Z wwccss $
 * @link        http://www.zentao.net
 */
-html, body{background:#fff;}
-#docbox {width:100%; margin:auto; padding-top:50px;}
+#docbox {width:100%; margin:auto; padding-top:60px;}
 .debugwin {background:white;}
 .table-1 {width:98%; margin-left:5px}
 #topmenu {background:#155991; color:white; font-size:14px; font-weight:bold;}
 #footer  {background:#155991; color:white; padding-top:5px}
-caption {background:#ddd; border:1px solid #ddd; color:#222; margin-bottom:5px;}
+caption {background:#f5f5f5; color:#222; border:1px solid #e5e5e5; border-bottom:none;}
 caption a{color:#222;}
-table td, th{border-color:#9fa0a0;height:25px;}
+table td, th{border-color:#e5e5e5;height:25px;}
 table th{height:25px;}
 fieldset{margin-left:5px;width:96.5%;}
 li{line-height:200%}

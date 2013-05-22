@@ -8,18 +8,10 @@
 * @link        http://www.zentao.net
 */
 /*-----------------------GLOBAL SETTING----------------------------*/
-html    {margin:0; padding:0; }
-body    {margin:0; padding:0; font-size:12px}
-#docbox {width:983px; margin:10px auto;}
-br      {margin-bottom:5px}
-hr      {border:none; border-top:1px solid #e4e4e4}
+body{font-size:12px;}
+select{border-color:#e4e4e4; padding:3px}
+input{border:1px solid #e4e4e4;padding:3px;margin-bottom:5px;}
 
-.row          {margin-bottom:10px}
-.u-24-5 .cont {margin-left:10px}
-.u-4-3  .cont {margin-left:10px}
-.cont-left    {margin-right:10px}
-
-/*-----------------------FORM SETTING----------------------------*/
 .text-1 {width: 90%}
 .text-2 {width: 120px}
 .text-3 {width: 240px}
@@ -62,7 +54,7 @@ caption a     {text-decoration:none}
 .table-6 {width:800px;margin-bottom:10px}
 
 .colhead th  {text-align:center; background:url('./images/default/bg.title.1.png')}
-.bd-none table  {border:1px solid #ddd}
+.bd-none table  {border:1px solid #e5e5e5}
 .bd-none tr, .bd-none th, .bd-none td {border:none}
 
 .rowhead {font-weight:bold; text-align:right; width:100px}
@@ -218,14 +210,6 @@ caption a     {text-decoration:none}
 #searchbox {width:230px; border:none; text-align:right; padding-right:10px}
 #cse-search-box input[type='text']   {width:180px; height:30px; font-size:20px; font-weight:bold; background:white;}
 #cse-search-box input[type='submit'] {width:40px;  height:35px;}
-
-/* The nav bar .*/
-#navbar    {width:983px; height:35px; margin:auto; padding:0; background:white; border:none}
-#navbar ul {width:960px; height:35px; margin:auto; padding:0; background:url(./images/default/bg.nav.png) no-repeat 0 0;}
-#navbar li {width:70px;  height:35px; margin:0;    padding:0; float:left; text-align:center; list-style-type:none}
-#navbar li a        {display:block; width:100%; height:35px; line-height:35px; text-decoration:none; color:#fff; font-weight:bold}
-#navbar li a:hover  {background-color:#0d4282;}
-#navbar li .current {background-color: #00008b;}
 
 /* The doc. */
 #docbody    {margin:0; padding:12px; background:#fff;}
