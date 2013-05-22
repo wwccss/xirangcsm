@@ -12,8 +12,8 @@ body {font-size:12px;}
 #docbox {width:auto; margin:60px 20px 0 20px}
 #profile{height:44px; line-height:44px;}
 
-select{border:1px solid #e4e4e4; padding:3px;margin:1px;}
-input{border:1px solid #e4e4e4;padding:3px;margin:1px;}
+select{border:1px solid #e5e5e5; padding:3px;margin:1px;}
+input{border:1px solid #e5e5e5;padding:3px;margin:1px;}
 
 .text-1 {width: 90%}
 .text-2 {width: 120px}
@@ -60,6 +60,7 @@ caption a     {text-decoration:none}
 .colhead th  {text-align:center; background:url('./images/default/bg.title.1.png')}
 .bd-none table  {border:1px solid #e5e5e5}
 .bd-none tr, .bd-none th, .bd-none td {border:none}
+.bd th, .bd td, .bd tr {border:1px solid #e5e5e5;}
 
 .rowhead {font-weight:bold; text-align:right; width:100px}
 .fixed   {table-layout:fixed}

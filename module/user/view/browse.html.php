@@ -11,7 +11,7 @@
  */
 ?>
 <?php include '../../common/view/header.admin.html.php'?>
-<table align='center' class='table-1 table-bordered'>
+<table class='table-1'>
   <caption>
     <div class='f-left'><?php if($type == 'customer') echo $lang->user->customer->manage; else echo $lang->user->inside->manage;?></div>
     <div class='f-right'><?php if($type == 'customer' and $this->app->user->role != 'support') echo html::a($this->createLink('user', 'create', "type=$type"), $lang->user->customer->create); elseif($type == 'inside' and $this->app->user->role == 'admin') echo html::a($this->createLink('user', 'create', "type=$type"), $lang->user->inside->create);?></div>

@@ -83,6 +83,7 @@ class faq extends control
         $this->view->productList       = $productList;
         $this->view->selectedProductID = $productID;
         $this->view->categories        = $categories;
+        $this->view->categoryID        = $categoryID;
         $this->view->faqs              = $faqs;
 
         $this->display();
@@ -100,13 +101,13 @@ class faq extends control
     {
         if(!empty($_POST))
         {
-            if(!$this->post->answer) die(js::alert($this->lang->faq->emptyWarning));
-
-            $this->faq->create($productID, $categoryID);
-            if(dao::isError()) die(js::error(dao::getErrot()));
+            $this->faq->create($productID, $this->post->category);
+            if(dao::isError()) die(js::error(dao::getError()));
             die(js::locate($this->inLink('manage', "productID=$productID&categoryID=$categoryID"), 'parent'));
         }
 
+        $this->view->categories = $this->loadModel('category')->getPairs();
+        $this->view->categoryID = $categoryID;
         $this->display();
     }
 
@@ -142,18 +143,15 @@ class faq extends control
     {
         if(!empty($_POST))
         {
-            if(!$this->post->answer) die(js::alert($this->lang->faq->emptyWarning));
+            $this->faq->update($FAQID);
 
-            $this->dao->update(TABLE_FAQ)
-                ->set('request')->eq($this->post->request)
-                ->set('answer')->eq($this->post->answer)
-                ->where('id')->eq($FAQID)
-                ->exec();
-
-            if(dao::isError()) die(js::error(dao::getErrot()));
+            if(dao::isError()) die(js::error(dao::getError()));
             die(js::locate($this->inLink('manage', "productID={$this->post->productID}&categoryID={$this->post->categoryID}"), 'parent'));
         }
-        $this->view->FAQ = $this->faq->getByID($FAQID);
+
+        $this->view->FAQ        = $this->faq->getByID($FAQID);
+        $this->view->categories = $this->loadModel('category')->getPairs();
+        $this->view->categoryID = $this->view->FAQ->category;
 
         $this->display();
     }

@@ -11,8 +11,8 @@
  */
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
-<form method='post' target='hiddenwin' class='form-horizontal'>
-<table class='table-1 fixed table-bordered' align='center'>
+<form method='post' target='hiddenwin'>
+<table class='table-5 fixed' align='center'>
   <caption><?php echo $lang->setting->syncConfig?></caption>
   <tr>
     <th class='w-100px'><?php echo $lang->setting->isSync?></th>
@@ -20,13 +20,13 @@
   </tr>
   <tr>
     <th><?php echo $lang->setting->key?></th>
-    <td><?php echo html::input('key', $syncConfig->key, "class='text-3'") . $lang->setting->keyNote?></td>
+    <td><?php echo html::input('key', $syncConfig->key, "class='text-3'") . "<span class='help-inline'>" . $lang->setting->keyNote . "</span>"?></td>
   </tr>
   <tr>
     <th><?php echo $lang->setting->IP?></th>
     <td><?php
     $defaultVal = empty($syncConfig->ip) ? "checked='on'" : '';
-    echo html::input('ip', $syncConfig->ip, "class='text-3'") . "<input type='checkbox' name='noIP' $defaultVal />" . $lang->setting->noIP;
+    echo html::input('ip', $syncConfig->ip, "class='text-3'") . "<input type='checkbox' name='noIP' $defaultVal />" . "<span class='help-inline'>" . $lang->setting->noIP . "</span>";
     ?>
     </td>
   </tr>

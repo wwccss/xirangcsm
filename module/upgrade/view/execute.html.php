@@ -10,7 +10,7 @@
  */
 ?>
 <?php include '../../common/view/header.lite.html.php';?>
-<table align='center' class='table-5 f-14px table-bordered'>
+<table align='center' class='table-5 f-14px'>
   <caption><?php echo $lang->upgrade->$result;?></caption>
   <tr>
     <td>

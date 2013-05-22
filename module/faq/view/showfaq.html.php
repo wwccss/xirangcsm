@@ -11,9 +11,9 @@
  */
 ?>
 <?php include '../../common/view/header.html.php';?>
-<div class='row' id='top' name='top'>
+<div id='top' name='top'>
   <div class='span2'>
-    <div class='cont-left' id='sidenav'>
+    <div id='sidenav'>
       <div class='box-title'><?php echo $lang->faq->categoryList;?></div>
       <div class='box-content'>
         <ul>
@@ -33,24 +33,22 @@
     </div>
   </div>
   <div class='span10'>
-    <div class='cont'>
-      <div class='box-title'><?php echo $lang->faq->faqList;?></div>
-      <div id="topic">
-        <ul>
-        <?php $i = 1; foreach($faqs as $id => $faq):?>
-          <li><a href='<?php echo "#content$i";?>'><?php echo $faq->request . '?' ; $i++;?></a></li>
-        <?php endforeach;?>
-        </ul>
-      </div>
-      <div id="faqContent">
+    <div class='box-title'><?php echo $lang->faq->faqList;?></div>
+    <div id="topic">
+      <ul>
       <?php $i = 1; foreach($faqs as $id => $faq):?>
-        <h3>
-          <div class="a-left"><a id="<?php echo "content$i";?>" name="<?php echo "content$i";?>"><?php echo $faq->request . '?';?></a>
-          <a class='f-right' href='#top'><?php echo $lang->faq->toTop;?></a></div>
-        </h3>  
-        <p><?php echo $faq->answer; $i++;?></p>
+        <li><a href='<?php echo "#content$i";?>'><?php echo $faq->request . '?' ; $i++;?></a></li>
       <?php endforeach;?>
-      </div>
+      </ul>
+    </div>
+    <div id="faqContent">
+    <?php $i = 1; foreach($faqs as $id => $faq):?>
+      <h3>
+        <div class="a-left"><a id="<?php echo "content$i";?>" name="<?php echo "content$i";?>"><?php echo $faq->request . '?';?></a>
+        <a class='f-right' href='#top'><?php echo $lang->faq->toTop;?></a></div>
+      </h3>  
+      <p><?php echo $faq->answer; $i++;?></p>
+    <?php endforeach;?>
     </div>
   </div>
 </div>

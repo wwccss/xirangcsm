@@ -84,13 +84,19 @@ class faqModel extends model
      */
     public function create($productID, $categoryID)
     {
-        $newFAQ = new stdclass();
-        $newFAQ->product   = $productID;
-        $newFAQ->category  = $categoryID;
-        $newFAQ->request   = $this->post->request;
-        $newFAQ->answer    = $this->post->answer;
-        $newFAQ->addedtime = helper::now();
-        $this->dao->insert(TABLE_FAQ)->data($newFAQ)->autoCheck()->exec();
+        $faq = new stdclass();
+        $faq->product   = $productID;
+        $faq->category  = $categoryID;
+        $faq->request   = $this->post->request;
+        $faq->answer    = $this->post->answer;
+        $faq->addedtime = helper::now();
+        $this->dao->insert(TABLE_FAQ)->data($faq)->autoCheck()->batchCheck($this->config->faq->create->requiredFields, 'notempty')->exec();
+    }
+
+    public function update($faqID)
+    {
+        $faq = fixer::input('post')->get();
+        $this->dao->update(TABLE_FAQ)->data($faq)->where('id')->eq($faqID)->autoCheck()->batchCheck($this->config->faq->edit->requiredFields, 'notempty')->exec();
     }
 
     /**

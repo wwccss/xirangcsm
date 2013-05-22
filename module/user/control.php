@@ -266,7 +266,7 @@ class user extends control
             }
             elseif(RUN_MODE == 'front')
             {
-                die(js::locate($this->createLink('request', 'browse'), 'parent'));
+                die(js::locate($this->createLink('user', 'profile'), 'parent'));
             }
         }
 

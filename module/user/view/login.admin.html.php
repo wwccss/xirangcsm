@@ -8,58 +8,49 @@
  * @package     ZenTaoASM
  * @version     $Id$
  */
-include '../../common/view/header.lite.html.php';
 ?>
-<style>
-html{background:#080404;}
-body{background:#080404;}
-#box-login{ background:url('<?php echo $defaultTheme?>images/default/login_top.jpg') no-repeat center top #080404; padding-top:11px;}
-#welcome{ background:url('<?php echo $defaultTheme?>images/default/login_center1.jpg') repeat-y center;border:none; height:120px; text-align:center; margin:0px;}
-#welcome img{margin-top:25px;}
-#box-login tbody{background:url('<?php echo $defaultTheme?>images/default/login_center2.jpg') repeat-y center; color:#fff; font-size:16px;}
-#box-login tbody a{color:#fff; font-size:12px; margin:10px;}
-#box-login tbody th{text-indent:-120px;}
-#box-login tbody input{background:url('<?php echo $defaultTheme?>images/default/login_input.png') no-repeat center; border:none; height:27px; width:182px;line-height:27px; margin-bottom:10px; padding-left:10px;}
-#box-login tbody #submit{width:102px; height:27px; margin:0px;}
-#box-login form{ background:url('<?php echo $defaultTheme?>images/default/login_bottom.jpg') no-repeat center bottom; padding-bottom:4px;}
-#box-login p{margin-top:5px; font-size:14px; color:#fff;word-spacing:0.001em;}
-#box-login p a{ color:#fff; text-decoration:none}
-#hiddenwin{background:#080404;}
+<?php include '../../common/view/header.lite.html.php';?>
+<style type="text/css">
+  body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+   }
+  .form-signin {
+    max-width: 300px;
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+       -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  }
+  .form-signin .form-signin-heading,
+  .form-signin .checkbox {
+    margin-bottom: 10px;
+  }
+  .form-signin input[type="text"],
+  .form-signin input[type="password"] {
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
+  }
 </style>
 <script language='Javascript'>
-$(document).ready(function(){
-    $('#account').focus();
-})
+$(document).ready(function(){$('#account').focus();})
 </script>
-<div id='box-login' class='row' style='margin-top:240px;'>
-  <form method='post' target='hiddenwin'>
-    <table align='center' class='bd-none table-5'> 
-    <caption id='welcome'><img src='<?php echo $defaultTheme?>images/default/logo.jpg' /></caption>
-    <tbody class='a-center'>
-      <tr>
-        <th><?php echo $lang->user->admin->account;?>：</th>  
-      </tr>  
-      <tr>
-        <td><?php echo html::input('account', '', "'class=text-1'");?></td>
-      </tr>  
-      <tr>
-        <th><?php echo $lang->user->admin->password;?>：</th> 
-      </tr>
-      <tr>
-        <td><?php echo html::password('password', '', "'class=text-1'");?></td>
-      </tr>
-      <tr>
-        <td colspan='2' valign='top'>
-          <input id='submit' type="image" src='<?php echo $defaultTheme?>images/default/submit_img.png' style='padding-left:0px;'/>
-          <?php 
-          echo html::a(inlink('reset'), $lang->user->forgetPassword);
-          echo html::hidden('referer', $referer);
-          ?>
-        </td>
-      </tr>  
-    </tbody>
-    </table>
+<div class="container">
+  <form class="form-signin" target='hiddenwin' method='post'>
+    <h2 class="form-signin-heading"><?php echo $lang->zentaoasm?></h2>
+    <input type="text" name='account' class="input-block-level" placeholder="<?php echo $lang->user->account?>">
+    <input type="password" name='password' class="input-block-level" placeholder="<?php echo $lang->user->password?>">
+    <button class="btn btn-large btn-primary" type="submit"><?php echo $lang->user->login->common?></button>
   </form>
-  <p align='center'><?php echo html::a('http://www.zentao.net/goto.php?item=zentaoasm', sprintf($lang->poweredBy, $config->version), '_blank');?></p>
 </div>
+<p align='center'><?php echo html::a('http://www.zentao.net/goto.php?item=zentaoasm', sprintf($lang->poweredBy, $config->version), '_blank');?></p>
 <?php include '../../common/view/footer.admin.html.php';?>

@@ -6,7 +6,7 @@
       <h3><?php printf($lang->misc->zentao->version, $config->version);?></h3>
     </td>
     <td> 
-      <table class='table-1 table-bordered'>
+      <table class='table-1'>
         <tr class='colhead'>
           <?php foreach($lang->misc->zentao->labels as $label) echo "<th class='w-p25'>$label</th>";?>
         </tr>

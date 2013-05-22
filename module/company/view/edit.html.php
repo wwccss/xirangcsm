@@ -12,11 +12,11 @@
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
 <form method='post' target='hiddenwin' id='dataform'>
-  <table align='center' class='table-5 table-bordered'> 
+  <table align='center' class='table-4'>
     <caption><?php echo $lang->company->edit;?></caption>
     <tr>
       <th class='rowhead'><?php echo $lang->company->name;?></th>
-      <td><?php echo html::input('name', $company->name, "class='text-1'");?></td>
+      <td><?php echo html::input('name', $company->name, "class='text-3'");?></td>
     </tr>  
     <tr><td colspan='2' class='a-center'><?php echo html::submitButton();?></td></tr>
   </table>

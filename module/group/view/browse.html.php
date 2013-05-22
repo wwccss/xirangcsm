@@ -11,23 +11,23 @@
  */
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
-<table align='center' class='table-1 table-bordered'>
+<table class='table-1'>
   <caption><?php echo $lang->group->managePriv?></caption>
   <thead>
   <tr>
-   <th><?php echo $lang->group->id;?></th>
+   <th class='w-id'><?php echo $lang->group->id;?></th>
    <th><?php echo $lang->group->name;?></th>
    <th><?php echo $lang->group->desc;?></th>
-   <th class='{sorter:false}'><?php echo $lang->actions;?></th>
+   <th class='w-80px' class='{sorter:false}'><?php echo $lang->actions;?></th>
   </tr>
   </thead>
   <tbody>
   <?php foreach($groups as $group):?>
-  <tr class='a-center'>
+  <tr>
     <td class='strong'><?php echo $group->id;?></td>
     <td><?php echo $group->name;?></td>
     <td class='a-left'><?php echo $group->desc;?></td>
-    <td> <?php common::printLink('group', 'managepriv',   "param=$group->id", $lang->group->managePrivByGroup);?> </td>
+    <td class='a-center'> <?php common::printLink('group', 'managepriv',   "param=$group->id", $lang->group->managePrivByGroup);?> </td>
   </tr>
   <?php endforeach;?>
   </tbody>

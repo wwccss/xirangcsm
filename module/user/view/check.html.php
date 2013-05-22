@@ -1,6 +1,6 @@
 <?php include '../../common/view/header.html.php';?>
 <form method="post">
-<table align='center' class='table-1 table-bordered'>
+<table class='table-1'>
   <caption><?php echo $lang->user->modifyPassword;?></caption>
   <tr>
   <th class='rowhead'><?echo $lang->user->password ?></th>

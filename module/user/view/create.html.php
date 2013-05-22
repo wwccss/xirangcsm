@@ -12,8 +12,8 @@
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
 <?php include '../../common/view/datepicker.html.php';?>
-<form method='post' enctype='multipart/form-data' target='hiddenwin' class='form-horizontal'>
-<table class='table-5 fixed table-bordered' align='center'>
+<form method='post' target='hiddenwin'>
+<table class='table-5 fixed' align='center'>
   <?php if($type == 'inside'): ?>
   <caption><?php echo $lang->user->inside->createProfile;?></caption>
   <?php endif; ?>
@@ -21,7 +21,7 @@
   <caption><?php echo $lang->user->customer->createProfile;?></caption>
   <?php endif; ?>
   <tr>
-    <td class='w-120px' align='right'><?php echo $lang->user->account;?></td>
+    <td class='w-100px' align='right'><?php echo $lang->user->account;?></td>
     <td><?php echo html::input('account', '', "class='text-3'"); echo $lang->user->lblAccount;?></td>
   </tr>  
   <tr>
@@ -81,8 +81,8 @@
     <td><?php echo html::input('qq', '', "class='text-3'");?></td>
   </tr>  
   <tr>
-    <td align='right'><?php echo $lang->user->msn;?></td>
-    <td><?php echo html::input('msn', '', "class='text-3'");?></td>
+    <td align='right'><?php echo $lang->user->skype;?></td>
+    <td><?php echo html::input('skype', '', "class='text-3'");?></td>
   </tr>  
   <tr>
     <td align='right'><?php echo $lang->user->yahoo;?></td>

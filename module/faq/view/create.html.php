@@ -13,10 +13,14 @@
 <?php include '../../common/view/header.admin.html.php';?>
 <?php include '../../common/view/kindeditor.html.php';?>
 <form method='post' target='hiddenwin'>
-<table class='table-1 table-bordered' align='center'>
+<table class='table-1'>
   <caption><?php echo $lang->faq->create;?></caption>
     <tr>
-      <th><?php echo $lang->faq->title;?></th>
+      <th><?php echo $lang->faq->category;?></th>
+      <td><?php echo html::select('category', $categories, $categoryID, "class='select-3'");?></td>
+    </tr>
+    <tr>
+      <th><?php echo $lang->faq->request;?></th>
       <td><?php echo html::input('request', '', 'class=text-1');?></td>
     </tr>
     <tr>

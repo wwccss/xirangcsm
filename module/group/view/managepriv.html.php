@@ -11,16 +11,16 @@
  */
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
-<form method='post' target='hiddenwin' class='form-horizontal'>
-  <table class='table-1 a-left table-bordered' align='center'> 
+<form method='post' target='hiddenwin'>
+  <table class='table-1'> 
     <caption><?php echo $group->desc . $lang->colon . $lang->group->managePriv;?> </caption>
     <tr>
       <th><?php echo $lang->group->module;?></th>
       <th><?php echo $lang->group->method;?></th>
     </tr>  
     <?php foreach($lang->resource as $moduleName => $moduleActions):?>
-    <tr class='f-14px <?php echo cycle('even, bg-yellow');?>'>
-      <th class='a-right'><?php echo $this->lang->$moduleName->common;?> <input type='checkbox' onclick='check(this, "<?php echo $moduleName;?>")'></td>
+    <tr class='f-14px <?php echo cycle('even, odd');?>'>
+      <th class='rowhead'><span class='help-inline'><?php echo $this->lang->$moduleName->common;?></span> <input type='checkbox' onclick='check(this, "<?php echo $moduleName;?>")'></td>
       <td id='<?php echo $moduleName;?>' class='pv-10px'>
         <?php $i = 1;?>
         <?php foreach($moduleActions as $action => $actionLabel):?>
@@ -37,7 +37,7 @@
     <?php endforeach;?>
     <tr>
       <th class='rowhead'><?php echo $lang->group->checkall;?><input type='checkbox' onclick='checkall(this);'></th>
-      <td class='a-center'>
+      <td>
         <?php 
         echo html::submitButton($lang->save);
         echo html::linkButton($lang->goback, $this->createLink('group', 'browse'));

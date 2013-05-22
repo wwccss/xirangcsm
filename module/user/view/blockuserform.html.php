@@ -25,8 +25,8 @@
      }
   }   
   ?>
-  <form method='post' target='hiddenwin' class='bd-none'>
-    <table class='table-1' style='border:none'>
+  <form method='post' target='hiddenwin'>
+    <table class='table-1 bd-none'>
       <tr>
         <th class='w-100px'><nobr><?php echo $lang->account;?></nobr></th>
         <td><input type='text' name='account' class='text-2' /></td>
@@ -39,7 +39,7 @@
         <td>
           <input type='hidden' value='<?php echo $referer;?>' name='referer' />
         </td>
-        <td><?php echo html::submitButton($lang->login);?></td>
+        <td><?php echo html::submitButton($lang->login); echo ' ' . html::a(inlink('reset'), $lang->user->reset)?></td>
       </tr>
     </table>
   </form>

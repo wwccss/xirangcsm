@@ -21,7 +21,7 @@
         <tr><td><?php echo html::select('product', $productList, $productID, 'class=select-1 onchange=switchProduct(this.value)');?></td></tr>
         <tr>
           <td class='a-left'>
-            <ul>
+            <ul class='tree'>
             <?php 
             if(!empty($categories))
             {

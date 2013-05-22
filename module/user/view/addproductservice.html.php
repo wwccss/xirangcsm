@@ -12,13 +12,13 @@
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
 <?php include '../../common/view/datepicker.html.php';?>
-<form method='post' enctype='multipart/form-data' target='hiddenwin'>
-<table class='table-5 fixed table-bordered' align='center'>
+<form method='post' target='hiddenwin'>
+<table class='table-5 fixed' align='center'>
   <caption><?php echo $lang->user->addProductService;?></caption>
   <tr>
     <td class='w-120px' align='right'><?php echo $lang->user->product;?></td>
-    <td><?php echo html::select('product', $products, '', "class='text-3'");?></td>
-  </tr>  
+    <td><?php echo html::select('product', $products, '', "class='select-3'");?></td>
+  </tr>
   <tr>
     <td class='w-120px' align='right'><?php echo $lang->user->serviceTime;?></td>
     <td><?php echo html::input('serviceTime', '', "class='text-3 date'");?></td>

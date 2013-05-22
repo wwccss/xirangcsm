@@ -13,21 +13,21 @@
 <?php include '../../common/view/header.admin.html.php';?>
 <?php include '../../common/view/kindeditor.html.php';?>
 <form method='post' target="hiddenwin">
-<table class='table-1 table-bordered' align='center'>
+<table class='table-1'>
   <caption><?php echo $lang->faq->edit;?></caption>
   <tr>
-    <th><?php echo $lang->faq->title;?></th>
+    <th><?php echo $lang->faq->category;?></th>
+    <td><?php echo html::select('category', $categories, $categoryID, "class='select-3'");?></td>
+  </tr>
+  <tr>
+    <th><?php echo $lang->faq->request;?></th>
     <td><?php echo html::input('request', $FAQ->request, 'class=text-1');?></td>
   </tr>
   <tr>
     <th><?php echo $lang->faq->answer;?></th>
     <td><?php echo html::textarea('answer', $FAQ->answer, 'style="width:90%" rows=20');?></td>
   </tr>
-  <tr class='a-center'>
-    <td colspan='2'>
-    <?php echo html::submitButton() . html::hidden('productID', $FAQ->product) . html::hidden('categoryID', $FAQ->category);?>
-    </td>
-  </tr>
+  <tr class='a-center'><td colspan='2'><?php echo html::submitButton();?></td></tr>
 </table>
 </form>
 <?php include '../../common/view/footer.admin.html.php';?>
