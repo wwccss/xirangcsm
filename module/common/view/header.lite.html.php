@@ -24,12 +24,9 @@ $defaultTheme = $webRoot . 'theme/default/';
 
   css::import($defaultTheme . "bootstrap.css");
   css::import($defaultTheme . "style.css");
-  if(RUN_MODE == 'front') css::import($themeRoot . 'default/front.css');
-  if(RUN_MODE == 'admin') css::import($themeRoot . 'default/admin.css');
   if(isset($pageCss)) css::internal($pageCss);
 
   echo html::icon($webRoot . 'favicon.ico');
 ?>
-<script type="text/javascript">loadFixedCSS();</script>
 </head>
-<body><div id='docbox'>
+<body><div id='docbox' class='container'>
