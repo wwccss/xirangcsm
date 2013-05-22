@@ -11,14 +11,14 @@
  */
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
-<table class='table-1 bd-none' align='center'>
+<table class='table-5 bd-none' align='center'>
   <tr valign='top'>
-    <td class='w-200px' class='a-left' style='padding:0'>
+    <td class='w-200px' class='a-left'>
       <form method='post' target='hiddenwin' action='<?php echo $this->inLink('updateOrder');?>' class='form-horizontal'>
       <table width='100%'>
         <caption><?php echo $lang->category->categoryManage;?></caption>  
         <?php if($productList):?>
-        <tr><td><?php echo html::select('product', $productList, $productID, 'class=select-3 onchange=switchProduct(this.value)');?></td></tr>
+        <tr><td><?php echo html::select('product', $productList, $productID, 'class=select-1 onchange=switchProduct(this.value)');?></td></tr>
         <tr>
           <td class='a-left'>
             <ul>
@@ -27,10 +27,10 @@
             {
               foreach($categories as $category)
               {
-                  echo "<li class='mb-10px'>";
+                  echo "<li>";
                   echo $category->name . ' ';
                   echo html::a($this->inLink('delete', "categoryID=$category->id"), $lang->delete, 'hiddenwin');
-                  echo html::input("orders[$category->id]", "$category->order", 'style="width:20px"');
+                  echo html::input("orders[$category->id]", "$category->order", "class='w-20px'");
                   echo '</li>';
               }
             }
@@ -45,7 +45,7 @@
       </table>
       </form>
     </td>
-    <td class='a-left' style='padding:0'>
+    <td class='a-left'>
       <form method='post' target='hiddenwin'>
       <table class='table-1'>
         <caption><?php echo $lang->category->changeOrAdd;?></caption>  
@@ -54,11 +54,11 @@
           <?php 
           if(!empty($categories))
           {
-            foreach($categories as $category) echo html::input("categories[$category->id]", $category->name, 'class=text-2 style="margin-bottom:5px"') . '<br />';
+            foreach($categories as $category) echo html::input("categories[$category->id]", $category->name, "class='text-2'") . '<br />';
           }
           if($productID != 0)
           {
-            for($i = 0; $i < CATEGORY::NEW_CATEGORY_COUNT; $i ++) echo html::input("categories[]", '', 'class=text-2 style="margin-bottom:5px"') . '<br />';
+            for($i = 0; $i < CATEGORY::NEW_CATEGORY_COUNT; $i ++) echo html::input("categories[]", '', "class='text-2'") . '<br />';
             echo html::submitButton() . html::hidden('productID', $productID);
           }
           ?>
