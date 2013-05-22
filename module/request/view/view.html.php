@@ -12,28 +12,18 @@
 ?>
 <?php if(RUN_MODE == 'front'):?>
 <?php include '../../common/view/header.html.php';?>
-<style type='text/css'>
-#requestCont.affix{top:10px;}
-</style>
-<div class='row'>
-  <div>
+<div>
 <?php else:?>
 <?php include '../../common/view/header.admin.html.php';?>
 <?php endif;?>
 <?php include '../../common/view/kindeditor.html.php';?>
-  <table class='table-1 fixed table-bordered affix-top bg-white' align='center' id='requestCont'>
-    <caption class='a-left blue'>
-    <?php 
-    if($request->status == 'viewed')
-    {
-      echo $lang->request->statusList['wait'] . $lang->arrow . $request->productName . $lang->arrow . $request->categoryName . $request->title;
-    }
-    else
-    {
-      echo $lang->request->statusList[$request->status] . $lang->arrow . $request->productName . $lang->arrow . $request->categoryName . $lang->arrow . $request->title;
-    }
-    ?>
-    </caption>
+  <ul class='breadcrumb'>
+    <li><?php $status = $request->status == 'viewed' ? 'wait' : $request->status; echo $lang->request->statusList[$status]?><span class="divider">/</span></li>
+    <li><?php echo $request->productName?><span class="divider">/</span></li>
+    <li><?php echo $request->categoryName?><span class="divider">/</span></li>
+    <li class='active'><?php echo $request->title?></li>
+  </ul>
+  <table class='table-1 fixed bg-white' align='center' id='requestCont'>
     <tr>
       <td>
         <?php echo $request->desc;?><br />
@@ -100,7 +90,7 @@
   <?php if($comment == 1):?>
   <div>
   <form method='post' target='hiddenwin' action='<?php echo inlink('comment', "requestID=$request->id&paramString=$paramString")?>'>
-    <table class='table-1 fixed table-bordered' align='center'>
+    <table class='table-1 fixed' align='center'>
       <caption><?php echo $lang->request->commentReply;?></caption>
       <tr>
         <th class='w-100px'><?php echo $lang->request->comment;?></th>
@@ -114,8 +104,7 @@
   <?php if($request->status != 'closed'):?>
   <div id='replyDiv'>
     <form method='post' target='hiddenwin' action='<?php echo inlink('reply', "requestID=$request->id&editReplyID=$editReplyID")?>'>
-    <table class='table-1 fixed  table-bordered' align='center'>
-      <caption><?php echo $lang->request->reply;?></caption>
+    <table class='table-1 fixed' align='center'>
       <tr>
         <th class='w-100px'><?php echo $lang->request->selectFAQ;?></th>
         <td><?php echo html::select('faqID', $faqList, $faq ? $faq->id : 0, "class=select-1 onchange='switchFAQ({$request->id}, $editReplyID, this.value)'");?></td>
@@ -131,27 +120,26 @@
   <?php endif;?>
 <div id='doubt' style='display:<?php echo $viewType == 'doubt' ? '' : "none"?>'>
   <form method="post" action="<?php echo inlink('doubt');?>">
-  <table class='table-1 fixed table-bordered'>
+  <table class='table-1 fixed'>
     <caption class='a-left blue'><?php echo $lang->request->doubt;?></caption>
-    <tr><td><?php echo html::textarea('comment', '', 'style="width:90%" rows=10')?></td></tr>
+    <tr><td><?php echo html::textarea('comment', '', 'style="width:90%" rows=5')?></td></tr>
     <tr><td><?php echo html::submitButton($lang->request->doubt). html::hidden('requestID', $request->id)?></td></tr>
   </table>
   </form>
 </div>
 <div id='valuate' style='display:<?php echo $viewType == 'valuate' ? '' : "none"?>'>
   <form method="post" action="<?php echo inlink('valuate')?>">
-  <table class='table-1 fixed table-bordered' align='center'>
+  <table class='table-1 fixed' align='center'>
     <caption class='a-left blue'><?php echo $lang->request->valuate. $lang->request->valuateNotice;?></caption>
     <tr><td><?php echo html::radio('valuate', $lang->request->valuates, '')?></td></tr>
-    <tr><td><?php echo html::textarea('comment', '', 'style="width:90%" rows=10')?></td></tr>
+    <tr><td><?php echo html::textarea('comment', '', 'style="width:90%" rows=5')?></td></tr>
     <tr><td><?php echo html::submitButton($lang->request->subRating). html::hidden('requestID', $request->id)?></td></tr>
   </table>
   </form>
 </div>
-</div>
-<script type='text/javascript'>
-var viewType    = '<?php echo $viewType?>';
-var run_mode    = '<?php echo RUN_MODE?>';
-</script>
+<?php
+js::set('viewType', $viewType);
+js::set('run_mode', RUN_MODE);
+?>
 <?php if(RUN_MODE == 'front') include '../../common/view/footer.html.php';?>
 <?php if(RUN_MODE == 'admin') include '../../common/view/footer.admin.html.php';?>
