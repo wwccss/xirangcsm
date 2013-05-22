@@ -341,7 +341,7 @@ class html
      */
     public static function linkButton($label = '', $link = '', $misc = '')
     {
-        return " <button type='button' $misc class='button-c btn' onclick='location.href=\"$link\"'>$label</button>";
+        return " <button type='button' $misc class='btn btn-small' onclick='location.href=\"$link\"'>$label</button>";
     }
 }
 
