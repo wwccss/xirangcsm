@@ -569,6 +569,7 @@ EOT;
         $requiredFields  = '';
         if(isset($config->$moduleName->$methodName->requiredFields)) $requiredFields = str_replace(' ', '', $config->$moduleName->$methodName->requiredFields);
 
+        $jsConfig = new stdclass();
         $jsConfig->webRoot        = $config->webRoot;
         $jsConfig->cookieLife     = ceil(($config->cookieLife - time()) / 86400);
         $jsConfig->requestType    = $config->requestType;
@@ -605,6 +606,41 @@ EOT;
     {
         $js = self::start();
         $js .= $code;
+        $js .= self::end();
+        echo $js;
+    }
+
+    /**
+     * Set js value.
+     * 
+     * @param  string   $key 
+     * @param  mix      $value 
+     * @static
+     * @access public
+     * @return void
+     */
+    static public function set($key, $value)
+    {
+        $js  = self::start(false);
+        if(is_numeric($value))
+        {
+            $js .= "$key = $value";
+        }
+        elseif(is_array($value) or is_object($value) or is_string($value))
+        {
+            $value = json_encode($value);
+            $js .= "$key = $value";
+        }
+        elseif(is_bool($value))
+        {
+            $value = $value ? 'true' : 'false';
+            $js .= "$key = $value";
+        }
+        else
+        {
+            $value = addslashes($value);
+            $js .= "$key = '$value'";
+        }
         $js .= self::end();
         echo $js;
     }
