@@ -8,3 +8,4 @@ CREATE TABLE `zt_company` (
 INSERT INTO `zt_company` (`id`, `name`) VALUES (1, '');
 ALTER TABLE `zt_user` ADD `skype` CHAR( 90 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `phone` ;
 ALTER TABLE `zt_user` ADD `zentaoID` MEDIUMINT NOT NULL AFTER `last` ;
+ALTER TABLE `zt_user` DROP `msn`;
