@@ -12,48 +12,33 @@
 ?>
 <?php if(RUN_MODE == 'front'):?>
 <?php include '../../common/view/header.html.php';?>
-<style type='text/css'>
-.nav-tabs{background:#ccc; padding-top:5px; padding-left:5px;}
-</style>
-<div class='row'>
-  <div>
+<div>
 <?php else: ?>
 <?php include '../../common/view/header.admin.html.php';?>
 <?php include '../../common/view/alert.html.php';?>
-<style type='text/css'>
-#select{height:auto;}
-</style>
 <?php endif;?>
-<script type='text/javascript'>
-var browseType='by<?php echo $type?>Tab';
-$(function(){
-     $('#' + browseType).addClass('active');
-});
-</script>
+<?php js::set('browseType', 'by' . $type . 'Tab');?>
 <ul class='nav nav-tabs'>
-<?php
-    if(RUN_MODE == 'admin') echo "<li id='byassignedToMeTab'>". html::a(inLink('browse', "type=assignedToMe"), $lang->request->assignedToMe) . '</li>';
+  <?php
+  if(RUN_MODE == 'admin') echo "<li id='byassignedToMeTab'>" . html::a(inLink('browse', "type=assignedToMe"), $lang->request->assignedToMe) . '</li>';
 
-    echo "<li id='byallTab'>" . html::a(inLink('browse', "type=all"), $lang->request->all) . '<li>';
+  echo "<li id='byallTab'>" . html::a(inLink('browse', "type=all"), $lang->request->all) . '<li>';
+  foreach($lang->request->statusList as $statusName => $statusLabel) echo "<li id='by$statusName" . "Tab'>" . html::a(inLink('browse', "type=$statusName"), $statusLabel) . '</li>';
 
-    foreach($lang->request->statusList as $statusName => $statusLabel) echo "<li id='by$statusName" . "Tab'>" . html::a(inLink('browse', "type=$statusName"), $statusLabel) . '</li>';
-
-    if(RUN_MODE == 'admin')
-    {
+  if(RUN_MODE == 'admin')
+  {
       echo "<li id='byallowedClosedTab'>" . html::a(inLink('browse', "type=allowedClosed"), $lang->request->allowedClosed) . '</li>';
-      echo "<li id='byrepliedByMeTab'>" . html::a(inLink('browse', "type=repliedByMe"), $lang->request->repliedByMe) . '</li>';
-      echo "<li id='bysearchTab'>" . html::a(inLink('browse', "type=search"), $lang->request->search) . '<li>';
-    }
-?>
+      echo "<li id='byrepliedByMeTab'>"   . html::a(inLink('browse', "type=repliedByMe"),   $lang->request->repliedByMe) . '</li>';
+      echo "<li id='bysearchTab'>"        . html::a(inLink('browse', "type=search"),        $lang->request->search) . '<li>';
+  }
+  ?>
 </ul>
 <!-- show header of table. -->
 <?php $vars = "type=$type&param=$param&orderBy=%s&recTotal=$recTotal&recPerPage=$recPerPage&userID=$userID"; ?>
-<table align='center' class='table-1 fixed tablesorter table-bordered' id='requestData'>
-<?php if(RUN_MODE != 'front'):?>
-  <caption id='select' class='<?php if($type !='search') echo 'hidden';?>'>
-    <div id='querybox' class='<?php if($type !='search') echo 'hidden';?>'><?php echo $searchForm;?></div>
-  </caption>
+<?php if(RUN_MODE == 'admin'):?>
+<div id='queryBox' class='<?php if($type !='search') echo 'hidden';?>'><?php echo $searchForm;?></div>
 <?php endif;?>
+<table align='center' class='table-1 fixed tablesorter' id='requestData'>
   <thead>
   <tr>
     <th class='w-id'>    <?php common::printOrderLink('id',        $orderBy, $vars, $lang->request->id);?></th>
@@ -70,6 +55,7 @@ $(function(){
     <th class='<?php echo RUN_MODE == 'front' ? 'w-100px' : 'w-200px'?>' {sorter:false}> <?php echo $lang->actions;?></th>
   </tr>
   </thead>
+  <tbody>
 <!-- show request of content. -->
   <?php foreach($requests as $request):?>
   <tr class='a-center'>
@@ -120,6 +106,7 @@ $(function(){
     </td>
   </tr>
   <?php endforeach;?>
+  </tbody>
   <tfoot>
     <?php if(RUN_MODE == 'front'):?>
     <tr><td class='a-right' colspan='8'><?php if($dbPager) $dbPager->show();?></td></tr>
@@ -129,14 +116,5 @@ $(function(){
   </tfoot>
 </table>
 </div>
-<?php if(RUN_MODE == 'admin'):?>
-<script type='text/javascript'>
-  $(function(){
-      $('table tr:even').css({background:'#e0e0e0'});
-      $('table tr:odd').css({background:'#ffffff'});
-  })
-</script>
-<?php endif;?>
-<?php if(RUN_MODE == 'front') echo "</div>";?>
 <?php if(RUN_MODE == 'front') include '../../common/view/footer.html.php';?>
 <?php if(RUN_MODE == 'admin') include '../../common/view/footer.admin.html.php';?>
