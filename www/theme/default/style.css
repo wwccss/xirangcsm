@@ -8,9 +8,12 @@
 * @link        http://www.zentao.net
 */
 /*-----------------------GLOBAL SETTING----------------------------*/
-body{font-size:12px;}
-select{border-color:#e4e4e4; padding:3px}
-input{border:1px solid #e4e4e4;padding:3px;margin-bottom:5px;}
+body {font-size:12px;}
+#docbox {width:auto; margin:60px 20px 0 20px}
+#profile{height:44px; line-height:44px;}
+
+select{border:1px solid #e4e4e4; padding:3px;margin:1px;}
+input{border:1px solid #e4e4e4;padding:3px;margin:1px;}
 
 .text-1 {width: 90%}
 .text-2 {width: 120px}
@@ -36,10 +39,11 @@ input{border:1px solid #e4e4e4;padding:3px;margin-bottom:5px;}
 .button-d{padding:3px 20px 3px 20px}
 
 /*-----------------------TABLE SETTING----------------------------*/
-table, th, td {border-top:1px solid #999;}
+table         {border:1px solid #e5e5e5;border-collapse:collapse}
+table th,table td {border:1px solid #e5e5e5;}
 tr, th, td    {padding:2px 3px 2px 5px}
 
-caption       {height:20px; margin:0; padding:3px 0 0 10px; text-align:left; border:solid 1px #92C8F5; font-weight:bold; background:url(./images/default/bg.title.1.png);}
+caption       {height:20px; margin:0; padding:3px 0 0 10px; text-align:left; border:solid 1px #e5e5e5; border-bottom:none; font-weight:bold; background:#f5f5f5}
 caption a     {text-decoration:none}
 .caption-tr   {caption-side:top; text-align:right; border:none; background:none;}
 .caption-tl   {caption-side:top; text-align:left;  border:none; background:none;}
