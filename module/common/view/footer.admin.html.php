@@ -1,4 +1,4 @@
-<div class='row'><div class='u-1'><iframe name='hiddenwin' id='hiddenwin' class='<?php $config->debug ? print('debugwin') : print('hidden');?>'></iframe></div></div>
+<iframe frameborder='0' scrolling='no' name='hiddenwin' id='hiddenwin' class='<?php $config->debug ? print('debugwin') : print('hidden');?>'></iframe>
 </div>
 <script laguage='Javascript'>
 <?php if(isset($pageJS)) echo $pageJS;?>
