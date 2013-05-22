@@ -350,22 +350,18 @@ function selectItem(SelectID)
  */
 function togglesearch()
 {
-    $("#bysearchTab").toggle(
-      function()
-      {
-          $('#' + browseType).removeClass('active');
-          $('#bysearchTab').addClass('active');
-          $('#querybox').removeClass('hidden');
-          $('#select').removeClass('hidden');
-      },
-      function()
-      {
-          $('#' + browseType).addClass('active');
-          $('#bysearchTab').removeClass('active');
-          $('#querybox').addClass('hidden');
-          $('#select').addClass('hidden');
-      } 
-    );
+    $("#bysearchTab").toggle(function()
+    {
+        $('#' + browseType).removeClass('active');
+        $('#bysearchTab').addClass('active');
+        $('#queryBox').removeClass('hidden');
+    },
+    function()
+    {
+        $('#' + browseType).addClass('active');
+        $('#bysearchTab').removeClass('active');
+        $('#queryBox').addClass('hidden');
+    });
 }
 
 /* Ping the server every some minutes to keep the session. */
