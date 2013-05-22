@@ -11,21 +11,21 @@
  */
 ?>
 <?php include '../../common/view/header.admin.html.php';?>
-<table class='table-1 bd-none' align='center'>
+<table class='table-5 bd-none' align='center'>
   <tr valign='top'>
-    <td class='w-200px' class='a-left' style='padding:0'>
-      <form method='post' target='hiddenwin' action='<?php echo $this->inLink('updateOrder');?>' class='form-horizontal'>
+    <td class='w-200px' class='a-left'>
+      <form method='post' target='hiddenwin' action='<?php echo $this->inLink('updateOrder');?>'>
       <table width='100%'>
         <caption><?php echo $lang->product->productManage;?></caption>  
         <tr>
           <td class='a-left'>
-            <ul>
+            <ul class='tree'>
             <?php 
             foreach($products as $product)
             {
-                echo "<li class='mb-10px'>";
+                echo "<li>";
                 echo $product->name . ' ';
-                echo html::input("orders[$product->id]", "$product->order", 'style="width:20px"');
+                echo html::input("orders[$product->id]", "$product->order", "class='w-20px'");
                 if($product->status == 'stopped')
                 {
                     echo html::a($this->inLink('online', "productID=$product->id"), $lang->product->online, 'hiddenwin');
@@ -45,15 +45,15 @@
       </table>
       </form>
     </td>
-    <td class='a-left' style='padding:0'>
+    <td class='a-left'>
       <form method='post' target='hiddenwin'>
       <table class='table-1'>
         <caption><?php echo $lang->product->changeOrAdd;?></caption>  
         <tr>
           <td class='a-center'>
           <?php 
-          foreach($products as $product) echo html::input("products[$product->id]", $product->name, 'class=text-2 style="margin-bottom:5px"') . '<br />';
-          for($i = 0; $i < PRODUCT::NEW_PRODUCT_COUNT; $i ++) echo html::input("products[]", '', 'class=text-2 style="margin-bottom:5px"') . '<br />';
+          foreach($products as $product) echo html::input("products[$product->id]", $product->name, "class='text-2'") . '<br />';
+          for($i = 0; $i < PRODUCT::NEW_PRODUCT_COUNT; $i ++) echo html::input("products[]", '', "class='text-2'") . '<br />';
           echo html::submitButton();
           ?>
           </td>
