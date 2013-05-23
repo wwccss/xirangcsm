@@ -320,7 +320,7 @@ needPing = config.router.indexOf('admin.php') < 0 ? false : true;
 /* When body's ready, execute these. */
 $(document).ready(function() 
 {
-    highlightFrontMenu();
+    if(config.router.indexOf('admin.php') < 0) highlightFrontMenu(); // only run in front.
     setNowrapObjTitle();
     setRequiredFields();
     setForm();

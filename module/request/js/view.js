@@ -13,18 +13,18 @@ $(document).ready(function()
 {
    if(viewType == 'reply')
    {
-      $('#replyDiv').show();
+        $('#replyDiv').show();
    }
    else
    {
-      $('#replyDiv').hide();
+        $('#replyDiv').hide();
    }
    $("#doubtButton").click(function()
    {
-       $("#doubt").toggle();
+        $("#doubt").toggle();
    });
    $("#valuateButton").click(function()
    {
-       $("#valuate").toggle();
+        $("#valuate").toggle();
    });
 });

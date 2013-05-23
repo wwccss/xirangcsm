@@ -54,6 +54,7 @@ $lang->adminMenu->group    = '权限管理|group|browse|';
 $lang->adminMenu->company  = '公司设置|company|edit|';
 $lang->adminMenu->setting  = '系统设置|setting|setConfig|';
 
+$lang->frontMenu = new stdclass();
 $lang->frontMenu->faq           = '常见问题';
 $lang->frontMenu->createRequest = '我要提问';
 $lang->frontMenu->browseRequest = '我的问题';
