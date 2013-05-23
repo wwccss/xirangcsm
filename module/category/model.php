@@ -22,7 +22,7 @@ class categoryModel extends model
      */
     public function getByProductID($productID = 0)
     {
-        return $this->dao->select('*')->from(TABLE_CATEGORY)->where('product')->eq($productID)->orderBy('`order`')->fetchAll();
+        return $this->dao->select('*')->from(TABLE_CATEGORY)->where('product')->eq($productID)->orderBy('`order`')->fetchAll('id');
     }
 
     /**

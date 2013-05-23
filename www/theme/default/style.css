@@ -39,15 +39,19 @@ input{border:1px solid #e5e5e5;padding:3px;margin:1px;}
 .button-d{padding:3px 20px 3px 20px}
 
 /*-----------------------TABLE SETTING----------------------------*/
-table         {border:1px solid #e5e5e5;border-collapse:collapse}
+table             {border:1px solid #e5e5e5;border-collapse:collapse}
+tr, th, td        {padding:2px 3px 2px 5px}
 table th,table td {border:1px solid #e5e5e5;}
-tr, th, td    {padding:2px 3px 2px 5px}
 
-caption       {height:20px; margin:0; padding:3px 0 0 10px; text-align:left; border:solid 1px #e5e5e5; border-bottom:none; font-weight:bold; background:#f5f5f5}
-caption a     {text-decoration:none}
+caption,   .box-title   {height:20px; margin:0; padding:3px 0 0 10px; text-align:left; border:solid 1px #e5e5e5; border-bottom:none; font-weight:bold; background:#f5f5f5}
+caption a, .box-title a {text-decoration:none}
+
 .caption-tr   {caption-side:top; text-align:right; border:none; background:none;}
 .caption-tl   {caption-side:top; text-align:left;  border:none; background:none;}
 .caption-bold {background:url('./images/default/bg.title.2.png')}
+
+.box-content {margin-bottom:10px; padding:5px; border:1px solid #e5e5e5;}
+.box-content ul {margin:0px; margin-bottom:10px;}
 
 /*--------------------------------------------------------*/
 .table-1 {width:100%; margin-bottom:10px}
@@ -171,10 +175,6 @@ caption a     {text-decoration:none}
 .f-16px  {font-size:16px}
 .strong  {font-weight:bold}
 
-.box-title   {height:25px; padding:3px 0 0 10px; border:1px solid #92C8F5; border-bottom:none; font-weight:bold; background:url(./images/default/bg.title.1.png); color:#03356D;}
-.box-content {margin-bottom:10px; padding:5px; border:1px solid #92C8F5; border-top:none}
-.box-content ul {margin:0px; margin-bottom:10px;}
-
 /*-----------------------BORDER SETTING--------------------------*/
 .bd-1px    {border:1px        solid}
 .bt-1px    {border-top:1px    solid}
@@ -205,28 +205,9 @@ caption a     {text-decoration:none}
 
 /*-----------------------SPECIAL PART SETTING--------------------*/
 
-/* The top bar .*/
-#topbar, #topbar a{color:white}
-
-/* The header bar .*/
-#header    {height:85px; margin:0; background:#fff url(./images/default/bg.header.png); border:none}
-#logobox   {width:200px; border:none; text-align:left; padding-left:10px; font-size:30px; font-weight:bold}
-#sloganbox {padding:0;   border:none; text-align:center;font-size:14px; font-weight:bold;}
-#searchbox {width:230px; border:none; text-align:right; padding-right:10px}
-#cse-search-box input[type='text']   {width:180px; height:30px; font-size:20px; font-weight:bold; background:white;}
-#cse-search-box input[type='submit'] {width:40px;  height:35px;}
 
 /* The doc. */
 #docbody    {margin:0; padding:12px; background:#fff;}
-#doccontent {margin-bottom:10px; padding:10px; border:1px solid #C8E0F5; background:url(./images/default/bg.content.png) repeat-x; font-size:14px; line-height:1.5}
-#summary    {margin-bottom:10px; padding:10px; line-height:1.5; background:#efefef; font-size:12px}
-#keywords   {margin-top:10px; background:#efefef; font-size:12px}
-#doccontent p   {margin:0}
-#doccontent img {border:1px solid gray}
-
-#thread td    {border:none}
-#thread .user {width:150px; border:none; border-right:1px solid #92c8f5}
-#thread p     {margin:0}
 
 /* The footer. */
 #copyright {margin-left:40px;}
@@ -240,13 +221,6 @@ caption a     {text-decoration:none}
 .tree li      {list-style-type:none;}
 .tree .active {color:blue; font-weight:bold}
 .active {color:red; font-weight:bold}
-
-/* Other items.*/
-#commentbox table {border:none}
-.comment {margin:10px 5px 5px 5px; padding:5px; border:1px solid #c0dcf5; background-color: #f2faff;} 
-.comment strong {color:#03356e;}
-.listmenu li{margin:5px; font-size:14px; font-weight:bold; list-style:none}
-.listmenu li a {text-decoration:none}
 
 /* copyed from tablesorter plugin. */
 table.tablesorter thead tr div{padding:0; margin:0}

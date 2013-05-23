@@ -48,6 +48,7 @@ class faq extends control
         $productList['0']              = $this->lang->product->all;
         $this->view->productList       = $productList;
         $this->view->selectedProductID = $productID;
+        $this->view->categoryID        = $categoryID;
         $this->display();
     }
 

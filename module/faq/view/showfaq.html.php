@@ -11,7 +11,7 @@
  */
 ?>
 <?php include '../../common/view/header.html.php';?>
-<div id='top' name='top'>
+<div>
   <div class='span2'>
     <div id='sidenav'>
       <div class='box-title'><?php echo $lang->faq->categoryList;?></div>
@@ -25,15 +25,16 @@
           <?php endif;?>  
         </ul>
       </div>
-      <div class='box-title'><?php echo $lang->faq->customBox;?></div>
-      <div class='box-content'>
-        <p align='center'><?php echo html::linkButton($lang->faq->request, $this->createLink('request', 'create'))?></p>
-        <p align='center'><?php echo html::linkButton($lang->login, $this->createLink('user', 'index'))?></p>
-      </div>
     </div>
   </div>
   <div class='span10'>
-    <div class='box-title'><?php echo $lang->faq->faqList;?></div>
+    <ul class="breadcrumb">
+      <li><?php echo $lang->faq->faqList?> <span class="divider">/</span></li>
+      <li><?php echo html::a(inlink('showFAQ', "productID=$selectedProductID"), $productList[$selectedProductID])?> <span class="divider">/</span></li>
+      <?php if(isset($categories[$categoryID])):?>
+      <li class="active"><?php echo $categories[$categoryID]->name?></li>
+      <?php endif;?>
+    </ul>
     <div id="topic">
       <ul>
       <?php $i = 1; foreach($faqs as $id => $faq):?>
@@ -43,11 +44,18 @@
     </div>
     <div id="faqContent">
     <?php $i = 1; foreach($faqs as $id => $faq):?>
-      <h3>
-        <div class="a-left"><a id="<?php echo "content$i";?>" name="<?php echo "content$i";?>"><?php echo $faq->request . '?';?></a>
-        <a class='f-right' href='#top'><?php echo $lang->faq->toTop;?></a></div>
-      </h3>  
-      <p><?php echo $faq->answer; $i++;?></p>
+      <div>
+        <?php echo $lang->faq->request . " : "?>
+        <span id="<?php echo "content$i";?>" class='strong' name="<?php echo "content$i";?>"><?php echo $faq->request . ' ?';?></span>
+        <a class='f-right' href='#top' title='<?php echo $lang->faq->toTop?>'><?php echo $lang->faq->toTop;?></a>
+      </div>
+      <p>
+        <?php
+        echo $lang->faq->answer . ' : ';
+        echo $faq->answer; $i++;
+        ?>
+      </p>
+      <hr />
     <?php endforeach;?>
     </div>
   </div>

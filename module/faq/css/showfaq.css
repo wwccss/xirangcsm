@@ -1,17 +1,14 @@
 h3 {
-      background-color: #F2F2F2;
-      border-bottom: 1px solid #CCCCCC;
-      color: #20435C;
+      background-color: #f5f5f5;
+      border-bottom: 1px solid #e5e5e5;
       font-family: 'Trebuchet MS',sans-serif;
       font-weight: normal;
-      margin: 20px -5px 10px;
-      padding: 3px 0 3px 10px;
-      font-size:14px;
+      margin: 0px;
+      font-size:13px;
 }
 #topic {
-      background-color: #EEEEEE;
-      border: 1px solid #CCCCCC;
-      margin: 10px 0;
+      background-color: #f5f5f5;
+      border: 1px solid #e5e5e5;
       padding: 7px 7px 0;
 }
 
@@ -19,7 +16,8 @@ h3 {
       margin: 5px 0;
       padding: 7px 7px 0;
 } 
+#faqContent hr{margin:0px;}
 #docbody ul li {
       list-style: decimal outside none;
 }
-#sidenav.affix{top:10px;}
+#sidenav.affix{top:65px;}
