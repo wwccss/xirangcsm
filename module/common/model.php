@@ -280,7 +280,7 @@ class commonModel extends model
         if($mainMenu == 'user') $mainMenu = (isset($moduleParams['type']) and $moduleParams['type'] == 'inside') ? 'inside' : 'customer';
 
         /* Print all main menus. */
-        foreach($lang->menu as $menuKey => $menu)
+        foreach($lang->adminMenu as $menuKey => $menu)
         {
             list($menuLabel, $module, $method, $params) = explode('|', $menu);
 

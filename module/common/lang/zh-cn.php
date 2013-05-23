@@ -17,21 +17,9 @@ $lang->downArrow    = '↓';
 $lang->zentaoasm    = '禅道售后管理软件';
 $lang->frontName    = '售后管理系统';
 $lang->easysoft     = '青岛易软天创网络科技有限公司';
-$lang->poweredBy    = "powered by <a href='http://www.zentao.net/goto.php?item=zentaoasm' target='_blank'>zentaoASM %s</a>";
-$lang->homePage     = '首页';
-$lang->currentPos   = '当前位置：';
+$lang->poweredBy    = "powered by <a href='http://api.zentao.net/goto.php?item=zentaoasm' target='_blank'>zentaoASM %s</a>";
 
-$lang->articleTree     = '分类浏览';
-$lang->articleFull     = '正文 ';
-$lang->articleViews    = '<i>%s次阅读</i> ';
-$lang->articleComments = '<i>%s条评论</i> ';
-$lang->articleAuthor   = '<i>%s 发表于 %s</i>';
-
-$lang->welcome       = "欢迎您, <strong>%s</strong> ";
-$lang->welcomeAdmin  = "欢迎您使用 禅道售后管理软件";
-$lang->todayIs       = '今天是%s，';
 $lang->dashboard     = '用户中心';
-$lang->register      = '免费注册';
 $lang->logout        = '退出';
 $lang->login         = '登录';
 $lang->loginAdmin    = '登录后台';
@@ -41,7 +29,6 @@ $lang->password      = '密码';
 $lang->reset        = '重填';
 $lang->edit         = '编辑';
 $lang->submitting   = '请稍候...';
-$lang->copy         = '复制';
 $lang->delete       = '删除';
 $lang->close        = '关闭';
 $lang->save         = '保存';
@@ -50,42 +37,27 @@ $lang->preview      = '预览';
 $lang->goback       = '返回';
 $lang->more         = '更多';
 $lang->actions      = '操作';
-$lang->feature      = '未来';
 $lang->year         = '年';
 
 $lang->selectAll    = '全选';
 $lang->notFound     = '抱歉，您访问的对象并不存在！';
-$lang->messages     = '未读消息(%s)';
-
-$lang->runInfo      = "<div class='row'><div class='u-1 a-center' id='runinfo'>时间: %s 毫秒, 内存: %s KB, 查询: %s.  </div></div>";
-
-/* The labels show in the positon bar. */
-$lang->position['article'] = '文章';
-$lang->position['forum']   = '论坛';
-$lang->position['thread']  = '论坛';
-$lang->position['user']    = '用户';
-
-/* The optional features. */
-$lang->features['user']  = '用户功能';
 
 /* 主导航菜单。*/
-$lang->menu = new stdclass();
-$lang->menu->request  = '回答管理|request|browse|';
-$lang->menu->product  = '产品管理|product|manage|';
-$lang->menu->category = '分类管理|category|manage|';
-$lang->menu->faq      = 'FAQ管理|faq|manage|';
-$lang->menu->inside   = '内部管理|user|browse|type=inside|';
-$lang->menu->customer = '客户管理|user|browse|type=customer|';
-$lang->menu->group    = '权限管理|group|browse|';
-$lang->menu->setting  = '系统设置|setting|setConfig|';
-$lang->menu->company  = '公司设置|company|edit|';
+$lang->adminMenu = new stdclass();
+$lang->adminMenu->request  = '回答管理|request|browse|';
+$lang->adminMenu->product  = '产品管理|product|manage|';
+$lang->adminMenu->category = '分类管理|category|manage|';
+$lang->adminMenu->faq      = 'FAQ管理|faq|manage|';
+$lang->adminMenu->customer = '客户管理|user|browse|type=customer|';
+$lang->adminMenu->inside   = '内部管理|user|browse|type=inside|';
+$lang->adminMenu->group    = '权限管理|group|browse|';
+$lang->adminMenu->company  = '公司设置|company|edit|';
+$lang->adminMenu->setting  = '系统设置|setting|setConfig|';
 
-$lang->front->menu[10] = '首 页|faq|showFaq';
-$lang->front->menu[20] = '我的服务|user|myService';
-$lang->front->menu[30] = '提出问题|request|create';
-$lang->front->menu[40] = '我的问题|request|browse';
-$lang->front->menu[50] = '个人资料|user|profile';
-$lang->front->menu[60] = '修改密码|user|modifyPassword';
+$lang->frontMenu->faq           = '常见问题';
+$lang->frontMenu->createRequest = '我要提问';
+$lang->frontMenu->browseRequest = '我的问题';
+$lang->frontMenu->myService     = '我的服务';
 
 /* The error messages. */
 $lang->error = new stdclass();

@@ -41,19 +41,16 @@ function createLink(moduleName, methodName, vars, viewType)
 }
 
 /**
- * Go to the view page of one object.
+ * Highlight the menu for front pages.
  * 
  * @access public
  * @return void
  */
-function shortcut()
+function highlightFrontMenu()
 {
-    objectType  = $('#searchType').attr('value');
-    objectValue = $('#searchQuery').attr('value');
-    if(objectType && objectValue)
-    {
-        location.href=createLink(objectType, 'view', "id=" + objectValue);
-    }
+    activeMenu = methodName + 'Menu';
+    if(methodName == 'view' || methodName == 'edit') activeMenu = 'browseMenu';   // request-view, request-edit same as the browse page.
+    $('#' + activeMenu).addClass('active');
 }
 
 /**
@@ -75,28 +72,6 @@ function setNowrapObjTitle()
             this.title = this.innerText;
         }
     })
-}
-
-
-/**
- * Switch account 
- * 
- * @param  string $account 
- * @param  string $method 
- * @access public
- * @return void
- */
-function switchAccount(account, method)
-{
-    if(method == 'dynamic')
-    {
-        link = createLink('user', method, 'period=' + period + '&account=' + account);
-    }
-    else
-    {
-        link = createLink('user', method, 'account=' + account);
-    }
-    location.href=link;
 }
 
 /**
@@ -124,30 +99,6 @@ function setRequiredFields()
     {
         $('#' + requiredFields[i]).after('<span class="star"> * </span>');
     }
-}
-
-/**
- * Set language.
- * 
- * @access public
- * @return void
- */
-function selectLang(lang)
-{
-    $.cookie('lang', lang, {expires:config.cookieLife, path:config.webRoot});
-    location.href = location.href;
-}
-
-/**
- * Set theme.
- * 
- * @access public
- * @return void
- */
-function selectTheme(theme)
-{
-    $.cookie('theme', theme, {expires:config.cookieLife, path:config.webRoot});
-    location.href = location.href;
 }
 
 /**
@@ -341,7 +292,6 @@ function selectItem(SelectID)
     }
 }
 
-
 /**
  * Show the search or reduction the style. 
  * 
@@ -370,19 +320,10 @@ needPing = config.router.indexOf('admin.php') < 0 ? false : true;
 /* When body's ready, execute these. */
 $(document).ready(function() 
 {
+    highlightFrontMenu();
     setNowrapObjTitle();
     setRequiredFields();
     setForm();
     togglesearch();
-    if(needPing) setTimeout('setPing()', 1000 * 60 * 5);  // After 5 minus, begin ping.
-});
-
-/* CTRL+g, auto focus on the search box. */
-$(document).bind('keydown', 'Ctrl+g', function(evt)
-{
-    $('#searchQuery').attr('value', '');
-    $('#searchType').focus();
-    evt.stopPropagation( );  
-    evt.preventDefault( );
-    return false;
+    if(needPing) setTimeout('setPing()', 1000 * 60 * 5);  // After 5 minutes, begin ping.
 });
