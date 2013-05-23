@@ -9,7 +9,7 @@
  * @version	  $Id: step4.html.php 867 2010-06-17 09:32:58Z wwccss $
  */
 ?>
-<?php include './header.html.php';?>
+<?php include '../../common/view/header.lite.html.php';?>
 <?php if(isset($error)):?>
 <table class='table-6' align='center'>
   <caption><?php echo $lang->install->error;?></caption>
@@ -39,9 +39,9 @@
     <td><?php echo html::input('password');?></td>
   </tr>
   <tr class='a-center'>
-    <td colspan='2'><?php echo html::submitButton();?></td>
+    <td colspan='2'><?php echo html::submitButton('', "class='btn btn-primary'");?></td>
   </tr>
 </table>
 </form>
 <?php endif;?>
-<?php include './footer.html.php';?>
+<?php include '../../common/view/footer.html.php';?>

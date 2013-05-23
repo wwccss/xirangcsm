@@ -9,7 +9,7 @@
  * @version     $Id$
  */
 ?>
-<?php include './header.html.php';?>
+<?php include '../../common/view/header.lite.html.php';?>
 <table align='center' class='table-6 a-center'>
   <caption><?php echo $lang->install->checking;?></caption>
   <tr>
@@ -73,7 +73,7 @@
     <?php
     if($phpResult == 'ok' and $pdoResult == 'ok' and $pdoMySQLResult == 'ok' and $tmpRootResult == 'ok' and $dataRootResult == 'ok')
     {
-        echo html::a($this->createLink('install', 'step2'), $lang->install->next);
+        echo html::a($this->createLink('install', 'step2'), $lang->install->next, '', "class='btn btn-primary'");
     }
     else
     {
@@ -87,4 +87,4 @@
     </td>
   </tr>
 </table>
-<?php include './footer.html.php';?>
+<?php include '../../common/view/footer.html.php';?>

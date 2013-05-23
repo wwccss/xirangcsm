@@ -9,7 +9,7 @@
  * @version	 $Id: step3.html.php 824 2010-05-02 15:32:06Z wwccss $
  */
 ?>
-<?php include './header.html.php';?>
+<?php include '../../common/view/header.lite.html.php';?>
 <?php
 if(!isset($error))
 {
@@ -61,10 +61,10 @@ EOT;
         printf($lang->install->save2File, $this->app->getConfigRoot() . 'my.php');
     }
     echo "<br />";
-    echo "<div class='a-center'>" . html::a($this->createLink('install', 'step4'), $lang->install->next) . '</div>';
+    echo "<div class='a-center'>" . html::a($this->createLink('install', 'step4'), $lang->install->next, '', "class='btn btn-primary'") . '</div>';
     ?>
     </td>
   </tr>
 </table>
 <?php endif;?>
-<?php include './footer.html.php';?>
+<?php include '../../common/view/footer.html.php';?>

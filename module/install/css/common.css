@@ -1,0 +1,4 @@
+caption {font-size:16px; padding:10px;}
+th, td  {padding:10px; font-size:14px}
+.ok{background:green; color:white}
+.fail{background:red; color:white}

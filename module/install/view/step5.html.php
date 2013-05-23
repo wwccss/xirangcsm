@@ -9,7 +9,7 @@
  * @version	  $Id: step4.html.php 867 2010-06-17 09:32:58Z wwccss $
  */
 ?>
-<?php include './header.html.php';?>
+<?php include '../../common/view/header.lite.html.php';?>
 <table class='table-6' align='center'>
   <caption><?php echo $lang->install->success;?></caption>
   <tr>

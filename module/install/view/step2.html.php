@@ -9,17 +9,13 @@
  * @version     $Id$
  */
 ?>
-<?php include './header.html.php';?>
+<?php include '../../common/view/header.lite.html.php';?>
 <form method='post' action='<?php echo $this->createLink('install', 'step3');?>'>
   <table align='center' class='table-6'>
     <caption><?php echo $lang->install->setConfig;?></caption>
     <tr>
       <th class='w-p20'><?php echo $lang->install->key;?></th>
       <th><?php echo $lang->install->value?></th>
-    </tr>
-    <tr>
-      <th><?php echo $lang->install->webRoot;?></th>
-      <td><?php echo html::input('webRoot', $webRoot);?></td>
     </tr>
     <tr>
       <th><?php echo $lang->install->requestType;?></th>
@@ -50,8 +46,8 @@
       <td><?php echo html::input('dbPrefix', 'zt_') . html::checkBox('clearDB', $lang->install->clearDB);?></td>
     </tr>
     <tr>
-      <td colspan='2' class='a-center'><?php echo html::submitButton();?></td>
+      <td colspan='2' class='a-center'><?php echo html::submitButton('', "class='btn btn-primary'");?></td>
     </tr>
   </table>
 </form>
-<?php include './footer.html.php';?>
+<?php include '../../common/view/footer.html.php';?>
