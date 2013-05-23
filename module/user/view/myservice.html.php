@@ -12,17 +12,17 @@
 ?>
 <?php include '../../common/view/header.html.php';?>
 <?php include '../../common/view/datepicker.html.php';?>
-<table class='table-1'>
+<table class='table-5' align='center'>
   <caption><?php echo $lang->user->myService;?></caption>
   <tr>
-    <th class='w-100px'><?php echo $lang->user->serviceID;?></th>
-    <th><?php echo $lang->user->product;?></th>
-    <th class='w-120px'><?php echo $lang->user->serviceTime;?></th>
+    <th class='w-50px'><?php echo $lang->user->serviceID;?></th>
+    <th class='a-left'><?php echo $lang->user->product;?></th>
+    <th class='w-80px'><?php echo $lang->user->serviceTime;?></th>
   </tr>
   <?php foreach($serviceProducts as $serviceProduct):?>
   <tr>
     <td class='a-center'><strong><?php echo $serviceProduct->id;?></strong></td>
-    <td class='a-center'><?php echo $serviceProduct->name; ?> </td>
+    <td class='a-left'><?php echo $serviceProduct->name; ?> </td>
     <td class='a-center'><?php echo $serviceProduct->serviceTime; ?> </td>
   </tr>
   <?php endforeach;?>

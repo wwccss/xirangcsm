@@ -189,7 +189,7 @@ $lang->user->alert             = '您的帐号已被禁用';
 $lang->user->extendServiceTime = '延长服务时间';
 $lang->user->operate           = '操作';
 $lang->user->product           = '产品';
-$lang->user->serviceID         = '产品服务编号';
+$lang->user->serviceID         = '编号';
 $lang->user->addProductService = '添加产品服务';
 
 $lang->user->roleList['servicer'] = '客服';
