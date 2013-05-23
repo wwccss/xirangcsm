@@ -94,7 +94,7 @@ class request extends control
         }
         $this->loadModel('product');
         $productList = $this->product->getProductService();
-        $productList['0'] = $this->lang->product->selectAProduct;
+        $productList = array('' => '') + $productList;
         $this->view->productList = $productList;
 
         $this->view->productID = $productID;
