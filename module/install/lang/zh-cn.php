@@ -19,7 +19,7 @@ $lang->install->error   = '错误 ';
 $lang->install->start            = '开始安装';
 $lang->install->keepInstalling   = '继续安装当前版本';
 $lang->install->seeLatestRelease = '看看最新的版本';
-$lang->install->welcome          = '欢迎使用ZenTaoASM售后管理系统';
+$lang->install->welcome          = '欢迎使用禅道售后管理系统';
 $lang->install->desc             = <<<EOT
 欢迎使用ZenTaoASM%s
 EOT;
