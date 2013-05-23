@@ -23,6 +23,7 @@ $(document).ready(function(){$('#account').focus();})
     <input type="text" id='account' name='account' class="input-block-level" placeholder="<?php echo $lang->user->account?>">
     <input type="password" name='password' class="input-block-level" placeholder="<?php echo $lang->user->password?>">
     <button class="btn btn-primary" type="submit"><?php echo $lang->user->login->common?></button>
+    <span class='help-inline'><?php echo html::a(inlink('reset'), $lang->user->forgetPassword)?></span>
     <input type='hidden' value='<?php echo $referer;?>' name='referer' />
   </form>
 </div>

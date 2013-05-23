@@ -442,6 +442,7 @@ class userModel extends model
             $userData->email    = $user->email;
             $userData->qq       = $user->qq;
             $userData->yahoo    = $user->yahoo;
+            $userData->skype    = $user->skype;
             $userData->gtalk    = $user->gtalk;
             $userData->wangwang = $user->wangwang;
             $userData->mobile   = $user->mobile;
