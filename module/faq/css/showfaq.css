@@ -8,7 +8,8 @@
       margin: 5px 0;
       padding: 7px 7px 0;
 } 
-#faqContent hr{margin:0px;}
+#faqContent hr{margin:10px 0px 0px 0px;}
+#faqContent p{margin:0px;}
 #docbody ul li {
       list-style: decimal outside none;
 }
