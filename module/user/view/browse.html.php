@@ -18,8 +18,8 @@
   </caption>
   <tr>
     <th class='w-id'><?php echo $lang->user->id;?></th>
-    <th class='w-80px'><?php echo $lang->user->realname;?></th>
     <th class='w-80px'><?php echo $lang->user->account;?></th>
+    <th><?php echo $lang->user->realname;?></th>
     <?php if($type == 'inside'): ?>
     <th class='w-80px'><?php echo $lang->user->role;?></th>
     <?php endif;?>
@@ -29,13 +29,13 @@
     <?php endif;?>
     <th class='w-80px'><?php echo $lang->user->visits;?></th>
     <th class='w-120px'><?php echo $lang->user->last;?></th>
-    <th class='w-130px'><?php echo $lang->user->operate;?></th>
+    <th width='150'><?php echo $lang->user->operate;?></th>
   </tr>
   <?php foreach($users as $user):?>
   <tr>
     <td class='a-center'><strong><?php echo $user->id;?></strong></td>
-    <td class='a-center'><?php echo $user->realname; ?> </td>
     <td class='a-center'><?php echo $user->account; ?> </td>
+    <td><?php echo $user->realname; ?> </td>
     <?php if($type == 'inside'): ?>
     <td class='a-center'><?php echo $lang->user->roleList[$user->role]; ?> </td>
     <?php endif;?>

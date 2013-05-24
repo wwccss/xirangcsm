@@ -24,19 +24,19 @@
 </table>
 <?php else:?>
 <form method='post' target='hiddenwin'>
-<table class='table-6' align='center'>
+<table class='table-4' align='center'>
   <caption><?php echo $lang->install->getPriv;?></caption>
   <tr>
     <th class='rowhead'><?php echo $lang->install->company;?></th>
-    <td><?php echo html::input('company');?></td>
+    <td><?php echo html::input('company', '', "class='text-1'");?></td>
   </tr>
   <tr>
     <th class='rowhead'><?php echo $lang->install->account;?></th>
-    <td><?php echo html::input('account');?></td>
+    <td><?php echo html::input('account', '', "class='text-1'");?></td>
   </tr>
   <tr>
     <th class='rowhead'><?php echo $lang->install->password;?></th>
-    <td><?php echo html::input('password');?></td>
+    <td><?php echo html::input('password', '', "class='text-1'");?></td>
   </tr>
   <tr class='a-center'>
     <td colspan='2'><?php echo html::submitButton('', "class='btn btn-primary'");?></td>

@@ -13,7 +13,7 @@
 <?php include '../../common/view/header.admin.html.php';?>
 <table class='table-5 bd-none' align='center'>
   <tr valign='top'>
-    <td class='w-200px' class='a-left'>
+    <td class='a-left' width='45%'>
       <form method='post' target='hiddenwin' action='<?php echo $this->inLink('updateOrder');?>'>
       <table width='100%'>
         <caption><?php echo $lang->product->productManage;?></caption>  

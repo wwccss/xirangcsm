@@ -8,12 +8,13 @@
 * @link        http://www.zentao.net
 */
 /*-----------------------GLOBAL SETTING----------------------------*/
-body {font-size:12px;}
+body {font-size:12px; font-family:"tahoma"}
 #docbox {width:auto; margin:60px 20px 0 20px}
 #profile{height:44px; line-height:44px;}
 
 select{border:1px solid #e5e5e5; padding:3px;margin:1px;}
-input{border:1px solid #e5e5e5;padding:3px;margin:1px;}
+input{border:1px solid #e5e5e5;padding:3px;margin:1px; font-family:"tahoma"}
+input[type="radio"]{border:none;}
 
 .text-1 {width: 90%}
 .text-2 {width: 120px}

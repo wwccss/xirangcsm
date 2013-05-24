@@ -82,6 +82,7 @@ class install extends control
         if(!empty($_POST))
         {
             $return = $this->install->checkConfig();
+            $this->view->header = new stdclass();
             if($return->result == 'ok')
             {
                 $this->view = (object)$_POST;
