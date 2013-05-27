@@ -15,7 +15,7 @@ $lang->at           = ' 于 ';
 $lang->downArrow    = '↓';
 
 $lang->xirangcsm    = '息壤客户服务管理系统';
-$lang->frontName    = '售后管理系统';
+$lang->frontName    = '客户服务管理系统';
 $lang->easysoft     = '青岛易软天创网络科技有限公司';
 $lang->poweredBy    = "powered by <a href='http://api.zentao.net/goto.php?item=xirangcsm' target='_blank'>xirangCSM %s</a>";
 
