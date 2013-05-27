@@ -1,7 +1,7 @@
 <?php include 'header.lite.html.php';?>
 <div class='navbar navbar-fixed-top navbar-inverse'>
   <div class='navbar-inner'>
-    <?php echo html::a($this->createLink($config->default->module, $config->default->method), $lang->zentaoasm, '', "class='brand'")?>
+    <?php echo html::a($this->createLink($config->default->module, $config->default->method), $lang->xirangcsm, '', "class='brand'")?>
     <?php commonModel::printMainmenu($this->moduleName);?>
     <div class='f-right' id='profile'>
       <?php

@@ -1,10 +1,10 @@
 <?php
 /**
- * The config file of ZenTaoASM
+ * The config file of XiRangCSM
  *
  * @copyright   Copyright 2009-2010 QingDao Nature Easy Soft Network Technology Co,LTD (www.cnezsoft.com)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
- * @package     ZenTaoASM
+ * @package     XiRangCSM
  * @version     $Id$
  * @link        http://www.zentao.net
  */
@@ -14,7 +14,7 @@ $config->encoding    = 'UTF-8';           // The encoding.
 $config->cookiePath  = '/';               // The path of cookies.
 $config->cookieLife  = time() + 2592000;  // The lifetime of cookies.
 $config->timezone    = 'Asia/Shanghai';   // Time zone setting, more plese visit http://www.php.net/manual/en/timezones.php
-$config->webRoot     = '';                // The root path of the ASM.
+$config->webRoot     = '';                // The root path of the CSM.
 
 /* The request settins. */
 $config->requestType = 'PATH_INFO';       // PATH_INFO or GET.

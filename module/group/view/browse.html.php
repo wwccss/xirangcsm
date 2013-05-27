@@ -1,6 +1,6 @@
 <?php
 /**
- * The browse view file of group module of ZenTaoASM.
+ * The browse view file of group module of XiRangCSM.
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
  * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)

@@ -1,11 +1,11 @@
 <?php
 /**
- * The common simplified chinese file of ZenTaoASM.
+ * The common simplified chinese file of XiRangCSM.
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
  * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
- * @package     ZenTaoASM
+ * @package     XiRangCSM
  * @version     $Id$
  * @link        http://www.zentao.net
  */
@@ -14,7 +14,7 @@ $lang->colon        = '::';
 $lang->at           = ' at ';
 $lang->downArrow    = '↓';
 
-$lang->zentaoasm    = 'ZenTao Customer Service System';
+$lang->xirangcsm    = 'ZenTao Customer Service System';
 $lang->eayssoft     = 'QingDao Nature Easy Soft Network Technology Co,LTD';
 $lang->homePage     = 'Home';
 $lang->aboutus      = 'About us';
@@ -28,7 +28,7 @@ $lang->articleComments = '<i>%s comments</i> ';
 $lang->articleAuthor   = '<i>%s posted at %s</i>';
 
 $lang->welcome      = "Welcome, <strong>%s</strong> ";
-$lang->welcomeAdmin = "Welcome to use ZenTaoASM";
+$lang->welcomeAdmin = "Welcome to use XiRangCSM";
 $lang->todayIs      = 'Today is %s，';
 $lang->dashboard    = 'Dashboard';
 $lang->register     = 'Register';

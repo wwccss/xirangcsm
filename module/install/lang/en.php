@@ -1,6 +1,6 @@
 <?php
 /**
- * The install module English file of ZenTaoASM.
+ * The install module English file of XiRangCSM.
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
  * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
@@ -18,14 +18,14 @@ $lang->install->error   = 'Error ';
 $lang->install->start            = 'Start install';
 $lang->install->keepInstalling   = 'Keep install this version';
 $lang->install->seeLatestRelease = 'See the latest release.';
-$lang->install->welcome          = 'Welcome to use ZenTaoASM.';
+$lang->install->welcome          = 'Welcome to use XiRangCSM.';
 $lang->install->desc             = <<<EOT
-ZenTaoASM is an content management software.
+XiRangCSM is an content management software.
 
-ZenTaoASM is developped by PHH and mysql under the ZenTaoASM framework developped by the same team. Through the framework, ZenTaoASM can be customed and extended very easily.
+XiRangCSM is developped by PHH and mysql under the XiRangCSM framework developped by the same team. Through the framework, XiRangCSM can be customed and extended very easily.
 
-ZenTaoASM is developped by <strong class='red'><a href='http://www.cnezsoft.com' target='_blank'>Nature EasySoft Network Tecnology Co.ltd, QingDao, China</a></strong>。
-The official website of ZenTaoASM is <a href='http://www.zentao.net' target='_blank'>http://www.zentao.net</a>
+XiRangCSM is developped by <strong class='red'><a href='http://www.cnezsoft.com' target='_blank'>Nature EasySoft Network Tecnology Co.ltd, QingDao, China</a></strong>。
+The official website of XiRangCSM is <a href='http://www.zentao.net' target='_blank'>http://www.zentao.net</a>
 
 The version of current release is <strong class='red'>%s</strong>。
 EOT;
@@ -58,7 +58,7 @@ $lang->install->mkdir        = '<p>Should creat the directory %s。<br /> Under 
 $lang->install->chmod        = 'Should change the permission of "%s".<br />Under linux, can try<br />chmod o=rwx -R %s';
 
 $lang->install->settingDB    = 'Set database';
-$lang->install->webRoot      = 'ZenTaoASM path';
+$lang->install->webRoot      = 'XiRangCSM path';
 $lang->install->requestType  = 'URL type';
 $lang->install->requestTypes['GET']       = 'GET';
 $lang->install->requestTypes['PATH_INFO'] = 'PATH_INFO';

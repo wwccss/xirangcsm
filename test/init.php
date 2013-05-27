@@ -9,7 +9,7 @@ include '../framework/model.class.php';
 include '../framework/helper.class.php';
 
 /* Create the app. */
-$app = router::createApp('zentaoasm', dirname(dirname(__FILE__)));
+$app = router::createApp('xirangcsm', dirname(dirname(__FILE__)));
 
 /* Reconnect to the test database. */
 include '../config/test.php';

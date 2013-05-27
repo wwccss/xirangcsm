@@ -1,11 +1,11 @@
 <?php
 /**
- * The common simplified chinese file of ZenTaoASM.
+ * The common simplified chinese file of XiRangCSM.
  
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
  * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
- * @package     ZenTaoASM
+ * @package     XiRangCSM
  * @version     $Id$
  * @link        http://www.zentao.net
  */
@@ -14,10 +14,10 @@ $lang->colon        = '::';
 $lang->at           = ' 于 ';
 $lang->downArrow    = '↓';
 
-$lang->zentaoasm    = '禅道售后管理软件';
+$lang->xirangcsm    = '息壤客户服务管理系统';
 $lang->frontName    = '售后管理系统';
 $lang->easysoft     = '青岛易软天创网络科技有限公司';
-$lang->poweredBy    = "powered by <a href='http://api.zentao.net/goto.php?item=zentaoasm' target='_blank'>zentaoASM %s</a>";
+$lang->poweredBy    = "powered by <a href='http://api.zentao.net/goto.php?item=xirangcsm' target='_blank'>xirangCSM %s</a>";
 
 $lang->dashboard     = '用户中心';
 $lang->logout        = '退出';

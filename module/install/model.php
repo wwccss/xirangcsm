@@ -1,6 +1,6 @@
 <?php
 /**
- * The model file of install module of ZenTaoASM.
+ * The model file of install module of XiRangCSM.
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
  * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
@@ -277,7 +277,7 @@ class installModel extends model
      */
     public function createTable($version)
     {
-        $dbFile = $this->app->getAppRoot() . 'db' . $this->app->getPathFix() . 'zentaoasm.sql';
+        $dbFile = $this->app->getAppRoot() . 'db' . $this->app->getPathFix() . 'xirangcsm.sql';
         $tables = explode(';', file_get_contents($dbFile));
         foreach($tables as $table)
         {
@@ -315,6 +315,7 @@ class installModel extends model
         $admin->account  = $this->post->account;
         $admin->realname = $this->post->account;
         $admin->company  = $this->post->company;
+        $admin->gender   = 'm';
         $admin->password = md5($this->post->password);
         $admin->role     = 'admin';
         $this->dao->insert(TABLE_USER)->data($admin)->autoCheck()->check('account', 'notempty')->exec();

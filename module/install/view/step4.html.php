@@ -1,11 +1,11 @@
 <?php
 /**
- * The html template file of step4 method of install module of ZenTaoASM.
+ * The html template file of step4 method of install module of XiRangCSM.
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
  * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
  * @author	  Chunsheng Wang <chunsheng@cnezsoft.com>
- * @package	  ZenTaoASM
+ * @package	  XiRangCSM
  * @version	  $Id: step4.html.php 867 2010-06-17 09:32:58Z wwccss $
  */
 ?>

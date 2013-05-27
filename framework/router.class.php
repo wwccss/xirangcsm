@@ -26,7 +26,7 @@ class router
     private $pathFix;
 
     /**
-     * The base path of the ZenTaoASM framework.
+     * The base path of the XiRangCSM framework.
      *
      * @var string
      * @access private

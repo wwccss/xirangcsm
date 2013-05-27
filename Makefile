@@ -35,4 +35,4 @@ tgz:
 	zip -r -9 ZenTaoASM.$(VERSION).zip zentaoasm
 	rm -fr zentaoasm
 chgL:
-	find pms/module -name '*.php'|xargs sed -i s/'LGPL (http:\/\/www.gnu.org\/licenses\/lgpl.html)'/'商业软件，未经授权，请立刻删除!'/g
+	find ~/zentaoasm -name '*.php'|xargs sed -i s/'XiRangASM'/'XiRangCSM'/g

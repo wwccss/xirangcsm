@@ -1,10 +1,10 @@
 <?php
 /**
- * The install router file of ZenTaoASM.
+ * The install router file of XiRangCSM.
  *
  * @copyright   Copyright 2009-2010 QingDao Nature Easy Soft Network Technology Co,LTD (www.cnezsoft.com)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
- * @package     ZenTaoASM
+ * @package     XiRangCSM
  * @version     $Id$
  * @link        http://www.zentao.net
  */
@@ -19,7 +19,7 @@ include '../framework/model.class.php';
 include '../framework/helper.class.php';
 
 /* Instance the app and run it. */
-$app    = router::createApp('asm', dirname(dirname(__FILE__)));
+$app    = router::createApp('csm', dirname(dirname(__FILE__)));
 $config = $app->config;
 
 /* Check installed or not. */

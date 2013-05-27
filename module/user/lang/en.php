@@ -1,6 +1,6 @@
 <?php
 /**
- * The user module english file of ZenTaoASM.
+ * The user module english file of XiRangCSM.
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
  * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
@@ -42,7 +42,7 @@ $lang->user->register->lblUserInfo= 'User info';
 $lang->user->register->lblAccount = 'The account must be a series of letters and/or numbers';
 $lang->user->register->lblPassword= 'Please set you password, at lest six leeters or numbers.';
 
-/* front of zentaoasm */
+/* front of xirangcsm */
 $lang->user->login->common  = "Login";
 $lang->user->login->welcome = 'Welcom';
 $lang->user->login->why     = 'Login, and use more feature.';
@@ -74,9 +74,9 @@ if($config->features->forum)
 $lang->user->control->menus[45]  = 'ModifyPassword|user|modifyPassword';
 $lang->user->control->menus[50]  = 'Logout|logout';
 
-/* zentaoasm */
-$lang->user->customer->manage            = 'Manage customers'; 
-$lang->user->inside->manage              = 'Manage inside accounts'; 
+/* xirangcsm */
+$lang->user->customer->manage  = 'Manage customers'; 
+$lang->user->inside->manage    = 'Manage inside accounts'; 
 $lang->user->id                = 'ID';
 $lang->user->account           = 'Account';
 $lang->user->password          = 'Password';
@@ -132,6 +132,6 @@ $lang->user->customer->created       = 'Create customer success';
 $lang->user->customer->editProfile   = 'Edit profile of customer';
 $lang->user->customer->createProfile = 'Create profile of customer';
 
-/* backyard of zentaoasm*/
+/* backyard of xirangcsm*/
 $lang->user->admin->account  = 'Account';
 $lang->user->admin->password = 'Password';

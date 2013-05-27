@@ -1,6 +1,6 @@
 <?php
 /**
- * The model file of user module of ZenTaoASM.
+ * The model file of user module of XiRangCSM.
  *
  * @copyright   Copyright 2009-2011 青岛易软天创网络科技有限公司 (QingDao Nature Easy Soft Network Technology Co,LTD www.cnezsoft.com)
  * @license     LGPL (http://www.gnu.org/licenses/lgpl.html)
@@ -454,8 +454,8 @@ class userModel extends model
 
             $this->dao->replace(TABLE_USER)->data($userData)->exec();
             if(dao::isError()) $insertError .= dao::getError();
-            $zentaoasmUser = $this->getByID($user->id);
-            if(empty($zentaoasmUser)) $return->unSyncID[] = $user->id;
+            $xirangcsmUser = $this->getByID($user->id);
+            if(empty($xirangcsmUser)) $return->unSyncID[] = $user->id;
         }
 
         if($insertError)
