@@ -1,7 +1,7 @@
 <?php include 'header.lite.html.php';?>
 <div class='navbar navbar-fixed-top navbar-inverse'>
   <div class='navbar-inner'>
-    <?php echo html::a($this->createLink($config->default->module, $config->default->method), $this->app->company->name . $lang->frontName, '', "class='brand'")?>
+    <?php echo html::a($this->config->webRoot, $this->app->company->name . $lang->frontName, '', "class='brand'")?>
     <ul class='nav'>
     <?php
     js::set('methodName', $methodName);
