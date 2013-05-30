@@ -201,16 +201,6 @@ class searchModel extends model
      */
     public function getBySelect($module, $moduleIds, $conditions)
     {
-        if($module == 'story')
-        {
-            $pairs = 'id,title';
-            $table = 'zt_story';
-        }
-        else if($module == 'task')
-        {
-            $pairs = 'id,name';
-            $table = 'zt_task';
-        }
         $query    = '`' . $conditions['field1'] . '`';
         $operator = $conditions['operator1'];
         $value    = $conditions['value1'];

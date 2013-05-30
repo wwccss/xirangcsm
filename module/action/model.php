@@ -175,7 +175,7 @@ class actionModel extends model
             $objectIds   = array_unique($objectIds);
             $table       = $this->config->action->objectTables[$objectType];
             $field       = $this->config->action->objectNameFields[$objectType];
-            if($table != 'zt_todo')
+            if($table != $this->config->db->prefix . 'todo')
             {
                 $objectNames[$objectType] = $this->dao->select("id, $field AS name")->from($table)->where('id')->in($objectIds)->fetchPairs();
             }

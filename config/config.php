@@ -49,7 +49,7 @@ $config->db->persistant = false;               // Persistant connection or not.
 $config->db->driver     = 'mysql';             // The driver of pdo, only mysql yet.
 $config->db->encoding   = 'UTF8';              // The encoding of the database.
 $config->db->strictMode = false;               // Turn off the strict mode.
-$config->db->prefix     = 'zt_';               // The prefix of the table name.
+$config->db->prefix     = 'x_';               // The prefix of the table name.
 
 /* The optional features. */
 $config->features->user  = false;
@@ -71,7 +71,7 @@ $extConfigFiles = glob($configRoot . 'ext/*.php');
 foreach($extConfigFiles as $extConfigFile) include $extConfigFile;
 
 /* Set default table prefix. */
-if(!isset($config->db->prefix)) $config->db->prefix = 'zt_';
+if(!isset($config->db->prefix)) $config->db->prefix = 'x_';
 
 /* The tables. */
 define('TABLE_ACTION',         $config->db->prefix . 'action');
